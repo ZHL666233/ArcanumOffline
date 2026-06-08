@@ -220,12 +220,16 @@ class MainActivity : AppCompatActivity() {
         webView.loadUrl("$LOCAL_DOMAIN/www/index.html")
     }
 
-    /** 从 assets 读取文件并返回 WebResourceResponse，自动推断 MIME 类型 */
+    /** 从 assets 读取文件，带 CORS 头 */
     private fun loadFromAssets(assetPath: String): WebResourceResponse? {
         return try {
             val stream = assets.open(assetPath)
             val mime = guessMimeType(assetPath)
-            WebResourceResponse(mime, "UTF-8", stream)
+            val headers = mapOf(
+                "Access-Control-Allow-Origin" to "*",
+                "Cross-Origin-Resource-Policy" to "cross-origin"
+            )
+            WebResourceResponse(mime, "UTF-8", 200, "OK", headers, stream)
         } catch (e: Exception) {
             null
         }
