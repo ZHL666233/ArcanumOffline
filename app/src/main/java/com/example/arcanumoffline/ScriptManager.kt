@@ -82,8 +82,8 @@ class ScriptManager(context: Context) {
      * 从 assets/default_scripts 文件夹加载默认脚本（仅在脚本列表为空时加载）
      */
     fun loadDefaultScriptsFromAssets(context: Context) {
-        // 如果已有脚本，跳过，避免覆盖用户修改
-        if (getAllScripts().isNotEmpty()) return
+        val existingScripts = getAllScripts()
+        val existingNames = existingScripts.map { it.name }.toSet()
 
         val assetManager = context.assets
         val folder = "default_scripts"
@@ -100,8 +100,10 @@ class ScriptManager(context: Context) {
 
                     // 移除扩展名作为脚本名称
                     val scriptName = fileName.removeSuffix(".js")
-                    // 默认启用脚本
-                    addScript(scriptName, code, enabled = true)
+                    // 仅当不存在时添加，默认启用
+                    if (scriptName !in existingNames) {
+                        addScript(scriptName, code, enabled = true)
+                    }
                 }
             }
         } catch (e: Exception) {
