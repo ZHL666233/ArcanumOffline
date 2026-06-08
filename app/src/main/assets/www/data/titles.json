@@ -1,0 +1,91 @@
+{
+	"autopoet": {
+		"prefix": "Shifting",
+		"suffix": "Autopoet",
+		"combo": {
+			"greynecromancer": "Dracolich",
+			"infernalist": "Dragon Incarnate",
+			"kell": "Beastkin",
+			"class_leviathan": "Sea Serpent",
+			"mechamancer": "Shifting Gears",
+			"primarch": "Blessing in Disguise",
+			"psychopomp": "Shapeless Soul",
+			"titan": "Sand Wurm"
+		}
+	},
+	"greynecromancer": {
+		"prefix": "Undead",
+		"suffix": "Necromancer",
+		"combo": {
+			"infernalist": "Burning Skull",
+			"kell": "Master of Decay",
+			"class_leviathan": "Dead Sea",
+			"mechamancer": "Amalgamation",
+			"primarch": "Please contact the Discord",
+			"psychopomp": "Soulmonger",
+			"titan": "Undertaker"
+		}
+	},
+	"infernalist": {
+		"prefix": "Infernal",
+		"suffix": "Infernalist",
+		"combo": {
+			"kell": "Forestfire",
+			"class_leviathan": "Boiling Point",
+			"mechamancer": "Searing Forgemaster",
+			"primarch": "Sacred Flame",
+			"psychopomp": "Burning Spirit",
+			"titan": "Volcanist"
+		}
+	},
+	"kell": {
+		"prefix": "Nature's",
+		"suffix": "Kell",
+		"combo": {
+			"class_leviathan": "Kelp Forest",
+			"mechamancer": "Brass Grove",
+			"primarch": "Sage of the Woods",
+			"psychopomp": "Greenwood Spirit",
+			"titan": "Timber Rock Ranger"
+		}
+	},
+	"class_leviathan": {
+		"prefix": "Whorling",
+		"suffix": "Leviathan",
+		"combo": {
+			"mechamancer": "Iron Tide",
+			"primarch": "Father of Tides",
+			"psychopomp": "Sea Spirit",
+			"titan": "Tsunami"
+		}
+	},
+	"mechamancer": {
+		"prefix": "Mechanical",
+		"suffix": "Mechamancer",
+		"combo": {
+			"primarch": "Deus Ex Machina",
+			"psychopomp": "Wraithworks",
+			"titan": "Mechatitan"
+		}
+	},
+	"primarch": {
+		"prefix": "Holy",
+		"suffix": "Primarch",
+		"combo": {
+			"psychopomp": "Shepherd of Souls",
+			"titan": "Rock of the Faith"
+		}
+	},
+	"psychopomp": {
+		"prefix": "Guiding",
+		"suffix": "Psychopomp",
+		"combo": {
+			"titan": "Stonesouled"
+		}
+	},
+	"titan": {
+		"prefix": "Titanic",
+		"suffix": "Titan",
+		"combo": {}
+	}
+}

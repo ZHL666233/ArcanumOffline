@@ -1,0 +1,253 @@
+{
+	"module": "sackmakers",
+	"data": {
+		"dungeons": [
+			{
+				"id": "sackguild",
+				"name": "guild of the sack makers",
+				"start": {
+					"name": "Guild Practices",
+					"desc": "Your unauthorized construction of pouches has sparked the ire of the Guild of Sackmakers."
+				},
+				"difficulty": "💀💀💀💀💀",
+				"sortOrder": 65,
+				"require": "g.t_craftedbag>0",
+				"dist": 1830,
+				"run": { "stamina": 3.5 },
+				"result": {
+					"title": "Guild Breaker",
+					"iron": "0~5",
+					"leather": "0~5",
+					"cotton": "0~5",
+					"quicksteel": "0~5",
+					"serpentskin": "0~5",
+					"spidersilk": "0~5",
+					"rubies": "0~5",
+					"adamant": "0~5",
+					"aetherhide": "0~5",
+					"amberroot": "5~9",
+					"diamonds": "0~5"
+				},
+				"length": 32,
+				"boss": "sackmaster",
+				"spawns": [
+					"rumpelstiltskin",
+					"sackweaver",
+					"pouchmerchant",
+					"m_gemcutter",
+					["sackenforcer", "sackthug", "sackthug"],
+					["irongolem", "irongolem", "sackenforcer"],
+					"sackjman",
+					["burlapgolem", "burlapgolem", "burlapgolem"],
+					["sackthug", "sackthug"]
+				]
+			}
+		],
+		"monsters": [
+			{
+				"id": "rumpelstiltskin",
+				"desc": "A strange imp that spins magic threads.",
+				"noproc": true,
+				"level": 62,
+				"attack": {
+					"name": "wooden spool",
+					"kind": "blunt",
+					"damage": "a.damage*0.7"
+				},
+				"loot": { "aetherhide": { "%": "60%", "value": "4~6" } }
+			},
+			{
+				"id": "sackapprentice",
+				"name": "sackmaker apprentice",
+				"desc": "They have no respect for wizard apprentices.",
+				"noproc": true,
+				"level": 4,
+				"hp": 50,
+				"attack": {
+					"name": "sewing needle",
+					"damage": "5~10"
+				}
+			},
+			{
+				"id": "sackthug",
+				"name": "guild thug",
+				"desc": "The guild's policies on unauthorized pouch sales are strictly enforced.",
+				"level": 51,
+				"attack": {
+					"name": "sand bag",
+					"kind": "earth",
+					"damage": "a.damage"
+				}
+			},
+			{
+				"id": "sackenforcer",
+				"name": "sack guild enforcer",
+				"level": 55,
+				"attack": {
+					"name": "brick bag",
+					"kind": "earth",
+					"damage": "a.damage"
+				},
+				"loot": { "amberroot": { "%": "60%", "value": "4~6" } }
+			},
+			{
+				"id": "m_gemcutter",
+				"name": "gem cutter",
+				"flavor": "The guild sells its gems cheaply. Now if you want a place to store them...",
+				"noproc": true,
+				"level": 61,
+				"attack": {
+					"name": "precision cut",
+					"kind": "air",
+					"damage": "a.damage",
+					"tohit": 30
+				},
+				"loot": {
+					"gems": "5~10",
+					"rubies": "6~8",
+					"diamonds": "3~5"
+				}
+			},
+			{
+				"id": "pouchmerchant",
+				"name": "pouch merchant",
+				"desc": "The guild hires merchants to drain gold from the pouches of others.",
+				"noproc": true,
+				"level": 63,
+				"immune": "charm",
+				"speed": 20,
+				"attack": {
+					"name": "transfer gold",
+					"kind": "spirit",
+					"damage": "66~77",
+					"result": { "gold": "-100~-200" }
+				},
+				"loot": {
+					"iron": { "%": "50%", "value": "1~2" },
+					"leather": { "%": "50%", "value": "1~2" },
+					"cotton": { "%": "50%", "value": "1~2" },
+					"quicksteel": { "%": "50%", "value": "1~2" },
+					"serpentskin": { "%": "50%", "value": "1~2" },
+					"spidersilk": { "%": "50%", "value": "1~2" },
+					"rubies": { "%": "50%", "value": "1~2" },
+					"adamant": { "%": "50%", "value": "1~2" },
+					"aetherhide": { "%": "50%", "value": "1~2" },
+					"amberroot": { "%": "50%", "value": "1~2" },
+					"diamonds": { "%": "50%", "value": "1~2" }
+				}
+			},
+			{
+				"id": "burlapgolem",
+				"name": "burlap golem",
+				"desc": "Woven golem filled with heavy sand",
+				"noproc": true,
+				"level": 50,
+				"attack": {
+					"name": "sand punch",
+					"kind": "earth",
+					"damage": "a.damage"
+				},
+				"loot": { "amberroot": { "%": "60%", "value": "5~8" } }
+			},
+			{
+				"id": "sum_burlapgolem",
+				"name": "burlap golem",
+				"tags": "t_summon",
+				"desc": "Summoned woven golem filled with heavy sand",
+				"level": 28,
+				"noproc": true,
+				"hp": 400,
+				"attack": {
+					"name": "sand punch",
+					"kind": "earth",
+					"damage": "20~30"
+				},
+				"immune": "spirit,sleep,fear,paralysis,blunt"
+			},
+			{
+				"id": "sackjman",
+				"name": "sackmaker journeyman",
+				"desc": "Travels to towns, selling the finest quality bags and pouches.",
+				"level": 60,
+				"attack": {
+					"name": "punch",
+					"kind": "blunt",
+					"damage": "60~80"
+				},
+				"loot": { "amberroot": { "%": "60%", "value": "3~5" } }
+			},
+			{
+				"id": "sackweaver",
+				"desc": "Uses flows of magic to weave bags for sale.",
+				"noproc": true,
+				"level": 61,
+				"attack": {
+					"name": "magic needle",
+					"kind": "mana",
+					"damage": "a.damage"
+				},
+				"loot": { "adamant": 1 }
+			},
+			{
+				"id": "sackmaster",
+				"name": "sackmaker's lodge master",
+				"desc": "Surrounded by a cloud of needles, weaves and half finished pouches.",
+				"extdesc": "In matter of seconds you see burlap golems appear from the cloud and jump towards you!.",
+				"noproc": true,
+				"level": 40,
+				"hp": 900,
+				"spells": "mon_mk_burlapgolem",
+				"attack": {
+					"name": "flying needles",
+					"kind": "pierce",
+					"damage": "40~75"
+				}
+			}
+		],
+		"spells": [
+			{
+				"id": "mk_burlapgolem",
+				"name": "create burlap golem",
+				"sortOrder": 1755,
+				"level": 9,
+				"school": "summoning",
+				"keywords": {
+					"type": ["summon"],
+					"target": ["ally"],
+					"targets": ["single"],
+					"delivery": ["instant"]
+				},
+				"require": "g.sackguild>0",
+				"buy": {
+					"arcana": 10,
+					"tomes": 10
+				},
+				"cost": {
+					"mana": 20
+				},
+				"cd": 20,
+				"summon": [
+					{
+						"id": "sum_burlapgolem",
+						"count": 1,
+						"max": 1
+					}
+				],
+				"mod": {
+					"sum_burlapgolem.value": "?1"
+				},
+				"modtext": "Unlocks the Burlap Golem entry in your bestiary after first cast."
+			},
+			{
+				"id": "mon_mk_burlapgolem",
+				"name": "create burlap golem",
+				"require": "g.lore>999",
+				"summon": {
+					"id": "sum_burlapgolem",
+					"count": 1,
+					"max": 2
+				}
+			}
+		]
+	}
+}

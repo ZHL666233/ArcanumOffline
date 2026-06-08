@@ -1,0 +1,15 @@
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!-- ... 已有颜色 ... -->
+    <color name="splash_background">#1a0a2e</color>  <!-- 魔法主题深紫背景 -->
+
+    <!-- 新增：深色文本颜色 -->
+    <color name="text_primary">#DE000000</color>   <!-- 87% 黑色 -->
+    <color name="text_secondary">#8A000000</color> <!-- 54% 黑色，用于次要文字 -->
+</resources>

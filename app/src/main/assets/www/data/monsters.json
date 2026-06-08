@@ -1,0 +1,4906 @@
+[
+	{
+		"id": "newt",
+		"level": 2,
+		"kind": "beast",
+		"flavor": "Wriggly.",
+		"hp": 2,
+		"defense": 1,
+		"attack": {
+			"name": "newting",
+			"kind": "blunt",
+			"damage": "1~2"
+		},
+		"biome": ["swamp", "plains", "woods", "hills"]
+	},
+	{
+		"id": "kakapo",
+		"level": 4,
+		"kind": "beast",
+		"flavor": "Better leave it. They're endangered.",
+		"hp": 5,
+		"defense": 2,
+		"attack": {
+			"name": "beak",
+			"type": "pierce",
+			"damage": "1~4"
+		}
+	},
+	{
+		"id": "wisp",
+		"level": 2,
+		"kind": "spirit",
+		"desc": "A ghostly wisp of air.",
+		"hp": 1,
+		"defense": 1,
+		"attack": {
+			"name": "shiver",
+			"kind": "spirit",
+			"damage": "0.2~1",
+			"dot": {
+				"%": "20%",
+				"adj": "shivering",
+				"flags": "noattack",
+				"duration": 3
+			}
+		}
+	},
+	{
+		"id": "gremlin",
+		"flavor": "Na-na-na-na-Na-na Na-na-na-na-Na-na...",
+		"kind": "goblinoid",
+		"level": 5,
+		"hp": 6,
+		"regen": 0.25,
+		"attack": {
+			"name": "claws",
+			"kind": "slash",
+			"damage": 1
+		}
+	},
+	{
+		"id": "twikman",
+		"name": "twik-man",
+		"desc": "Tiny vicious humanoid riding a dragonfly.",
+		"kind": "humanoid",
+		"level": 3,
+		"hp": 4,
+		"attack": {
+			"name": "spear",
+			"kind": "slash",
+			"damage": "1~2"
+		}
+	},
+	{
+		"id": "bat",
+		"kind": "beast",
+		"biome": ["hills", "cave", "woods"],
+		"level": 2,
+		"hp": 3,
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"damage": "0.5~1.5"
+		}
+	},
+	{
+		"id": "lgmouse",
+		"name": "large mouse",
+		"kind": "beast",
+		"level": 1,
+		"hp": 2,
+		"attack": {
+			"name": "nibble",
+			"kind": "pierce",
+			"damage": "0.2~0.7"
+		}
+	},
+	{
+		"id": "stingybee",
+		"name": "stingy bee",
+		"kind": "beast",
+		"level": 2,
+		"hp": 2,
+		"defense": 2,
+		"speed": 3,
+		"attack": {
+			"name": "sting",
+			"kind": "nature",
+			"damage": "0.5~1.5"
+		}
+	},
+	{
+		"id": "bigstone",
+		"name": "big stone",
+		"kind": "natural",
+		"level": 1,
+		"hp": 5,
+		"defense": 100,
+		"damage": 0
+	},
+	{
+		"id": "gardengnome",
+		"name": "garden gnome",
+		"desc": "Standard variety garden gnome.",
+		"kind": "humanoid",
+		"biome": ["town", "plains", "hills"],
+		"level": 3,
+		"hp": 3,
+		"spells": "magicmissile",
+		"attack": {
+			"dev": "spell is enough dmg, so attack doesn't deal anything",
+			"dot": {
+				"name": "wink",
+				"%": "10%",
+				"duration": 1,
+				"id": "paralyze"
+			}
+		},
+		"loot": [{ "scrolls": 1 }]
+	},
+	{
+		"id": "homunculus",
+		"desc": "Must have escaped its jar.",
+		"kind": "construct",
+		"level": 6,
+		"hp": 7,
+		"attack": {
+			"name": "nasty bite",
+			"kind": "pierce",
+			"damage": "1~2"
+		}
+	},
+	{
+		"id": "jackal",
+		"level": 2,
+		"kind": "beast",
+		"desc": "They're tricksy.",
+		"hp": 11,
+		"defense": 8,
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"damage": "1~3"
+		},
+		"biome": "plains"
+	},
+	{
+		"id": "lgsnail",
+		"name": "large snail",
+		"kind": "beast",
+		"level": 4,
+		"hp": 14,
+		"defense": 4,
+		"attack": {
+			"name": "slime",
+			"kind": "nature",
+			"damage": "1~3",
+			"dot": {
+				"id": "entangle",
+				"duration": 3
+			}
+		},
+		"speed": -1
+	},
+	{
+		"id": "lgrat",
+		"name": "large rat",
+		"kind": "beast",
+		"level": 3,
+		"hp": 4,
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"damage": "0~2.5"
+		}
+	},
+	{
+		"id": "lgbird",
+		"name": "angry bird",
+		"kind": "beast",
+		"level": 3,
+		"hp": 5,
+		"attack": {
+			"name": "peck",
+			"kind": "pierce",
+			"damage": "0~3"
+		},
+		"loot": { "airgem": "20%" }
+	},
+	{
+		"id": "lgsnake",
+		"name": "big snake",
+		"desc": "Intenstly venomous.",
+		"kind": "beast",
+		"level": 30,
+		"hp": 50,
+		"attack": {
+			"dot": {
+				"name": "venom",
+				"duration": 5,
+				"kind": "nature",
+				"damage": "3.5~4.5"
+			}
+		},
+		"resist": { "nature": 25 },
+		"loot": { "serpentskin": { "%": "30%", "value": "2~4" } }
+	},
+	{
+		"id": "ratskeleton",
+		"name": "skeletal rat",
+		"desc": "Even the dead rats are a problem...",
+		"kind": "undead",
+		"level": 2,
+		"hp": 3,
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"damage": "0~2"
+		}
+	},
+	{
+		"id": "raven",
+		"name": "raven",
+		"kind": "beast",
+		"level": 4,
+		"hp": 3,
+		"speed": 4,
+		"defense": 3,
+		"attack": {
+			"kind": "pierce",
+			"name": "peck",
+			"damage": "1~2"
+		},
+		"flavor": "Like a writing desk."
+	},
+	{
+		"id": "wombat",
+		"desc": "Just wombatting around.",
+		"kind": "beast",
+		"level": 9,
+		"hp": 9,
+		"attack": {
+			"name": "wombatting",
+			"kind": "blunt",
+			"damage": "1~3.5"
+		}
+	},
+	{
+		"id": "coyote",
+		"name": "coyote",
+		"kind": "beast",
+		"level": 16,
+		"hp": 15,
+		"dodge": 30,
+		"attack": {
+			"name": "claws",
+			"kind": "slash",
+			"damage": "2~3"
+		},
+		"loot": {
+			"leather": { "%": "30%", "value": "2~4" }
+		}
+	},
+	{
+		"id": "hawk",
+		"name": "hawk",
+		"kind": "beast",
+		"level": 8,
+		"hp": 8,
+		"attack": {
+			"name": "claws",
+			"kind": "slash",
+			"damage": "1.5~3"
+		}
+	},
+	{
+		"id": "willowisp",
+		"name": "will o' wisp",
+		"desc": "A gleaming orb of light.",
+		"kind": "spirit",
+		"level": 42,
+		"dodge": 60,
+		"attack": {
+			"name": "flicker",
+			"kind": "spirit",
+			"damage": "11~15"
+		}
+	},
+	{
+		"id": "warthog",
+		"name": "Warthog",
+		"kind": "beast",
+		"level": 6,
+		"hp": 7,
+		"defense": 4,
+		"attack": {
+			"name": "bite",
+			"damage": "1~4",
+			"kind": "pierce"
+		}
+	},
+	{
+		"id": "mutantrat",
+		"name": "mutant rat",
+		"kind": "magicbeast",
+		"level": 6,
+		"hp": 4,
+		"defense": 3,
+		"attack": {
+			"name": "bite",
+			"damage": "2~4",
+			"kind": "pierce"
+		}
+	},
+	{
+		"id": "skeleton",
+		"kind": "undead",
+		"desc": "It appears to be missing all its fleshy bits.",
+		"level": 11,
+		"hp": 11,
+		"attack": {
+			"name": "slash",
+			"kind": "slash",
+			"damage": "1~4"
+		},
+		"loot": {
+			"iron": { "%": "30%", "value": "2~5" },
+			"bones": { "value": "2~5", "skipLocked": true }
+		}
+	},
+	{
+		"id": "badexperiment",
+		"name": "failed experiment",
+		"desc": "Apparently some sort of long lost arcane experiment, with a mind of its own. It doesn't look friendly.",
+		"kind": "arcane",
+		"level": 4,
+		"hp": 4,
+		"attack": {
+			"name": "psychic blast",
+			"damage": "1~2",
+			"kind": "mana"
+		}
+	},
+	{
+		"id": "ratking",
+		"name": "rat king",
+		"kind": "magicbeast",
+		"unique": true,
+		"level": 6,
+		"hp": 30,
+		"regen": 0.25,
+		"attack": {
+			"name": "kingly bite",
+			"damage": "1~3",
+			"kind": "pierce"
+		}
+	},
+	{
+		"id": "m_scarab",
+		"name": "scarab",
+		"desc": "Massive shimmering beetle with a projecting horn.",
+		"kind": "beast",
+		"level": 17,
+		"hp": 16,
+		"defense": 30,
+		"attack": {
+			"name": "charge",
+			"kind": "blunt",
+			"damage": "1~4"
+		}
+	},
+	{
+		"id": "goblin",
+		"kind": "goblinoid",
+		"level": 5,
+		"hp": 5,
+		"attack": {
+			"name": "dagger",
+			"kind": "pierce",
+			"damage": "1~2"
+		}
+	},
+	{
+		"id": "gobwarrior",
+		"name": "goblin warrior",
+		"kind": "goblinoid",
+		"level": 15,
+		"hp": 10,
+		"defense": 20,
+		"dodge": 20,
+		"attack": {
+			"name": "shortsword",
+			"kind": "pierce",
+			"damage": "2~3"
+		},
+		"loot": { "iron": { "%": "50%", "value": "2~3" } }
+	},
+	{
+		"id": "gobpriest",
+		"desc": "Covered from top to bottom in animal leathers.",
+		"flavor": "Tries to divine headache in your future",
+		"kind": "goblinoid",
+		"level": 8,
+		"hp": 9,
+		"regen": 0.5,
+		"dodge": 20,
+		"attack": {
+			"name": "club",
+			"kind": "blunt",
+			"damage": "2~4"
+		},
+		"loot": { "leather": { "%": "50%", "value": "2~3" } }
+	},
+	{
+		"id": "gobchief",
+		"kind": "goblinoid",
+		"unique": true,
+		"level": 10,
+		"hp": 32,
+		"defense": 10,
+		"attack": {
+			"name": "rusty cleaver",
+			"kind": "slash",
+			"damage": "1~4"
+		}
+	},
+	{
+		"id": "gobchief2",
+		"desc": "Older cousin of the gobchief you found on the treffil woods edges",
+		"extdesc": "Looks angrier, too",
+		"kind": "goblinoid",
+		"unique": true,
+		"level": 20,
+		"hp": 70,
+		"defense": 30,
+		"attack": {
+			"name": "two rusty cleavers",
+			"kind": "slash",
+			"damage": "2~5"
+		},
+		"loot": { "iron": "5~12" }
+	},
+	{
+		"id": "gobchamp",
+		"kind": "humanoid",
+		"level": 12,
+		"hp": 14,
+		"defense": 16,
+		"attack": {
+			"damage": "4~7",
+			"kind": "slash"
+		}
+	},
+	{
+		"id": "gobking",
+		"kind": "humanoid",
+		"level": 14,
+		"hp": 18,
+		"defense": 23,
+		"attack": {
+			"name": "magic missle",
+			"damage": "5~9",
+			"kind": "mana"
+		},
+		"flavor": "You remind me of the babe."
+	},
+	{
+		"id": "warg",
+		"kind": "magicbeast",
+		"level": 25,
+		"hp": 24,
+		"dodge": 35,
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"damage": "2~5"
+		},
+		"loot": { "leather": { "%": "30%", "value": "5~7" } }
+	},
+	{
+		"id": "giantspider",
+		"name": "giant spider",
+		"kind": "beast",
+		"level": 34,
+		"hp": 70,
+		"resist": { "nature": 25 },
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"damage": "4~7",
+			"dot": {
+				"%": "20%",
+				"name": "paralysing venom",
+				"duration": 3,
+				"id": "paralyze",
+				"kind": "nature",
+				"damage": "1~3"
+			}
+		},
+		"loot": { "spidersilk": { "%": "30%", "value": "3~5" } }
+	},
+	{
+		"id": "kobold",
+		"flavor": "You no take candle!",
+		"kind": "humanoid",
+		"biome": ["mountains", "hills", "swamp"],
+		"level": 4,
+		"hp": 4,
+		"attack": {
+			"name": "pointy stick",
+			"kind": "pierce",
+			"damage": "1~3"
+		},
+		"loot": { "gold": "1~3" }
+	},
+	{
+		"id": "orc",
+		"kind": "humanoid",
+		"desc": "For the Horde!",
+		"level": 26,
+		"hp": 34,
+		"attack": {
+			"name": "spear",
+			"kind": "pierce",
+			"damage": "3~6"
+		},
+		"loot": {
+			"gold": "4~5",
+			"cotton": { "%": "30%", "value": "3~5" }
+		}
+	},
+	{
+		"id": "orcpriest",
+		"name": "orc shaman",
+		"kind": "humanoid",
+		"level": 25,
+		"hp": 25,
+		"regen": 0.5,
+		"dodge": 30,
+		"attack": [
+			{
+				"name": "curse",
+				"kind": "shadow",
+				"damage": "4~8"
+			},
+			{
+				"dot": {
+					"duration": 2,
+					"id": "silence"
+				}
+			}
+		],
+		"loot": {
+			"managem": "30%",
+			"cotton": { "%": "30%", "value": "5~7" },
+			"leather": { "%": "30%", "value": "5~7" }
+		}
+	},
+	{
+		"id": "orcchief",
+		"name": "orc chieftain",
+		"desc": "The strongest orc in the whole tribe.",
+		"kind": "humanoid",
+		"unique": true,
+		"level": 28,
+		"hp": 80,
+		"defense": 40,
+		"dodge": 30,
+		"attack": {
+			"name": "broadsword",
+			"kind": "slash",
+			"damage": "4.5~6.5"
+		}
+	},
+	{
+		"id": "zombie",
+		"desc": "Slow and rotting corpse.",
+		"kind": "undead",
+		"level": 11,
+		"hp": 14,
+		"speed": 0,
+		"attack": {
+			"name": "smash",
+			"kind": "blunt",
+			"damage": "3~5"
+		},
+		"loot": { "bodies": { "%": "10%", "value": 1, "skipLocked": true } }
+	},
+	{
+		"id": "vulture",
+		"kind": "beast",
+		"level": 23,
+		"hp": 15,
+		"dodge": 35,
+		"attack": {
+			"name": "peck",
+			"kind": "pierce",
+			"damage": "2~3"
+		}
+	},
+	{
+		"id": "cutpurse",
+		"desc": "Wants to steal your stuff.",
+		"kind": "humanoid",
+		"biome": "town",
+		"level": 11,
+		"hp": 7,
+		"attack": {
+			"name": "dagger",
+			"kind": "pierce",
+			"damage": "2~5"
+		},
+		"loot": {
+			"gold": "3~5",
+			"cotton": { "%": "30%", "value": "2~4" }
+		}
+	},
+	{
+		"id": "elf",
+		"desc": "So lithe. So graceful.",
+		"kind": "humanoid",
+		"level": 30,
+		"attack": [
+			{
+				"name": "bow",
+				"kind": "pierce",
+				"damage": "a.damage"
+			},
+			{
+				"dot": {
+					"%": "20%",
+					"duration": 4,
+					"id": "entangle"
+				}
+			}
+		]
+	},
+	{
+		"id": "slinger",
+		"name": "hobbit slinger",
+		"flavor": "How much damage could he do with just a sling?",
+		"kind": "humanoid",
+		"biome": ["town", "plains"],
+		"level": 7,
+		"hp": 7,
+		"attack": {
+			"name": "sling",
+			"kind": "blunt",
+			"damage": "Math.pow(Math.random(), 3)*16"
+		}
+	},
+	{
+		"id": "direbat",
+		"name": "dire bat",
+		"desc": "That's one large bat.",
+		"kind": "magicbeast",
+		"level": 31,
+		"hp": 40,
+		"dodge": 25,
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"damage": "4~7",
+			"leech": 0.1
+		}
+	},
+	{
+		"id": "direrat",
+		"name": "dire rat",
+		"desc": "Red eyes... that's different.",
+		"kind": "magicbeast",
+		"level": 13,
+		"hp": 10,
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"damage": "1~5"
+		},
+		"loot": { "leather": { "%": "50%", "value": 2 } }
+	},
+	{
+		"id": "scrapling",
+		"desc": "Tiny creature made from random pieces of scrap metal, animated by residual magical energy",
+		"flavor": "Surprisingly swift, but fragile",
+		"kind": "animated",
+		"level": 7,
+		"hp": 6,
+		"speed": 40,
+		"attack": {
+			"name": "scratch",
+			"kind": "slash",
+			"damage": "0.5~1.5"
+		},
+		"loot": { "iron": { "%": "75%", "value": "2~3" } }
+	},
+	{
+		"id": "eel",
+		"name": "spark eel",
+		"desc": "So wriggly.",
+		"flavor": "Water near them turns spicy",
+		"kind": "beast",
+		"biome": "swamp",
+		"level": 36,
+		"hp": 80,
+		"resist": { "water": 20 },
+		"attack": {
+			"name": "shock",
+			"kind": "air",
+			"damage": "0~14"
+		}
+	},
+	{
+		"id": "piranha",
+		"name": "piranha school",
+		"desc": "It's bitey.",
+		"kind": "beast",
+		"biome": "swamp",
+		"level": 40,
+		"resist": { "water": 20 },
+		"speed": 80,
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"damage": 5
+		}
+	},
+	{
+		"id": "jellyfish",
+		"name": "jellyfish swarm",
+		"flavor": "No touchy.",
+		"kind": "beast",
+		"biome": "swamp",
+		"level": 41,
+		"resist": { "water": 20 },
+		"attack": {
+			"name": "sting",
+			"kind": "nature",
+			"damage": "8~12",
+			"dot": {
+				"%": "30%",
+				"duration": 1,
+				"id": "paralyze"
+			}
+		}
+	},
+	{
+		"id": "icewalker",
+		"desc": "They say those who die on the cold heights search the passes for mortals to join them.",
+		"kind": "undead",
+		"level": 30,
+		"hp": 50,
+		"attack": {
+			"name": "frozen claws",
+			"kind": "water",
+			"damage": "3~6"
+		},
+		"resist": {
+			"water": 25,
+			"air": 25
+		}
+	},
+	{
+		"id": "ranger",
+		"desc": "Rangers aren't very good with people.",
+		"kind": "humanoid",
+		"level": 34,
+		"attack": {
+			"name": "longbow",
+			"kind": "pierce",
+			"damage": "a.damage*0.8"
+		}
+	},
+	{
+		"id": "highelf",
+		"name": "high elf",
+		"desc": "Other elves are as newborns to their elder kin.",
+		"kind": "humanoid",
+		"level": 36,
+		"attack": [
+			{
+				"name": "enchanted bow",
+				"kind": "air",
+				"damage": "a.damage"
+			},
+			{
+				"name": "stone fling",
+				"kind": "earth",
+				"damage": "a.damage"
+			}
+		]
+	},
+	{
+		"id": "highranger",
+		"name": "thangmor ranger",
+		"desc": "All rangers travel far. Some farther than others.",
+		"kind": "humanoid",
+		"level": 41,
+		"attack": {
+			"name": "rain of arrows",
+			"kind": "air",
+			"targets": "enemies",
+			"maxTargets": 3,
+			"damage": "a.damage*0.7"
+		}
+	},
+	{
+		"id": "eledin",
+		"name": "eledin strongbow",
+		"desc": "When Tenwick told Eledin the Ettinmoors couldn't be crossed in safety, the ranger picked up his bow and headed east.",
+		"kind": "humanoid",
+		"unique": true,
+		"level": 43,
+		"hp": 500,
+		"attack": {
+			"name": "explosive greatarrows",
+			"kind": "fire",
+			"targets": "enemies",
+			"maxTargets": 2,
+			"damage": 15
+		}
+	},
+	{
+		"id": "gildella",
+		"name": "gildella the lighthearted",
+		"desc": "The elf Gildella had roamed the Ettinmoors for centuries when Eledin first crossed her path. Their path has been the same since then.",
+		"flavor": "'I thought the moors too wild for decent folk,' said Eledin in surprise. 'Oh?' replied Gildella, 'I hadn't noticed.'",
+		"kind": "humanoid",
+		"unique": true,
+		"level": 43,
+		"hp": 500,
+		"speed": 60,
+		"attack": [
+			{
+				"name": "arrow of light",
+				"kind": "light",
+				"damage": "10~15"
+			},
+			{
+				"name": "arrow of nature",
+				"kind": "nature",
+				"damage": "10~15"
+			},
+			{
+				"name": "arrow of mana",
+				"kind": "mana",
+				"damage": "10~15"
+			}
+		]
+	},
+	{
+		"id": "thrall",
+		"level": 8,
+		"kind": "undead",
+		"desc": "One isn't too bad. 100 can be a problem.",
+		"hp": 14,
+		"defense": 5,
+		"attack": {
+			"name": "axe",
+			"kind": "slash",
+			"damage": "5~9"
+		}
+	},
+	{
+		"id": "bandit",
+		"desc": "Wants to steal your stuff.",
+		"kind": "humanoid",
+		"level": 15,
+		"hp": 14,
+		"defense": 10,
+		"dodge": 10,
+		"attack": {
+			"name": "short sword",
+			"kind": "slash",
+			"damage": "4~7"
+		},
+		"loot": {
+			"gold": "10~15",
+			"cotton": { "%": "60%", "value": "2~3" }
+		}
+	},
+	{
+		"id": "electriceel",
+		"name": "electric eel",
+		"desc": "So wriggly.",
+		"kind": "beast",
+		"biome": "sea",
+		"level": 43,
+		"resist": {
+			"water": 25,
+			"air": 25
+		},
+		"attack": {
+			"name": "zap",
+			"kind": "air",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"damage": "0~25"
+		}
+	},
+	{
+		"id": "orcwarrior",
+		"name": "orc warrior",
+		"kind": "humanoid",
+		"level": 27,
+		"hp": 34,
+		"defense": 30,
+		"attack": {
+			"name": "orc hammer",
+			"kind": "blunt",
+			"damage": "2~7"
+		}
+	},
+	{
+		"id": "hobgoblin",
+		"kind": "goblinoid",
+		"level": 10,
+		"hp": 9,
+		"defense": 17,
+		"attack": {
+			"name": "dagger",
+			"kind": "pierce",
+			"damage": "2~3"
+		}
+	},
+	{
+		"id": "snek",
+		"name": "arcane serpent",
+		"desc": "Fiercely loyal when summoned by magic.",
+		"flavor": "Do not boop.",
+		"kind": "magicbeast",
+		"level": 12,
+		"hp": 50,
+		"regen": 2,
+		"defense": 20,
+		"attack": [
+			{
+				"name": "constrict",
+				"kind": "blunt",
+				"damage": "6~14"
+			},
+			{
+				"name": "venom",
+				"dot": {
+					"duration": 7,
+					"kind": "nature",
+					"damage": "0.5~1.2"
+				}
+			}
+		]
+	},
+	{
+		"id": "barracuda",
+		"name": "great barracuda",
+		"desc": "It's bitey.",
+		"kind": "beast",
+		"biome": "sea",
+		"level": 40,
+		"resist": { "water": 20 },
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"damage": "11~13"
+		}
+	},
+	{
+		"id": "giantcentipede",
+		"name": "giant centipede",
+		"kind": "beast",
+		"level": 10,
+		"desc": "Creepy crawly.",
+		"hp": 16,
+		"defense": 15,
+		"attack": {
+			"name": "sting",
+			"kind": "pierce",
+			"damage": "5~8",
+			"dot": {
+				"damage": "1~3",
+				"kind": "nature",
+				"name": "venom",
+				"duration": 3
+			}
+		}
+	},
+	{
+		"id": "wolf",
+		"level": 18,
+		"kind": "beast",
+		"hp": 16,
+		"dodge": 30,
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"damage": "2~4"
+		},
+		"loot": { "leather": { "%": "40%", "value": "2~4" } }
+	},
+	{
+		"id": "leech",
+		"kind": "beast",
+		"desc": "Blood sucking leech.",
+		"level": 28,
+		"attack": {
+			"name": "suck",
+			"kind": "pierce",
+			"damage": "2~4",
+			"leech": 0.5
+		}
+	},
+	{
+		"id": "slime",
+		"kind": "magicbeast",
+		"desc": "You see some undigested bones and jewels in its... 'belly'? Gross.",
+		"flavor": "Eww, it doesn't even try to hold its form, just splashes acid everywhere.",
+		"level": 21,
+		"hp": 30,
+		"attack": {
+			"name": "squelch",
+			"kind": "nature",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"damage": "1~4"
+		},
+		"loot": {
+			"skulls": { "%": "20%", "value": 1, "skipLocked": true },
+			"bones": { "value": "3~5", "skipLocked": true },
+			"gems": "2~3"
+		}
+	},
+	{
+		"id": "corpse",
+		"name": "bloated corpse",
+		"kind": "undead",
+		"level": 30,
+		"resist": { "shadow": 20 },
+		"attack": {
+			"name": "body slam",
+			"kind": "blunt",
+			"damage": "3~4"
+		},
+		"loot": { "bodies": { "value": 1, "skipLocked": true } }
+	},
+	{
+		"id": "banditlord",
+		"name": "bandit lord",
+		"desc": "Armed, agile, and deadly. His purses are certainly filled to the brim.",
+		"flavor": "All your loot are belong to him.",
+		"kind": "humanoid",
+		"level": 17,
+		"hp": 50,
+		"defense": 20,
+		"dodge": 30,
+		"attack": {
+			"name": "short sword",
+			"kind": "slash",
+			"damage": "2~5"
+		},
+		"loot": {
+			"gems": "3~6",
+			"gold": "5~10"
+		}
+	},
+	{
+		"id": "ghoul",
+		"kind": "undead",
+		"level": 29,
+		"resist": { "shadow": 20 },
+		"attack": {
+			"name": "infectious bite",
+			"kind": "shadow",
+			"damage": "a.damage",
+			"dot": {
+				"name": "infection",
+				"duration": 15,
+				"damage": 1
+			}
+		}
+	},
+	{
+		"id": "mechswordsman",
+		"name": "mechanical swordsman",
+		"level": 10,
+		"kind": "construct",
+		"evil": 0,
+		"desc": "Durable, but not very good at its job.",
+		"hp": 22,
+		"defense": 28,
+		"attack": {
+			"name": "short sword",
+			"kind": "slash",
+			"damage": "3~7"
+		},
+		"immune": "spirit"
+	},
+	{
+		"id": "crab",
+		"name": "scuttling crab",
+		"desc": "A massive scuttling crab.",
+		"kind": "beast",
+		"biome": "sea",
+		"level": 35,
+		"attack": {
+			"name": "claws",
+			"kind": "blunt",
+			"damage": "7~9"
+		}
+	},
+	{
+		"id": "crocodile",
+		"biome": "swamp",
+		"level": 10,
+		"kind": "beast",
+		"flavor": "They're wild!",
+		"hp": 14,
+		"defense": 20,
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"damage": "4~7"
+		},
+		"resist": {
+			"water": 15,
+			"nature": 20
+		}
+	},
+	{
+		"id": "snowleopard",
+		"name": "snow leopard",
+		"kind": "beast",
+		"level": 32,
+		"hp": 30,
+		"dodge": 50,
+		"attack": {
+			"name": "claws",
+			"kind": "water",
+			"damage": "4~7"
+		},
+		"resist": { "water": 20 }
+	},
+	{
+		"id": "minotaur",
+		"kind": "humanoid",
+		"level": 28,
+		"hp": 30,
+		"defense": 30,
+		"attack": {
+			"name": "mallet",
+			"kind": "blunt",
+			"damage": "3~6"
+		},
+		"loot": {
+			"iron": { "%": "30%", "value": "5~7" },
+			"leather": { "%": "30%", "value": "5~7" }
+		}
+	},
+	{
+		"id": "werewolf",
+		"level": 12,
+		"kind": "humanoid",
+		"evil": 5,
+		"desc": "",
+		"hp": 22,
+		"regen": 1.5,
+		"defense": 25,
+		"attack": {
+			"name": "claws",
+			"kind": "slash",
+			"damage": "3~6"
+		}
+	},
+	{
+		"id": "lion",
+		"level": 12,
+		"kind": "beast",
+		"desc": "",
+		"hp": 20,
+		"defense": 18,
+		"speed": 8,
+		"attack": {
+			"name": "claws",
+			"kind": "slash",
+			"damage": "7~10"
+		}
+	},
+	{
+		"id": "harpy",
+		"desc": "She doesn't look harpy to see you.",
+		"kind": "humanoid",
+		"level": 31,
+		"hp": 30,
+		"dodge": 30,
+		"speed": 40,
+		"attack": {
+			"name": "claws",
+			"kind": "slash",
+			"damage": "3~5"
+		}
+	},
+	{
+		"id": "drunkenboxer",
+		"name": "drunken boxer",
+		"level": 12,
+		"kind": "humanoid",
+		"evil": -2,
+		"desc": "This monk has had a bit too much to drink...",
+		"hp": 15,
+		"defense": 29,
+		"attack": {
+			"name": "fists",
+			"kind": "blunt",
+			"damage": "4~8"
+		}
+	},
+	{
+		"id": "imp",
+		"desc": "Little demonic bastards.",
+		"kind": "demon",
+		"level": 37,
+		"regen": 1,
+		"attack": [
+			{
+				"name": "fiery tongue",
+				"kind": "fire",
+				"damage": "a.damage*1.4"
+			},
+			{
+				"name": "voice thievery",
+				"dot": {
+					"%": "20%",
+					"id": "silence",
+					"duration": 1
+				}
+			}
+		],
+		"resist": { "fire": 20 }
+	},
+	{
+		"id": "lgspider",
+		"name": "large spider",
+		"desc": "You can't tell if she looks hungry. Or what a spider the size of a dog would eat.",
+		"kind": "beast",
+		"biome": ["swamp", "woods", "mountains"],
+		"level": 30,
+		"hp": 40,
+		"resist": { "nature": 25 },
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"damage": "3~5",
+			"dot": {
+				"name": "poison",
+				"duration": 3,
+				"kind": "nature",
+				"damage": 1
+			}
+		},
+		"loot": { "spidersilk": { "%": "30%", "value": "2~4" } }
+	},
+	{
+		"id": "vampirebat",
+		"name": "vampire bat",
+		"level": 8,
+		"kind": "magicbeast",
+		"evil": 5,
+		"desc": "It vants to zuck your blood.",
+		"hp": 12,
+		"defense": 25,
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"leech": 0.2,
+			"damage": "5~7"
+		}
+	},
+	{
+		"id": "sandmite",
+		"name": "sand mite",
+		"desc": "Oversized parasites of the dunes.",
+		"kind": "beast",
+		"level": 29,
+		"hp": 40,
+		"attack": {
+			"name": "burrow",
+			"kind": "pierce",
+			"damage": "4~6"
+		}
+	},
+	{
+		"id": "vrrek",
+		"desc": "An intelligent scavenger with the features of a vulture.",
+		"flavor": "Vrrek is what most of their words sound like.",
+		"kind": "humanoid",
+		"level": 20,
+		"hp": 20,
+		"attack": {
+			"name": "talons",
+			"kind": "slash",
+			"damage": "2~3.5"
+		}
+	},
+	{
+		"id": "callodiper",
+		"desc": "Their globed hands glow with pale, unearthly light.",
+		"flavor": "It is said they feed on darkness.",
+		"biome": "cave",
+		"kind": "humanoid",
+		"level": 55,
+		"resist": { "light": 20 },
+		"attack": {
+			"name": "light burst",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"kind": "light",
+			"damage": "a.damage*0.7"
+		}
+	},
+	{
+		"id": "direwolf",
+		"name": "dire wolf",
+		"level": 10,
+		"kind": "magicbeast",
+		"evil": 7,
+		"desc": "",
+		"hp": 17,
+		"defense": 20,
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"damage": "3~6"
+		}
+	},
+	{
+		"id": "wight",
+		"kind": "undead",
+		"level": 29,
+		"hp": 30,
+		"defense": 40,
+		"resist": {
+			"spirit": 15,
+			"shadow": 15
+		},
+		"attack": {
+			"name": "spectral claws",
+			"kind": "spirit",
+			"damage": "0~10"
+		}
+	},
+	{
+		"id": "doppelganger",
+		"desc": "Such a good-looking fellow!",
+		"kind": "humanoid",
+		"level": 32,
+		"hp": 25,
+		"defense": 50,
+		"dodge": 50,
+		"speed": 10,
+		"attack": [
+			{
+				"name": "fire dart",
+				"kind": "fire",
+				"damage": "5~6"
+			},
+			{
+				"name": "zap",
+				"kind": "air",
+				"damage": "3~7"
+			},
+			{
+				"name": "light spear",
+				"kind": "light",
+				"damage": "5~8"
+			}
+		]
+	},
+	{
+		"id": "ghost",
+		"flavor": "Boo!",
+		"kind": "undead",
+		"level": 12,
+		"hp": 10,
+		"defense": 20,
+		"attack": {
+			"name": "death touch",
+			"kind": "shadow",
+			"damage": "1~4"
+		},
+		"resist": {
+			"slash": 50,
+			"pierce": 50,
+			"blunt": 50
+		}
+	},
+	{
+		"id": "ghost2",
+		"name": "ghost",
+		"flavor": "Boooooo!",
+		"kind": "undead",
+		"level": 33,
+		"hp": 60,
+		"resist": {
+			"slash": 50,
+			"pierce": 50,
+			"blunt": 50
+		},
+		"attack": [
+			{
+				"name": "death swipe",
+				"kind": "shadow",
+				"damage": "2~5"
+			},
+			{
+				"dot": {
+					"name": "death grab",
+					"%": "10%",
+					"duration": 2,
+					"id": "paralyze",
+					"kind": "shadow",
+					"damage": 3
+				}
+			}
+		]
+	},
+	{
+		"id": "salamander",
+		"level": 12,
+		"desc": "",
+		"kind": "magicbeast",
+		"hp": 34,
+		"defense": 23,
+		"spells": "firebolt",
+		"attack": {
+			"name": "flame claws",
+			"kind": "fire",
+			"damage": "3~9",
+			"dot": {
+				"kind": "fire",
+				"name": "burning",
+				"damage": "1~3",
+				"duration": 3
+			}
+		},
+		"resist": {
+			"fire": 40
+		},
+		"statedata": {
+			"firebolt": {
+				"need": null,
+				"cd": 3,
+				"result": null,
+				"damage": "4~5",
+				"attack": {
+					"damage": "i.damage||0",
+					"tohit": 5,
+					"kind": "fire",
+					"potencies": ["spelldmg", "firedmg"]
+				}
+			}
+		}
+	},
+	{
+		"id": "giantsnake",
+		"name": "giant snake",
+		"desc": "Not venomous at all.",
+		"kind": "beast",
+		"level": 35,
+		"hp": 80,
+		"defense": 20,
+		"attack": {
+			"name": "constrict",
+			"kind": "blunt",
+			"damage": "8~10"
+		},
+		"resist": { "nature": 25 }
+	},
+	{
+		"id": "bugbear",
+		"kind": "humanoid",
+		"level": 22,
+		"hp": 18,
+		"defense": 25,
+		"attack": {
+			"name": "mace",
+			"kind": "blunt",
+			"damage": "2.5~4"
+		}
+	},
+	{
+		"id": "evilpriest",
+		"name": "evil priest",
+		"desc": "He worships evil.",
+		"kind": "human",
+		"level": 42,
+		"hp": 60,
+		"regen": 5,
+		"barrier": 60,
+		"resist": { "shadow": 20 },
+		"attack": {
+			"name": "dark bolt",
+			"kind": "shadow",
+			"damage": "13~19"
+		},
+		"loot": {
+			"spidersilk": { "%": "30%", "value": "2~4" },
+			"rubies": { "%": "30%", "value": "3~4" }
+		}
+	},
+	{
+		"id": "blasphemer",
+		"desc": "She screams black obscenities.",
+		"kind": "humanoid",
+		"level": 40,
+		"resist": { "shadow": 20 },
+		"attack": {
+			"name": "screech",
+			"kind": "shadow",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"damage": "10~15"
+		}
+	},
+	{
+		"id": "m_hierophant",
+		"name": "wicked hierophant",
+		"desc": "Leader of wicked congregation",
+		"kind": "humanoid",
+		"level": 42,
+		"hp": 100,
+		"regen": 5,
+		"barrier": 50,
+		"resist": {
+			"shadow": 15,
+			"light": 15
+		},
+		"attack": {
+			"name": "sunset spears",
+			"kind": "light",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"damage": "10~15"
+		},
+		"loot": {
+			"spidersilk": { "%": "50%", "value": "4~5" },
+			"rubies": { "%": "50%", "value": "3~4" }
+		}
+	},
+	{
+		"id": "palus",
+		"name": "palus the sinner",
+		"desc": "Palus was a mere dabbler before unearthing the remains of a Dhrozen knight. Now he leads the Barrow priests.",
+		"kind": "humanoid",
+		"unique": true,
+		"level": 44,
+		"hp": 350,
+		"defense": 75,
+		"attack": {
+			"name": "harm",
+			"kind": "shadow",
+			"damage": "16~22"
+		}
+	},
+	{
+		"id": "magicblade",
+		"name": "magic blade",
+		"desc": "It just floats there...",
+		"kind": "construct",
+		"level": 40,
+		"hp": 100,
+		"defense": 30,
+		"resist": { "mana": 30 },
+		"attack": {
+			"name": "itself",
+			"kind": "slash",
+			"damage": 13
+		},
+		"loot": { "quicksteel": { "%": "30%", "value": "2~4" } }
+	},
+	{
+		"id": "bear",
+		"desc": "He's angry now!!!",
+		"kind": "beast",
+		"biome": ["woods", "hills", "mountains"],
+		"level": 28,
+		"attack": {
+			"name": "claws",
+			"kind": "slash",
+			"damage": "a.damage*0.8"
+		}
+	},
+	{
+		"id": "ghast",
+		"kind": "undead",
+		"level": 29,
+		"resist": { "shadow": 20 },
+		"attack": {
+			"name": "claws",
+			"kind": "slash",
+			"damage": "a.damage*0.8"
+		}
+	},
+	{
+		"id": "berserker",
+		"flavor": "You gotta... dance.",
+		"kind": "humanoid",
+		"level": 14,
+		"hp": 25,
+		"defense": 29,
+		"attack": {
+			"name": "claymore",
+			"kind": "slash",
+			"damage": "3~10"
+		}
+	},
+	{
+		"id": "quasit",
+		"desc": "Like a demonic humanoid vulture.",
+		"kind": "demon",
+		"level": 51,
+		"regen": 1,
+		"attack": {
+			"name": "Poisonous Claws",
+			"kind": "nature",
+			"damage": "35~42"
+		},
+		"loot": { "aetherhide": { "%": "60%", "value": "2~3" } }
+	},
+	{
+		"id": "greaterzombie",
+		"name": "greater zombie",
+		"level": 14,
+		"kind": "undead",
+		"evil": 13,
+		"desc": "It ate up all the smaller zombies.",
+		"hp": 42,
+		"defense": 22,
+		"regen": 1,
+		"attack": {
+			"name": "slam",
+			"kind": "blunt",
+			"damage": "7~12"
+		},
+		"loot": {
+			"bodies": { "value": 1, "skipLocked": true }
+		}
+	},
+	{
+		"id": "shriekingeel",
+		"name": "shrieking eel",
+		"desc": "Oversized eel with bladed teeth and a terrifying screach.",
+		"kind": "beast",
+		"biome": "sea",
+		"level": 42,
+		"resist": { "water": 20 },
+		"attack": {
+			"name": "scream",
+			"kind": "air",
+			"damage": "10~20"
+		}
+	},
+	{
+		"id": "dwarp",
+		"desc": "Its contorted purple body can hide in the smallest crevices.",
+		"flavor": "A dwarp can hear the drip of water through 100 feet of solid rock.",
+		"kind": "humanoid",
+		"biome": "cave",
+		"level": 57,
+		"hp": 200,
+		"dodge": 200,
+		"attack": {
+			"name": "strangle",
+			"kind": "blunt",
+			"damage": "40~60"
+		}
+	},
+	{
+		"id": "ogre",
+		"flavor": "Ever wonder how orcs would look if they were three times as large?",
+		"kind": "giant",
+		"level": 31,
+		"hp": 44,
+		"defense": 20,
+		"speed": 20,
+		"attack": {
+			"name": "club",
+			"kind": "blunt",
+			"damage": "6~9"
+		}
+	},
+	{
+		"id": "ogrewarrior",
+		"name": "ogre warrior",
+		"flavor": "Ever wonder how ogres would look if they were twice as strong?",
+		"kind": "giant",
+		"level": 33,
+		"hp": 54,
+		"defense": 20,
+		"speed": 20,
+		"attack": {
+			"name": "magic club",
+			"kind": "mana",
+			"damage": "9~14"
+		},
+		"loot": { "quicksteel": { "%": "30%", "value": "2~4" } }
+	},
+	{
+		"id": "ogrechief",
+		"name": "chief of ogres",
+		"flavor": "Ever wonder how ettins would look if they lead a tribe for years?",
+		"kind": "giant",
+		"unique": true,
+		"level": 37,
+		"hp": 240,
+		"defense": 20,
+		"regen": 0.75,
+		"speed": 20,
+		"attack": [
+			{
+				"name": "totem pole",
+				"kind": "blunt",
+				"damage": "16~12"
+			},
+			{
+				"name": "ice wave",
+				"kind": "water",
+				"targets": "enemies",
+				"maxTargets": 999,
+				"damage": "7~10"
+			},
+			{
+				"name": "life's boon",
+				"kind": "nature",
+				"targets": "self",
+				"healing": 4
+			}
+		],
+		"loot": { "quicksteel": "3~4" }
+	},
+	{
+		"id": "frixie",
+		"desc": "A nasty fey of cold disposition.",
+		"kind": "fey",
+		"level": 31,
+		"hp": 45,
+		"dodge": 20,
+		"attack": {
+			"name": "frost bolt",
+			"kind": "water",
+			"damage": "4~17"
+		},
+		"resist": {
+			"water": 25,
+			"nature": 25
+		}
+	},
+	{
+		"id": "claygolem",
+		"name": "clay golem",
+		"desc": "Bulky little fellow, but very sluggish.",
+		"flavor": "I made you out of clay...",
+		"kind": "construct",
+		"level": 32,
+		"hp": 24,
+		"defense": 20,
+		"speed": 0,
+		"attack": {
+			"name": "smash",
+			"kind": "blunt",
+			"damage": "6~10"
+		}
+	},
+	{
+		"id": "direcrocodile",
+		"name": "dire crocodile",
+		"kind": "magicbeast",
+		"biome": "swamp",
+		"level": 35,
+		"attack": {
+			"name": "bite",
+			"kind": "nature",
+			"damage": "5~10"
+		}
+	},
+	{
+		"id": "spiderqueen",
+		"name": "spider queen",
+		"kind": "beast",
+		"unique": true,
+		"level": 38,
+		"hp": 200,
+		"attack": [
+			{
+				"name": "web throw",
+				"dot": {
+					"name": "webbed",
+					"duration": 3,
+					"mod": { "self.speed": -5 }
+				}
+			},
+			{
+				"name": "call spider",
+				"targets": "self",
+				"summon": {
+					"id": "lgspider",
+					"count": 1,
+					"max": 2
+				}
+			}
+		],
+		"loot": { "spidersilk": "3~5" }
+	},
+	{
+		"id": "ettin",
+		"flavor": "Ever wonder how ogre warriors would look if they had twice as many heads? And used magic?",
+		"kind": "giant",
+		"biome": ["hills", "woods", "swamp", "mountains"],
+		"level": 35,
+		"hp": 57,
+		"defense": 20,
+		"regen": 0.75,
+		"speed": 20,
+		"attack": [
+			{
+				"name": "magic club",
+				"kind": "mana",
+				"damage": "9~14"
+			},
+			{
+				"name": "fire wave",
+				"kind": "fire",
+				"targets": "enemies",
+				"maxTargets": 999,
+				"damage": "7~10"
+			}
+		],
+		"loot": { "quicksteel": { "%": "30%", "value": "2~4" } }
+	},
+	{
+		"id": "shark",
+		"level": 18,
+		"kind": "beast",
+		"biome": "sea",
+		"desc": "It's bitey.",
+		"hp": 58,
+		"speed": 11,
+		"defense": 18,
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"damage": "10~15",
+			"leech": 0.2
+		},
+		"resist": {
+			"water": 50
+		}
+	},
+	{
+		"id": "shade",
+		"kind": "undead",
+		"level": 62,
+		"hp": 600,
+		"dodge": 50,
+		"resist": {
+			"shadow": 50,
+			"spirit": 50
+		},
+		"attack": {
+			"name": "otherwordly touch",
+			"kind": "spirit",
+			"damage": "100~140",
+			"leech": 0.05
+		}
+	},
+	{
+		"id": "stalker",
+		"name": "invisible stalker",
+		"desc": "You don't see a thing.",
+		"kind": "humanoid",
+		"level": 41,
+		"hp": 90,
+		"dodge": 60,
+		"attack": {
+			"name": "something invisible",
+			"kind": "mana",
+			"damage": "13~15"
+		}
+	},
+	{
+		"id": "m_druid",
+		"name": "druid",
+		"desc": "Ardent of nature.",
+		"kind": "humanoid",
+		"level": 34,
+		"resist": { "nature": 25 },
+		"regen": 3,
+		"attack": {
+			"name": "leafstorm",
+			"kind": "nature",
+			"damage": "9~17"
+		}
+	},
+	{
+		"id": "steelgolem",
+		"name": "steel golem",
+		"desc": "Much more sophisticated magic and materials went into this creation, as you see it swiftly rolling around",
+		"kind": "construct",
+		"level": 34,
+		"hp": 50,
+		"defense": 50,
+		"attack": {
+			"name": "attached blade",
+			"kind": "slash",
+			"damage": "7~8"
+		},
+		"loot": { "quicksteel": "4~7" }
+	},
+	{
+		"id": "masterswordsman",
+		"name": "master swordsman",
+		"desc": "He's looking for a six-fingered man.",
+		"kind": "humanoid",
+		"level": 51,
+		"hp": 150,
+		"defense": 50,
+		"dodge": 50,
+		"attack": {
+			"name": "longsword of highest quality",
+			"kind": "slash",
+			"damage": "a.damage*0.7"
+		},
+		"loot": { "adamant": { "%": "60%", "value": "2~3" } }
+	},
+	{
+		"id": "pegasus",
+		"level": 16,
+		"kind": "magicbeast",
+		"evil": -13,
+		"desc": "It's a unicorn with wings and no horn.",
+		"hp": 54,
+		"defense": 27,
+		"spells": "whirl3",
+		"attack": {
+			"name": "trample",
+			"kind": "blunt",
+			"damage": "9~15"
+		},
+		"resist": {
+			"air": 20
+		}
+	},
+	{
+		"id": "earthelemental",
+		"name": "earth elemental",
+		"desc": "How do you fight dirt?",
+		"kind": "elemental",
+		"level": 23,
+		"hp": 25,
+		"resist": { "earth": 20 },
+		"speed": 0,
+		"attack": {
+			"name": "pound",
+			"kind": "earth",
+			"damage": "8~12"
+		},
+		"loot": { "earthgem": "10%" }
+	},
+	{
+		"id": "airelemental",
+		"name": "air elemental",
+		"desc": "It must have been the wind",
+		"kind": "elemental",
+		"level": 23,
+		"hp": 25,
+		"resist": { "air": 20 },
+		"speed": 40,
+		"attack": {
+			"name": "air whip",
+			"kind": "air",
+			"damage": "1.5~2.5"
+		},
+		"loot": { "airgem": "10%" }
+	},
+	{
+		"id": "stonegolem",
+		"name": "stone golem",
+		"desc": "The head stone's connected to the... spine stone.",
+		"kind": "construct",
+		"level": 32,
+		"hp": 30,
+		"defense": 30,
+		"speed": 0,
+		"attack": {
+			"name": "smash",
+			"kind": "earth",
+			"damage": "9~13"
+		}
+	},
+	{
+		"id": "unicorn",
+		"desc": "Its horn is full of magic.",
+		"kind": "magicbeast",
+		"biome": ["plains", "woods"],
+		"level": 35,
+		"attack": {
+			"name": "magic horn",
+			"kind": "mana",
+			"damage": "8~10"
+		}
+	},
+	{
+		"id": "vampire",
+		"desc": "Standard blood sucking variety.",
+		"kind": "undead",
+		"level": 38,
+		"resist": { "shadow": 20 },
+		"attack": {
+			"name": "bite",
+			"kind": "shadow",
+			"damage": "6~15",
+			"leech": 0.1
+		}
+	},
+	{
+		"id": "wraith",
+		"desc": "A ghostly black form.",
+		"kind": "undead",
+		"level": 29,
+		"hp": 30,
+		"defense": 40,
+		"resist": {
+			"spirit": 20,
+			"shadow": 20
+		},
+		"attack": {
+			"name": "death touch",
+			"kind": "shadow",
+			"damage": "3~7"
+		},
+		"loot": { "souls": { "%": "30%", "value": "2~4", "skipLocked": true } }
+	},
+	{
+		"id": "magicmirror",
+		"name": "magic mirror",
+		"kind": "construct",
+		"level": 33,
+		"hp": 52,
+		"attack": {
+			"name": "light beam",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"kind": "light",
+			"damage": "0~12"
+		},
+		"resist": { "light": 30 }
+	},
+	{
+		"id": "phoenix",
+		"level": 14,
+		"desc": "It's more fire than bird.",
+		"kind": "magicbeast",
+		"evil": -13,
+		"hp": 47,
+		"defense": 40,
+		"attack": {
+			"name": "flame wing",
+			"kind": "fire",
+			"damage": "11~20"
+		},
+		"loot": [
+			{
+				"firegem": "1~3"
+			}
+		]
+	},
+	{
+		"id": "iceelemental",
+		"name": "ice elemental",
+		"desc": "What's so scary about a bunch of icicles?",
+		"kind": "elemental",
+		"level": 23,
+		"hp": 25,
+		"resist": { "water": 20 },
+		"attack": {
+			"name": "ice shard",
+			"kind": "water",
+			"damage": "3~7"
+		},
+		"loot": { "watergem": "10%" }
+	},
+	{
+		"id": "roc",
+		"desc": "An avian terror of mythic repute.",
+		"extdesc": "This one looks pretty young.",
+		"kind": "magicbeast",
+		"unique": true,
+		"biome": "mountains",
+		"level": 19,
+		"hp": 40,
+		"dodge": 50,
+		"attack": [
+			{
+				"name": "beak",
+				"kind": "pierce",
+				"damage": "2~4"
+			},
+			{
+				"name": "razor feathers",
+				"kind": "slash",
+				"targets": "enemies",
+				"maxTargets": 999,
+				"damage": "1.5~3.5"
+			}
+		]
+	},
+	{
+		"id": "roc2",
+		"name": "roc",
+		"desc": "An avian terror of mythic repute.",
+		"kind": "magicbeast",
+		"unique": true,
+		"biome": "mountains",
+		"level": 29,
+		"hp": 80,
+		"dodge": 50,
+		"attack": [
+			{
+				"name": "beak",
+				"kind": "pierce",
+				"damage": "4~6"
+			},
+			{
+				"name": "razor feathers",
+				"kind": "slash",
+				"targets": "enemies",
+				"maxTargets": 999,
+				"damage": "2.5~4.5"
+			}
+		]
+	},
+	{
+		"id": "incubus",
+		"desc": "You could bounce a coin off those abs.",
+		"kind": "demon",
+		"level": 50,
+		"regen": 2,
+		"attack": {
+			"name": "seduction",
+			"kind": "shadow",
+			"targets": "enemies",
+			"damage": "a.damage"
+		},
+		"loot": { "aetherhide": { "%": "60%", "value": "2~3" } }
+	},
+	{
+		"id": "medusa",
+		"desc": "Kind of ugly.",
+		"kind": "humanoid",
+		"level": 42,
+		"hp": 100,
+		"defense": 30,
+		"dodge": 30,
+		"attack": {
+			"name": "stare",
+			"kind": "mana",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"damage": "10~20",
+			"dot": {
+				"%": "20%",
+				"name": "Petrified",
+				"duration": 2,
+				"id": "paralyze"
+			}
+		},
+		"loot": {
+			"serpentskin": { "%": "60%", "value": "4~6" },
+			"rubies": { "%": "50%", "value": "3~4" }
+		}
+	},
+	{
+		"id": "orcchampion",
+		"name": "orc champion",
+		"level": 16,
+		"kind": "humanoid",
+		"desc": "A champion among orcs.",
+		"hp": 100,
+		"defense": 40,
+		"attack": {
+			"name": "broadsword",
+			"kind": "slash",
+			"damage": "15~20"
+		}
+	},
+	{
+		"id": "direbear",
+		"name": "dire bear",
+		"desc": "He's angrier now!!!",
+		"biome": ["hills", "woods"],
+		"kind": "magicbeast",
+		"level": 41,
+		"attack": {
+			"name": "magical claws",
+			"kind": "nature",
+			"damage": "a.damage"
+		}
+	},
+	{
+		"id": "undeadhorror",
+		"name": "undead horror",
+		"desc": "You need to stop looking at it before you go insane.",
+		"kind": "undead",
+		"level": 34,
+		"resist": { "shadow": 20 },
+		"attack": {
+			"name": "chill touch",
+			"kind": "water",
+			"damage": "a.damage"
+		}
+	},
+	{
+		"id": "dullahan",
+		"level": 16,
+		"evil": 20,
+		"desc": "It doesn't have a head. But you do.",
+		"kind": "humanoid",
+		"hp": 55,
+		"defense": 45,
+		"attack": {
+			"name": "vorpal sword",
+			"kind": "slash",
+			"damage": "7~15"
+		},
+		"biome": ["town", "woods", "plains"],
+		"resist": {
+			"spirit": 25
+		}
+	},
+	{
+		"id": "naga",
+		"desc": "From the waist up, it doesn't look that bad.",
+		"kind": "humanoid",
+		"level": 42,
+		"hp": 100,
+		"defense": 30,
+		"dodge": 30,
+		"attack": [
+			{
+				"name": "scimitars",
+				"kind": "slash",
+				"damage": "12~15"
+			},
+			{
+				"name": "fangs",
+				"kind": "nature",
+				"dot": {
+					"name": "venom",
+					"duration": 4,
+					"kind": "nature",
+					"damage": "4~8"
+				}
+			}
+		],
+		"loot": {
+			"quicksteel": { "%": "30%", "value": "4~8" },
+			"serpentskin": { "%": "60%", "value": "4~7" }
+		}
+	},
+	{
+		"id": "poltergeist",
+		"desc": "Only the objects flying at your head alert you to its presence.",
+		"kind": "undead",
+		"level": 16,
+		"hp": 60,
+		"defense": 40,
+		"attack": {
+			"name": "chill touch",
+			"kind": "shadow",
+			"damage": "2~5"
+		}
+	},
+	{
+		"id": "fireelemental",
+		"name": "fire elemental",
+		"desc": "Too hot to get close to.",
+		"kind": "elemental",
+		"level": 23,
+		"hp": 25,
+		"resist": { "fire": 20 },
+		"attack": {
+			"name": "scorch",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"kind": "fire",
+			"damage": "3~4"
+		},
+		"loot": { "firegem": "10%" }
+	},
+	{
+		"id": "lightelem",
+		"name": "light elemental",
+		"desc": "Too bright to see.",
+		"flavor": "My eyeeees!!!!",
+		"kind": "elemental",
+		"level": 32,
+		"hp": 30,
+		"dodge": 50,
+		"attack": {
+			"name": "light beam",
+			"kind": "light",
+			"damage": "4~10",
+			"dot": {
+				"name": "blind",
+				"duration": 20,
+				"tags": "t_tohitdown",
+				"kind": "blind",
+				"mod": { "self.tohit": -20 }
+			}
+		},
+		"loot": { "lightgem": "10%" }
+	},
+	{
+		"id": "cavetroll",
+		"name": "cave troll",
+		"level": 18,
+		"evil": 15,
+		"kind": "giant",
+		"biome": ["hills", "mountains", "cave"],
+		"flavor": "They have a cave troll...",
+		"hp": 90,
+		"defense": 35,
+		"regen": 2,
+		"attack": {
+			"name": "club",
+			"kind": "blunt",
+			"damage": "15~27"
+		}
+	},
+	{
+		"id": "irongolem",
+		"name": "iron golem",
+		"desc": "It moves with heavy clonking steps.",
+		"level": 33,
+		"kind": "construct",
+		"hp": 45,
+		"defense": 45,
+		"speed": 0,
+		"attack": {
+			"name": "smash",
+			"kind": "blunt",
+			"damage": "15~24"
+		},
+		"resist": {
+			"slash": 10,
+			"pierce": 10,
+			"blunt": 10
+		},
+		"loot": { "iron": "8~12" }
+	},
+	{
+		"id": "succubus",
+		"kind": "demon",
+		"flavor": "Oh my!",
+		"level": 50,
+		"regen": 2,
+		"attack": {
+			"name": "seduction",
+			"kind": "shadow",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"damage": "a.damage*0.7"
+		},
+		"loot": { "aetherhide": { "%": "60%", "value": "2~3" } }
+	},
+	{
+		"id": "drunkenmaster",
+		"name": "drunken master",
+		"level": 20,
+		"evil": -10,
+		"kind": "humanoid",
+		"desc": "Master Wong Fei-Hung.",
+		"hp": 53,
+		"defense": 44,
+		"attack": {
+			"name": "fists",
+			"kind": "blunt",
+			"damage": "7~17"
+		},
+		"resist": {
+			"physical": 20,
+			"light": 20
+		}
+	},
+	{
+		"id": "yeti",
+		"flavor": "You ain't seen nothing yeti.",
+		"kind": "giant",
+		"biome": "mountains",
+		"level": 32,
+		"hp": 60,
+		"attack": {
+			"name": "frozen claws",
+			"kind": "water",
+			"damage": "5~7"
+		}
+	},
+	{
+		"id": "lightningelemental",
+		"name": "lightning elemental",
+		"flavor": "All your hairs feel prickly.",
+		"kind": "elemental",
+		"level": 28,
+		"hp": 40,
+		"attack": {
+			"name": "lightning",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"kind": "light",
+			"damage": "4~6"
+		},
+		"loot": {
+			"firegem": "25%",
+			"airgem": "25%",
+			"lightgem": "25%"
+		}
+	},
+	{
+		"id": "mindslayer",
+		"name": "mind slayer",
+		"level": 22,
+		"evil": 24,
+		"desc": "It licks your brain with its mind.",
+		"kind": "humanoid",
+		"hp": 49,
+		"defense": 44,
+		"attack": {
+			"name": "mind flay",
+			"kind": "mana",
+			"damage": "11~19",
+			"dot": {
+				"id": "silence",
+				"duration": 10
+			}
+		}
+	},
+	{
+		"id": "lesserwyrm",
+		"name": "lesser wyrm",
+		"desc": "A cross between a worm and a dragon.",
+		"kind": "magicbeast",
+		"level": 40,
+		"attack": {
+			"name": "bite",
+			"kind": "fire",
+			"damage": "9~15"
+		}
+	},
+	{
+		"id": "basilisk",
+		"level": 22,
+		"kind": "magicbeast",
+		"desc": "A large lizard with a petrifying bite.",
+		"hp": 64,
+		"defense": 32,
+		"speed": 8,
+		"attack": [
+			{
+				"name": "bite",
+				"kind": "earth",
+				"damage": "10~30",
+				"dot": {
+					"id": "paralyze",
+					"duration": 1
+				}
+			},
+			{
+				"name": "claws",
+				"kind": "slash",
+				"damage": "20~50"
+			}
+		],
+		"loot": { "basiliskhide": { "%": "30%", "value": "2~4" } },
+		"immune": "poison"
+	},
+	{
+		"id": "m_cordyceps",
+		"name": "cordyceps",
+		"kind": "plant",
+		"level": 26,
+		"desc": "A writhing fungus chokes the air with spores.",
+		"hp": 65,
+		"defense": 80,
+		"attack": [
+			{
+				"name": "spores",
+				"kind": "nature",
+				"damage": "20~40",
+				"dot": {
+					"id": "charm",
+					"duration": 10
+				}
+			}
+		]
+	},
+	{
+		"id": "m_stranglevine",
+		"name": "stranglevine",
+		"kind": "plant",
+		"level": 34,
+		"desc": "Writhing tendrils seek to ensnare fresh prey.",
+		"hp": 165,
+		"spells": "vinewhip",
+		"attack": {
+			"name": "strangle",
+			"kind": "blunt",
+			"damage": "10~20",
+			"dot": [
+				{
+					"id": "stranglingvine",
+					"name": "strangulation",
+					"duration": 50,
+					"damage": "5~10"
+				},
+				{
+					"id": "entangle",
+					"name": "tangled",
+					"duration": 10
+				}
+			]
+		}
+	},
+	{
+		"id": "cockatrice",
+		"level": 30,
+		"kind": "magicbeast",
+		"desc": "The stare of the cockatrice is death.",
+		"speed": 8,
+		"hp": 300,
+		"attack": [
+			{
+				"name": "gaze",
+				"kind": "earth",
+				"damage": "30~60",
+				"dot": {
+					"id": "paralyze",
+					"duration": 0.75
+				}
+			}
+		],
+		"immune": "paralyze"
+	},
+	{
+		"id": "basilisk2",
+		"name": "greater basilisk",
+		"level": 34,
+		"kind": "magicbeast",
+		"desc": "A massive lizard with a petrifying bite.",
+		"hp": 300,
+		"attack": [
+			{
+				"name": "bite",
+				"kind": "earth",
+				"damage": "40~70",
+				"dot": {
+					"%": "30%",
+					"id": "paralyze",
+					"duration": 10
+				}
+			},
+			{
+				"name": "claws",
+				"kind": "slash",
+				"damage": "50~100"
+			}
+		],
+		"loot": { "basiliskhide": { "%": "30%", "value": "3~5" } },
+		"immune": "poison,paralyze"
+	},
+	{
+		"id": "hillgiant",
+		"name": "hill giant",
+		"level": 22,
+		"biome": "hills",
+		"kind": "giant",
+		"evil": 17,
+		"desc": "You've seen bigger.",
+		"hp": 120,
+		"defense": 45,
+		"attack": {
+			"name": "club",
+			"kind": "blunt",
+			"damage": "15~24"
+		},
+		"resist": {
+			"earth": 20
+		}
+	},
+	{
+		"id": "troll",
+		"flavor": "Tro lo lo.",
+		"kind": "giant",
+		"biome": ["woods", "hills", "mountains", "swamp"],
+		"level": 35,
+		"hp": 100,
+		"regen": 2,
+		"speed": 10,
+		"attack": {
+			"name": "claws",
+			"kind": "blunt",
+			"damage": "10~13"
+		}
+	},
+	{
+		"id": "vampiremaster",
+		"name": "vampire master",
+		"desc": "Worked his way up the vampire ranks, and has his very own brood now.",
+		"kind": "undead",
+		"unique": true,
+		"level": 43,
+		"hp": 340,
+		"attack": {
+			"name": "bite",
+			"kind": "shadow",
+			"damage": "10~25",
+			"leech": 0.2
+		}
+	},
+	{
+		"id": "desillaconcubine",
+		"name": "desilla's concubine",
+		"desc": "A devoted follower of the sorceress Desilla.",
+		"kind": "humanoid",
+		"unique": true,
+		"level": 54,
+		"hp": 600,
+		"defense": 50,
+		"dodge": 50,
+		"regen": 3,
+		"attack": {
+			"name": "claws",
+			"damage": "35~45",
+			"type": "slash"
+		},
+		"loot": {
+			"ecdysiastwrap": 1,
+			"amberroot": "2~4"
+		}
+	},
+	{
+		"id": "firegolem",
+		"name": "fire golem",
+		"level": 22,
+		"kind": "construct",
+		"desc": "Crafted from only the finest phlogiston.",
+		"hp": 100,
+		"defense": 53,
+		"attack": {
+			"name": "fire punch",
+			"kind": "fire",
+			"damage": "15~23"
+		},
+		"immune": "fire,spirit,sleep,fear,paralysis,"
+	},
+	{
+		"id": "grimstalk",
+		"biome": "woods",
+		"desc": "A wooden demon with fingers like blades.",
+		"kind": "demon",
+		"level": 41,
+		"hp": 100,
+		"defense": 40,
+		"regen": 2,
+		"attack": {
+			"name": "claws",
+			"kind": "slash",
+			"damage": "10~14"
+		}
+	},
+	{
+		"id": "valkyrie",
+		"desc": "She'll take you to Valhalla.",
+		"kind": "humanoid",
+		"level": 35,
+		"hp": 45,
+		"defense": 30,
+		"dodge": 30,
+		"attack": {
+			"name": "claymore",
+			"kind": "slash",
+			"damage": "6~7"
+		},
+		"loot": {
+			"ichor": "1%",
+			"quicksteel": { "%": "75%", "value": "4~5" },
+			"rubies": { "%": "75%", "value": "2~3" }
+		}
+	},
+	{
+		"id": "trow",
+		"level": 24,
+		"evil": 5,
+		"desc": "A towering giant of stone.",
+		"flavor": "You should have stayed out of the cloudspine.",
+		"kind": "giant",
+		"hp": 225,
+		"defense": 50,
+		"attack": {
+			"name": "kick",
+			"kind": "blunt",
+			"damage": "14~20"
+		}
+	},
+	{
+		"id": "gryffon",
+		"desc": "Body of a lion. Face of a giant eagle.",
+		"kind": "magicbeast",
+		"level": 36,
+		"attack": {
+			"name": "beak",
+			"kind": "pierce",
+			"damage": "a.damage*0.8"
+		}
+	},
+	{
+		"id": "bloodgolem",
+		"name": "blood golem",
+		"level": 24,
+		"kind": "construct",
+		"desc": "A creature of pure blood.",
+		"hp": 90,
+		"defense": 45,
+		"attack": {
+			"name": "slam",
+			"kind": "blunt",
+			"damage": "15~20",
+			"leech": 0.5
+		},
+		"immune": "spirit,sleep,fear,paralysis"
+	},
+	{
+		"id": "manticore",
+		"level": 24,
+		"kind": "magicbeast",
+		"evil": 5,
+		"desc": "",
+		"hp": 130,
+		"defense": 48,
+		"attack": {
+			"name": "sting",
+			"damage": "15~25",
+			"kind": "pierce",
+			"dot": {
+				"kind": "nature",
+				"damage": "5~8",
+				"duration": 5
+			}
+		}
+	},
+	{
+		"id": "bogwitch",
+		"name": "bog witch",
+		"kind": "humanoid",
+		"desc": "Vicious witch in the waters of the Great Bog.",
+		"unique": true,
+		"biome": "swamp",
+		"level": 44,
+		"hp": 600,
+		"defense": 48,
+		"regen": 3,
+		"resist": { "nature": 20 },
+		"attack": {
+			"name": "claws",
+			"kind": "slash",
+			"damage": "8~16",
+			"dot": {
+				"name": "black blood",
+				"duration": 20,
+				"kind": "nature",
+				"damage": "6~10"
+			}
+		},
+		"loot": { "rubies": { "%": "50%", "value": "6~8" } }
+	},
+	{
+		"id": "skellord",
+		"name": "skeleton lord",
+		"desc": "Are those rubies in its eyes?",
+		"kind": "undead",
+		"unique": true,
+		"level": 45,
+		"hp": 600,
+		"defense": 30,
+		"attack": {
+			"name": "longsword",
+			"kind": "slash",
+			"damage": "10~18"
+		},
+		"loot": {
+			"bones": { "value": 10, "skipLocked": true },
+			"rubies": 2
+		}
+	},
+	{
+		"id": "ent",
+		"desc": "Out cruising for some ent-wives.",
+		"kind": "giant",
+		"biome": "woods",
+		"level": 42,
+		"hp": 120,
+		"defense": 50,
+		"resist": { "nature": 30 },
+		"regen": 2,
+		"speed": 0,
+		"attack": {
+			"name": "trunk slam",
+			"kind": "nature",
+			"damage": "40~60"
+		}
+	},
+	{
+		"id": "wyvern",
+		"desc": "Not a dragon. But it will kill you like one.",
+		"flavor": "Except the part where it kills you like a proper dragon would.",
+		"kind": "magicbeast",
+		"level": 61,
+		"resist": { "water": 50 },
+		"attack": {
+			"name": "ice spikes",
+			"kind": "water",
+			"damage": "100~120"
+		}
+	},
+	{
+		"id": "wyvern2",
+		"name": "vicious wyvern",
+		"level": 40,
+		"desc": "",
+		"kind": "magicbeast",
+		"hp": 332,
+		"defense": 42,
+		"attack": [
+			{
+				"name": "bite",
+				"kind": "pierce",
+				"damage": "40~80",
+				"dot": {
+					"kind": "nature",
+					"duration": 20,
+					"damage": "10~20"
+				}
+			}
+		],
+		"immune": "air,poison"
+	},
+	{
+		"id": "jabberwocky",
+		"level": 50,
+		"unique": true,
+		"desc": "",
+		"kind": "magicbeast",
+		"hp": 732,
+		"defense": 42,
+		"attack": [
+			{
+				"name": "bite",
+				"kind": "pierce",
+				"damage": "40~80",
+				"dot": {
+					"kind": "nature",
+					"duration": 20,
+					"damage": "10~20"
+				}
+			}
+		],
+		"immune": "air,poison"
+	},
+	{
+		"id": "greendragon",
+		"name": "green dragon",
+		"desc": "Just your standard green dragon.",
+		"kind": "dragon",
+		"level": 50,
+		"hp": 210,
+		"defense": 50,
+		"resist": { "fire": 25 },
+		"attack": [
+			{
+				"name": "fire breath",
+				"targets": "enemies",
+				"maxTargets": 999,
+				"kind": "fire",
+				"damage": "25~35"
+			}
+		],
+		"loot": { "dragonscale": "1~16" }
+	},
+	{
+		"id": "sandwyrm",
+		"name": "sand wyrm",
+		"kind": "beast",
+		"level": 28,
+		"desc": "Terror of the desert wastes.",
+		"hp": 130,
+		"defense": 50,
+		"spells": "quake",
+		"attack": {
+			"name": "crush",
+			"kind": "blunt",
+			"damage": "12~24"
+		},
+		"resist": {
+			"earth": 30
+		}
+	},
+	{
+		"id": "beholder",
+		"kind": "magicbeast",
+		"desc": "It seeeeees you.",
+		"level": 72,
+		"hp": 1300,
+		"defense": 50,
+		"attack": [
+			{
+				"name": "Evil eye of silence",
+				"dot": { "duration": 2, "id": "silence" }
+			},
+			{
+				"name": "Evil eye of paralysis",
+				"dot": { "duration": 2, "id": "paralyze" }
+			},
+			{
+				"name": "Evil eye of entaglement",
+				"dot": { "duration": 2, "id": "entangle" }
+			},
+			{
+				"name": "Evil eye of torment",
+				"dot": {
+					"name": "Psychic torment",
+					"duration": 5,
+					"kind": "mana",
+					"damage": "200~300"
+				}
+			}
+		]
+	},
+	{
+		"id": "angel",
+		"desc": "It has wings and a halo of light.",
+		"kind": "celestial",
+		"level": 38,
+		"hp": 45,
+		"defense": 45,
+		"dodge": 45,
+		"resist": { "light": 20 },
+		"attack": {
+			"name": "light sword",
+			"kind": "light",
+			"damage": "a.damage"
+		},
+		"loot": { "ichor": "30%" }
+	},
+	{
+		"id": "m_lich",
+		"name": "lich",
+		"level": 28,
+		"kind": "undead",
+		"evil": 30,
+		"desc": "It was a wizard, once.",
+		"hp": 166,
+		"defense": 68,
+		"regen": 3,
+		"attack": {
+			"name": "death touch",
+			"kind": "shadow",
+			"leech": 0.1,
+			"damage": "26~36"
+		},
+		"loot": {
+			"ichor": "2%"
+		}
+	},
+	{
+		"id": "demon",
+		"kind": "demon",
+		"level": 63,
+		"hp": 145,
+		"defense": 80,
+		"resist": {
+			"shadow": 100,
+			"fire": 50
+		},
+		"regen": 6,
+		"attack": {
+			"name": "darksword",
+			"kind": "shadow",
+			"damage": "100~140"
+		},
+		"loot": { "aetherhide": { "%": "60%", "value": "4~7" } }
+	},
+	{
+		"id": "cyclops",
+		"level": 28,
+		"kind": "giant",
+		"evil": 9,
+		"desc": "",
+		"hp": 170,
+		"defense": 65,
+		"attack": {
+			"name": "punch",
+			"kind": "blunt",
+			"damage": "17~50"
+		},
+		"loot": {
+			"ichor": "5%"
+		}
+	},
+	{
+		"id": "reddragon",
+		"name": "red dragon",
+		"kind": "dragon",
+		"level": 56,
+		"hp": 400,
+		"defense": 60,
+		"resist": { "fire": 50 },
+		"attack": {
+			"name": "fire breath",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"kind": "fire",
+			"damage": "25~35"
+		},
+		"loot": { "dragonscale": "1~24" }
+	},
+	{
+		"id": "behemoth",
+		"desc": "Such an incredible vitality.",
+		"flavor": "Much wow",
+		"kind": "beast",
+		"level": 74,
+		"hp": 1200,
+		"defense": 100,
+		"regen": 15,
+		"attack": {
+			"name": "trample",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"kind": "earth",
+			"damage": "150~200"
+		}
+	},
+	{
+		"id": "vampirelord",
+		"name": "vampire lord",
+		"level": 30,
+		"kind": "undead",
+		"evil": 40,
+		"desc": "Master Vampires are its lackeys.",
+		"hp": 120,
+		"defense": 70,
+		"regen": 5,
+		"attack": {
+			"name": "bite",
+			"kind": "shadow",
+			"damage": "20~40",
+			"leech": 0.3
+		},
+		"loot": {
+			"ichor": "5%",
+			"bloodgem": "1~3"
+		},
+		"resist": {
+			"shadow": 40
+		}
+	},
+	{
+		"id": "frostgiant",
+		"name": "frost giant",
+		"kind": "giant",
+		"unique": true,
+		"level": 44,
+		"hp": 400,
+		"defense": 65,
+		"regen": 2,
+		"speed": 0,
+		"attack": {
+			"name": "ice quake",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"kind": "water",
+			"damage": "40~60"
+		}
+	},
+	{
+		"id": "m_lichlord",
+		"name": "lich lord",
+		"desc": "It was a wizard, once.",
+		"kind": "undead",
+		"level": 72,
+		"hp": 1,
+		"barrier": 2000,
+		"recharge": 20,
+		"attack": {
+			"name": "death touch",
+			"kind": "shadow",
+			"damage": "250~300"
+		}
+	},
+	{
+		"id": "mithrilgolem",
+		"name": "mithril golem",
+		"level": 34,
+		"kind": "construct",
+		"desc": "Would be worth a fortune if you could even make a dent in it.",
+		"hp": 200,
+		"defense": 100,
+		"attack": {
+			"name": "pound",
+			"kind": "blunt",
+			"damage": "50~95"
+		},
+		"resist": {
+			"earth": 30,
+			"physical": 70,
+			"blunt": 70,
+			"pierce": 70,
+			"slash": 70
+		},
+		"immune": "spirit,sleep,fear,paralysis"
+	},
+	{
+		"id": "ancientvampire",
+		"name": "ancient vampire",
+		"kind": "undead",
+		"level": 61,
+		"hp": 280,
+		"defense": 75,
+		"dodge": 75,
+		"resist": { "shadow": 50 },
+		"attack": {
+			"name": "bite",
+			"kind": "shadow",
+			"damage": "80~120",
+			"leech": 0.05
+		}
+	},
+	{
+		"id": "leviathan",
+		"level": 36,
+		"kind": "beast",
+		"desc": "A mountain moves in the depths of the sea.",
+		"hp": 400,
+		"defense": 75,
+		"attack": {
+			"name": "crush",
+			"kind": "blunt",
+			"damage": "80~110"
+		},
+		"immune": "water"
+	},
+	{
+		"id": "balrog",
+		"desc": "A servant of Morgoth.",
+		"kind": "maiar",
+		"level": 63,
+		"hp": 600,
+		"defense": 80,
+		"immune": "fire",
+		"attack": {
+			"name": "flame whip",
+			"kind": "fire",
+			"damage": "90~150"
+		},
+		"loot": {
+			"firegem": 10,
+			"aetherhide": { "%": "60%", "value": "4~6" }
+		}
+	},
+	{
+		"id": "archon",
+		"kind": "celestial",
+		"desc": "It has wings and a halo of light.",
+		"extdesc": "And more wings and another halo...",
+		"flavor": "And more wings and another halo...",
+		"unique": true,
+		"level": 45,
+		"hp": 270,
+		"defense": 90,
+		"regen": 10,
+		"resist": { "light": 50 },
+		"speed": -20,
+		"attack": {
+			"name": "glimpse of the apocalypse",
+			"kind": "light",
+			"damage": 200
+		},
+		"loot": { "ichor": "50%" }
+	},
+	{
+		"id": "adamantgolem",
+		"name": "adamant golem",
+		"desc": "Unbreakable.",
+		"kind": "construct",
+		"level": 61,
+		"hp": 450,
+		"defense": 150,
+		"resist": {
+			"slash": 100,
+			"pierce": 100,
+			"blunt": 100
+		},
+		"attack": {
+			"name": "smash",
+			"kind": "blunt",
+			"damage": "a.damage*0.7"
+		},
+		"loot": { "adamant": 25 }
+	},
+	{
+		"id": "maturereddragon",
+		"name": "mature red dragon",
+		"kind": "dragon",
+		"level": 61,
+		"hp": 500,
+		"defense": 90,
+		"resist": { "fire": 90 },
+		"attack": {
+			"name": "fire breath",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"kind": "fire",
+			"damage": "80~105"
+		}
+	},
+	{
+		"id": "mythicvampire",
+		"name": "mythic vampire",
+		"level": 38,
+		"kind": "undead",
+		"evil": 60,
+		"desc": "",
+		"hp": 175,
+		"regen": 10,
+		"defense": 110,
+		"attack": {
+			"name": "bite",
+			"kind": "shadow",
+			"damage": "50~70",
+			"leech": 0.5
+		},
+		"loot": {
+			"bloodgem": "2~5"
+		},
+		"resist": {
+			"shadow": 80
+		}
+	},
+	{
+		"id": "karnivex",
+		"name": "Karnivex the BloodLock",
+		"desc": "The weakest of the Archlocks built his reputation upon sheer slaughter.",
+		"flavor": "Subtlety was lost on karnivex.",
+		"kind": "humanoid",
+		"unique": true,
+		"level": 64,
+		"hp": 2400,
+		"barrier": 1200,
+		"attack": [
+			{
+				"name": "fire storm",
+				"log": { "%": "10%", "desc": "I have no equals!" },
+				"targets": "enemies",
+				"maxTargets": 999,
+				"dot": {
+					"kind": "fire",
+					"duration": 20,
+					"damage": "20~40"
+				}
+			},
+			{
+				"name": "fire bolt",
+				"log": { "%": "10%", "desc": "I will not be mocked!" },
+				"kind": "fire",
+				"damage": "70~100"
+			}
+		],
+		"loot": { "karnivexcrown": "100%", "diamonds": "8~12" }
+	},
+	{
+		"id": "desilla",
+		"name": "Desilla the Vicious",
+		"level": 40,
+		"evil": 27,
+		"desc": "Among the Archlocks, desilla was more inclined to indulgence than conquest.",
+		"kind": "humanoid",
+		"hp": 1500,
+		"defense": 133,
+		"unique": true,
+		"attack": [
+			{
+				"name": "red haze",
+				"log": {
+					"%": "10%",
+					"desc": "Don't be clouded by desires."
+				},
+				"targets": "enemies",
+				"maxTargets": 999,
+				"dot": {
+					"id": "redhaze",
+					"duration": 20,
+					"mod": {}
+				}
+			},
+			{
+				"name": "red bolt",
+				"damage": "90~123",
+				"log": {
+					"%": "10%",
+					"desc": "Now for some fun."
+				},
+				"kind": "shadow"
+			}
+		]
+	},
+	{
+		"id": "bodias",
+		"name": "Bodias the Grim",
+		"level": 50,
+		"evil": 27,
+		"desc": "",
+		"kind": "humanoid",
+		"hp": 2000,
+		"unique": true,
+		"defense": 150,
+		"attack": [
+			{
+				"name": "quake",
+				"targets": "enemies",
+				"maxTargets": 999,
+				"kind": "earth",
+				"log": {
+					"%": "10%",
+					"desc": "Does Dhroz still slumber?"
+				},
+				"dot": {
+					"id": "quake",
+					"duration": 30,
+					"damage": "40~70",
+					"mod": {}
+				}
+			},
+			{
+				"name": "disintegrate",
+				"damage": "100~150",
+				"log": {
+					"%": "10%",
+					"desc": "You are dismissed."
+				},
+				"kind": "earth"
+			}
+		]
+	},
+	{
+		"id": "narz",
+		"name": "Narz, the Black Spindle",
+		"level": 42,
+		"desc": "",
+		"unused": true,
+		"unique": true,
+		"kind": "humanoid",
+		"hp": 1700,
+		"defense": 200,
+		"attack": [
+			{
+				"name": "void shroud",
+				"targets": "enemies",
+				"maxTargets": 999,
+				"log": {
+					"%": "10%",
+					"desc": "Even Dhroz feared the void."
+				},
+				"dot": {
+					"kind": "void",
+					"duration": 20,
+					"damage": "30~75",
+					"mod": {}
+				},
+				"kind": "void"
+			},
+			{
+				"name": "void bolt",
+				"damage": "100~150",
+				"kind": "void"
+			}
+		]
+	},
+	{
+		"id": "natureswrath",
+		"name": "nature's wrath",
+		"level": 44,
+		"kind": "spirit",
+		"evil": 20,
+		"desc": "",
+		"hp": 400,
+		"regen": 15,
+		"defense": 120,
+		"attack": {
+			"name": "lifestorm",
+			"kind": "nature",
+			"damage": "100~125"
+		},
+		"immune": "nature,poison"
+	},
+	{
+		"id": "m_avatar",
+		"name": "avatar",
+		"level": 46,
+		"kind": "deity",
+		"desc": "Incarnation of a god.",
+		"hp": 700,
+		"defense": 120,
+		"regen": 20,
+		"attack": {
+			"name": "holy shine",
+			"kind": "light",
+			"damage": "75~130"
+		},
+		"immune": "light"
+	},
+	{
+		"id": "cthulhu",
+		"desc": "In his house at R'lyeh dead Cthulhu waits dreaming.",
+		"kind": "outsider",
+		"unique": true,
+		"level": 75,
+		"hp": 4000,
+		"defense": 125,
+		"regen": 25,
+		"attack": {
+			"name": "madness",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"kind": "spirit",
+			"damage": "160~200"
+		}
+	},
+	{
+		"id": "jazid",
+		"desc": "Jazid's sole purpose is to kill the bearer of his compass.",
+		"flavor": "Tales of Jazid were already ancient when Dhroze was entombed.",
+		"kind": "kell",
+		"unique": true,
+		"require": "g.jazidscompass.isEquipped()",
+		"level": 52,
+		"hp": 2000,
+		"speed": -50,
+		"attack": {
+			"name": "The Claw",
+			"tohit": 999,
+			"targets": "enemyleader",
+			"kind": "pure",
+			"damage": "5000~8000"
+		}
+	},
+	{
+		"id": "m_ancientlich",
+		"name": "ancient lich",
+		"level": 46,
+		"kind": "undead",
+		"evil": 30,
+		"desc": "Not one lich in a hundred live to reach such heights.",
+		"hp": 550,
+		"regen": 15,
+		"defense": 120,
+		"attack": {
+			"name": "death touch",
+			"kind": "shadow",
+			"damage": "80~120",
+			"leech": 0.1
+		},
+		"resist": {
+			"shadow": 50,
+			"mana": 25,
+			"water": 40,
+			"spirit": 25
+		},
+		"loot": {
+			"ichor": "10%"
+		}
+	},
+	{
+		"id": "strativax1",
+		"name": "strativax slumbering",
+		"desc": "He does not appear to notice your presence.",
+		"kind": "dragon",
+		"unique": true,
+		"level": 68,
+		"hp": 10000,
+		"regen": 50
+	},
+	{
+		"id": "strativax2",
+		"name": "strativax waking",
+		"desc": "The dragon's eyes begin to open.",
+		"level": 68,
+		"unique": true,
+		"kind": "dragon",
+		"hp": 50000,
+		"speed": 0,
+		"attack": [
+			{
+				"name": "tail flick",
+				"kind": "pierce",
+				"damage": "100~150"
+			},
+			{
+				"name": "burning yawn",
+				"targets": "enemies",
+				"maxTargets": 999,
+				"kind": "fire",
+				"damage": "100~150"
+			}
+		]
+	},
+	{
+		"id": "strativax3",
+		"name": "strativax awaken",
+		"desc": "Strativax now furious at your impetuous intrusion.",
+		"kind": "dragon",
+		"unique": true,
+		"level": 68,
+		"hp": 50000,
+		"speed": 40,
+		"attack": [
+			{
+				"name": "talon crush",
+				"kind": "blunt",
+				"damage": "200~300"
+			},
+			{
+				"name": "fire breath",
+				"targets": "enemies",
+				"maxTargets": 999,
+				"kind": "fire",
+				"damage": "150~250"
+			}
+		],
+		"loot": {
+			"dragonscale": 500
+		}
+	},
+	{
+		"id": "gorborung",
+		"name": "the gorborung",
+		"desc": "The gargantuan entity in the depths of Mt. Gorbu never seen by mortal eyes.",
+		"flavor": "Most agree it's best the Gorborung reside in darkness.",
+		"unique": true,
+		"level": 77,
+		"hp": 5000,
+		"defense": 100,
+		"attack": {
+			"name": "gorboring",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"kind": "air",
+			"damage": "250~350"
+		}
+	},
+	{
+		"id": "brittelwort",
+		"name": "brittelwort the watcher",
+		"kind": "kell",
+		"level": 54,
+		"unique": true,
+		"desc": "The silent Brittelwort watches in the Felkill mountains, punishing all transgressions.",
+		"hp": 4000,
+		"defense": 100,
+		"attack": [
+			{
+				"name": "siphon",
+				"kind": "shadow",
+				"leech": 0.2,
+				"damage": "70~100"
+			},
+			{
+				"dot": {
+					"id": "paralyze",
+					"duration": 15
+				}
+			}
+		],
+		"flavor": "It bears a striking similarity to the lesser mummers."
+	},
+	{
+		"id": "dhrozenknight",
+		"name": "dhrozen knight",
+		"level": 50,
+		"evil": 70,
+		"desc": "An immortal knight of Dhroz. Of fifty slain, one is knighted.",
+		"hp": 1200,
+		"attack": {
+			"name": "nether blade",
+			"kind": "shadow",
+			"damage": "130~150"
+		},
+		"flavor": "To escape Sarnagar one had only collect the pieces of a single set of Dhrozen armor.",
+		"immune": "sleep,charm"
+	},
+	{
+		"id": "mummer",
+		"level": 48,
+		"kind": "spirit",
+		"desc": "A voiceless form with a bare and twisted skull.",
+		"hp": 700,
+		"defense": 70,
+		"attack": [
+			{
+				"name": "soul siphon",
+				"kind": "shadow",
+				"leech": 0.3,
+				"damage": "40~70"
+			},
+			{
+				"dot": {
+					"id": "paralyze",
+					"duration": 1
+				}
+			}
+		],
+		"flavor": "Believed to be a corrupted form of lesser Kell.",
+		"immune": "charm"
+	},
+	{
+		"id": "netherwraith",
+		"level": 52,
+		"kind": "spirit",
+		"desc": "A spirit cloaked in noxious nether.",
+		"hp": 1000,
+		"defense": 40,
+		"dodge": 30,
+		"attack": {
+			"name": "nether touch",
+			"kind": "spirit",
+			"damage": "50~80",
+			"dot": {
+				"duration": 10,
+				"kind": "shadow",
+				"damage": 30
+			}
+		},
+		"loot": { "souls": { "value": 1, "skipLocked": true } },
+		"resist": {
+			"spirit": 50
+		},
+		"immune": "paralysis"
+	},
+	{
+		"id": "reaper",
+		"level": 60,
+		"evil": 50,
+		"noproc": true,
+		"unused": true,
+		"desc": "a raw manifestation of death is fleeting, but terrible beyond measure.",
+		"kind": "shade",
+		"hp": 6666,
+		"defense": 200,
+		"regen": -100,
+		"attack": [
+			{
+				"name": "deathly presence",
+				"targets": "enemies",
+				"maxTargets": 999,
+				"dot": {
+					"kind": "shadow",
+					"duration": 500,
+					"damage": "50~80"
+				}
+			},
+			{
+				"name": "reap",
+				"kind": "shadow",
+				"damage": "150~300"
+			}
+		]
+	},
+	{
+		"id": "fetigern",
+		"level": 60,
+		"unique": true,
+		"unused": true,
+		"evil": 100,
+		"kind": "humanoid",
+		"desc": "The terror before the Wind Age.",
+		"hp": 9000,
+		"regen": 30,
+		"defense": 400,
+		"attack": {
+			"name": "bite",
+			"kind": "nature",
+			"dot": {
+				"kind": "nature",
+				"duration": 10,
+				"damage": "130~200"
+			},
+			"damage": "100~200"
+		}
+	},
+	{
+		"id": "ouroboros",
+		"level": 68,
+		"kind": "deity",
+		"unused": true,
+		"unique": true,
+		"desc": "The serpent that grips the earth in its scales.",
+		"hp": 130000,
+		"defense": 200,
+		"attack": {
+			"name": "crush",
+			"kind": "blunt",
+			"damage": "200~350"
+		},
+		"immune": "earth"
+	},
+	{
+		"id": "sum_wisp",
+		"name": "wisp",
+		"tags": "t_summon",
+		"level": 2,
+		"kind": "spirit",
+		"desc": "A ghostly wisp of summoned air.",
+		"hp": 1,
+		"noproc": true,
+		"defense": 1,
+		"speed": -10,
+		"onSummon": {
+			"name": "ephemeral",
+			"id": "mon_selfdestruct5",
+			"targets": "self",
+			"dot": {
+				"targets": "self",
+				"duration": 500,
+				"onExpire": {
+					"name": "fade away",
+					"harmless": true,
+					"nodefense": true,
+					"targets": "self",
+					"damage": "100+a.hp"
+				}
+			}
+		}
+	},
+	{
+		"id": "sum_hobgoblin",
+		"name": "hobgoblin",
+		"tags": "t_summon",
+		"level": 10,
+		"kind": "goblinoid",
+		"desc": "",
+		"hp": 15,
+		"noproc": true,
+		"defense": 17,
+		"attack": {
+			"name": "dagger",
+			"kind": "pierce",
+			"damage": "1~5"
+		}
+	},
+	{
+		"id": "sum_lgspider",
+		"name": "large spider",
+		"tags": "t_summon,t_summon_beast",
+		"level": 6,
+		"kind": "beast",
+		"desc": "You can't tell if she looks hungry.",
+		"hp": 8,
+		"noproc": true,
+		"defense": 15,
+		"attack": {
+			"name": "bite",
+			"kind": "pierce",
+			"damage": "4~9",
+			"dot": {
+				"kind": "nature",
+				"name": "poison",
+				"damage": "1~2",
+				"duration": 3
+			}
+		},
+		"resist": {
+			"poison": 25
+		}
+	},
+	{
+		"id": "sum_unicorn",
+		"name": "unicorn",
+		"tags": "t_summon,t_summon_beast",
+		"level": 18,
+		"kind": "magicbeast",
+		"desc": "Its horn is full of magic.",
+		"hp": 77,
+		"noproc": true,
+		"defense": 35,
+		"spells": "lightspear,lightregen1",
+		"attack": {
+			"name": "horn",
+			"kind": "pierce",
+			"damage": "7~14"
+		}
+	},
+	{
+		"id": "sum_stingybee",
+		"name": "stingy bee",
+		"tags": "t_summon,t_summon_beast",
+		"kind": "beast",
+		"level": 2,
+		"hp": 2,
+		"noproc": true,
+		"defense": 2,
+		"speed": -10,
+		"onSummon": {
+			"name": "ephemeral",
+			"id": "mon_selfdestruct5",
+			"targets": "self",
+			"dot": {
+				"duration": 5,
+				"onExpire": {
+					"name": "fade away",
+					"harmless": true,
+					"nodefense": true,
+					"targets": "self",
+					"damage": "100+a.hp"
+				}
+			}
+		}
+	},
+	{
+		"id": "sum_magicblade",
+		"name": "magic blade",
+		"tags": "t_summon",
+		"level": 12,
+		"kind": "construct",
+		"desc": "It just floats there...",
+		"hp": 45,
+		"noproc": true,
+		"defense": 35,
+		"attack": {
+			"name": "magic sword",
+			"kind": "slash",
+			"damage": "4~10"
+		},
+		"resist": {
+			"mana": 30
+		}
+	},
+	{
+		"id": "sum_snek",
+		"name": "arcane serpent",
+		"tags": "t_summon,t_summon_beast",
+		"level": 12,
+		"kind": "magicbeast",
+		"desc": "Summoned by magic, now fiercely loyal to you.",
+		"flavor": "Boop as desired.",
+		"hp": 50,
+		"noproc": true,
+		"regen": 2,
+		"defense": 20,
+		"speed": 12,
+		"attack": [
+			{
+				"name": "constrict",
+				"kind": "blunt",
+				"damage": "6~14"
+			},
+			{
+				"name": "venom",
+				"dot": {
+					"duration": 10,
+					"kind": "nature",
+					"damage": "1~3"
+				}
+			}
+		],
+		"resist": {
+			"poison": 80
+		}
+	},
+	{
+		"id": "sum_prism",
+		"name": "fulminant prism",
+		"tags": "t_summon",
+		"level": 32,
+		"kind": "construct",
+		"desc": "A floating prism of unstable magical power.",
+		"hp": 100,
+		"noproc": true,
+		"defense": 50,
+		"onSummon": {
+			"name": "ephemeral",
+			"id": "mon_selfdestruct5",
+			"targets": "self",
+			"dot": {
+				"duration": 5,
+				"onExpire": {
+					"name": "fade away",
+					"harmless": true,
+					"nodefense": true,
+					"targets": "self",
+					"damage": "100+a.hp"
+				}
+			}
+		},
+		"onDeath": {
+			"name": "radiant burst",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"harmless": true,
+			"damage": 100,
+			"kind": "mana"
+		},
+		"immune": "mana,spirit"
+	},
+	{
+		"id": "sum_hero_ancestor",
+		"name": "heroic ancestor",
+		"tags": "t_summon",
+		"level": 26,
+		"kind": "spirit",
+		"desc": "A great hero of yore, inspiring awe with each strike.",
+		"hp": 55,
+		"noproc": true,
+		"defense": 35,
+		"spells": "splendor,perfectstrike",
+		"resist": {
+			"physical": 50,
+			"slash": 50,
+			"blunt": 50,
+			"pierce": 50,
+			"spirit": 80
+		},
+		"attack": [
+			{
+				"name": "glorious blade",
+				"kind": "slash",
+				"damage": "36~45",
+				"dot": {
+					"id": "paralyze",
+					"duration": 1
+				}
+			},
+			{
+				"name": "glorious hammer",
+				"kind": "blunt",
+				"damage": "36~45",
+				"dot": {
+					"id": "paralyze",
+					"duration": 1
+				}
+			},
+			{
+				"name": "glorious spear",
+				"kind": "pierce",
+				"damage": "36~45",
+				"dot": {
+					"id": "silence",
+					"duration": 1
+				}
+			}
+		]
+	},
+	{
+		"id": "sum_frostgiant",
+		"name": "frost giant",
+		"tags": "t_summon",
+		"level": 32,
+		"kind": "giant",
+		"desc": "",
+		"hp": 160,
+		"noproc": true,
+		"defense": 65,
+		"onSummon": {
+			"name": "stalwart",
+			"targets": "self",
+			"dot": {
+				"tags": "t_taunt",
+				"flags": "taunt"
+			}
+		},
+		"attack": {
+			"name": "punch",
+			"kind": "water",
+			"damage": "40~60"
+		},
+		"resist": {
+			"water": 75,
+			"air": 50
+		}
+	},
+	{
+		"id": "sum_queenbee",
+		"name": "queen bee",
+		"tags": "t_summon,t_summon_beast",
+		"level": 16,
+		"kind": "beast",
+		"desc": "Dbulm called them war wasps upon their discovery, thinking of their value in battle and tenacity in defense of their home. They've later been determined to be a type of bee, but the name has stuck as well as their honey.",
+		"hp": 85,
+		"noproc": true,
+		"defense": 30,
+		"spells": "mon_mk_stingybee",
+		"attack": {
+			"name": "sting",
+			"kind": "pierce",
+			"damage": "5~10",
+			"dot": {
+				"name": "venom",
+				"duration": 3,
+				"kind": "nature",
+				"damage": "1~2"
+			}
+		},
+		"immune": "poison"
+	},
+	{
+		"id": "sum_warwasp",
+		"name": "war wasp",
+		"tags": "t_summon,t_summon_beast",
+		"level": 8,
+		"kind": "beast",
+		"desc": "Actually a type of bee, despite Dbulm's nomenclature.",
+		"hp": 20,
+		"noproc": true,
+		"defense": 15,
+		"attack": {
+			"name": "sting",
+			"kind": "pierce",
+			"damage": "5~10",
+			"dot": {
+				"name": "venom",
+				"duration": 3,
+				"kind": "poison",
+				"damage": "1~2"
+			}
+		}
+	},
+	{
+		"id": "sum_phoenixegg",
+		"name": "phoenix egg",
+		"tags": "t_summon,t_summon_beast",
+		"level": 8,
+		"desc": "Guard it carefully and the hatched phoenix will be grateful.",
+		"kind": "magicbeast",
+		"hp": 10,
+		"noproc": true,
+		"defense": 30,
+		"onSummon": {
+			"name": "incubate",
+			"targets": "self",
+			"dot": {
+				"duration": 10,
+				"onExpire": {
+					"name": "hatch",
+					"hits": [
+						{
+							"name": "hatch",
+							"targets": "leader",
+							"summon": [
+								{
+									"id": "sum_phoenix",
+									"count": 1,
+									"max": 3
+								}
+							]
+						},
+						{
+							"name": "fade away",
+							"targets": "self",
+							"harmless": true,
+							"nodefense": true,
+							"damage": "100+a.hp"
+						}
+					]
+				}
+			}
+		},
+		"immune": "fire"
+	},
+	{
+		"id": "sum_phoenix",
+		"name": "phoenix",
+		"tags": "t_summon,t_summon_beast",
+		"level": 14,
+		"desc": "It's more fire than bird.",
+		"kind": "magicbeast",
+		"hp": 47,
+		"noproc": true,
+		"defense": 40,
+		"onSummon": {
+			"name": "rebirth",
+			"targets": "self",
+			"dot": {
+				"onDeath": {
+					"name": "rebirth",
+					"targets": "leader",
+					"summon": [
+						{
+							"id": "sum_phoenixegg",
+							"count": 1,
+							"max": 3
+						}
+					]
+				}
+			}
+		},
+		"attack": {
+			"name": "flame wing",
+			"kind": "fire",
+			"damage": "11~20"
+		},
+		"immune": "fire"
+	},
+	{
+		"id": "sum_sandmite",
+		"name": "sand mite",
+		"tags": "t_summon,t_summon_beast",
+		"kind": "beast",
+		"level": 10,
+		"desc": "Oversized parasites of the dunes.",
+		"hp": 16,
+		"noproc": true,
+		"speed": 7,
+		"spells": "mon_dig",
+		"attack": {
+			"name": "burrow",
+			"kind": "pierce",
+			"damage": "7~14"
+		},
+		"resist": {
+			"light": 50
+		}
+	},
+	{
+		"id": "sum_shadow",
+		"name": "your own shadow",
+		"tags": "t_summon",
+		"kind": "shadow",
+		"level": 14,
+		"desc": "Your own shadow, severed to fight at your side. Take care- it remains part of you.",
+		"hp": 32,
+		"noproc": true,
+		"defense": 10,
+		"spells": "gloom,deathbolt",
+		"attack": {
+			"name": "swipe",
+			"kind": "shadow",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"damage": "7~14",
+			"leech": 0.1
+		},
+		"onDeath": {
+			"name": "shadow price",
+			"targets": "leader",
+			"harmless": true,
+			"nodefense": true,
+			"damage": "5+t.hp.max/5"
+		},
+		"immune": "drain",
+		"resist": {
+			"shadow": 125,
+			"physical": 50,
+			"slash": 50,
+			"pierce": 50,
+			"blunt": 50,
+			"mana": 25,
+			"light": -100
+		}
+	},
+	{
+		"id": "sum_painrune",
+		"name": "rune of agony",
+		"tags": "t_summon",
+		"kind": "rune",
+		"level": 20,
+		"desc": "Suffering made manifest, indiscriminately flooding its surroundings with dark power.",
+		"hp": 61,
+		"noproc": true,
+		"defense": 27,
+		"speed": -10,
+		"attack": {
+			"targets": "epicenter",
+			"maxTargets": 999,
+			"kind": "shadow",
+			"damage": "Math.min(t.hp/4, 50)"
+		},
+		"immune": "drain",
+		"resist": {
+			"shadow": 200,
+			"physical": 80,
+			"slash": 80,
+			"pierce": 80,
+			"blunt": 80,
+			"mana": 80,
+			"air": 50,
+			"earth": 50,
+			"nature": 50,
+			"fire": 50,
+			"water": 50,
+			"spirit": 50,
+			"light": -200
+		}
+	},
+	{
+		"id": "sum_nova",
+		"name": "nova",
+		"tags": "t_summon",
+		"level": 32,
+		"kind": "construct",
+		"desc": "A floating orb of unstable astral magic.",
+		"hp": 100,
+		"noproc": true,
+		"defense": 50,
+		"onSummon": {
+			"id": "mon_selfdestruct5",
+			"name": "ephemeral",
+			"targets": "self",
+			"dot": {
+				"duration": 5,
+				"onExpire": {
+					"name": "fade away",
+					"harmless": true,
+					"nodefense": true,
+					"targets": "self",
+					"damage": "100+a.hp"
+				}
+			}
+		},
+		"onDeath": {
+			"name": "supernova",
+			"hits": [
+				{
+					"targets": "allies",
+					"maxTargets": 999,
+					"harmless": true,
+					"healing": "20~25"
+				},
+				{
+					"targets": "enemies",
+					"maxTargets": 999,
+					"harmless": true,
+					"damage": "60~75",
+					"kind": "mana"
+				}
+			]
+		},
+		"immune": "mana,light,astral"
+	},
+	{
+		"id": "sum_black_hole",
+		"name": "black hole",
+		"tags": "t_summon",
+		"level": 32,
+		"kind": "construct",
+		"desc": "A floating orb of unstable void magic.",
+		"hp": 100,
+		"noproc": true,
+		"defense": 50,
+		"onSummon": {
+			"name": "ephemeral",
+			"id": "mon_selfdestruct5",
+			"targets": "self",
+			"dot": {
+				"duration": 5,
+				"onExpire": {
+					"name": "fade away",
+					"harmless": true,
+					"nodefense": true,
+					"targets": "self",
+					"damage": "100+a.hp"
+				}
+			}
+		},
+		"onDeath": {
+			"name": "event horizon",
+			"hits": [
+				{
+					"targets": "allies",
+					"maxTargets": 999,
+					"harmless": true,
+					"damage": "40~50",
+					"kind": "void"
+				},
+				{
+					"targets": "enemies",
+					"maxTargets": 999,
+					"harmless": true,
+					"damage": "100~150",
+					"kind": "void"
+				}
+			]
+		},
+		"immune": "mana,shadow,void"
+	},
+	{
+		"id": "sum_imp",
+		"name": "imp",
+		"desc": "Little demonic bastards.",
+		"kind": "demon",
+		"tags": "t_summon",
+		"noproc": true,
+		"level": 10,
+		"hp": 21,
+		"defense": 22,
+		"regen": 3,
+		"spells": "darkbolt,magicmissile,firedart",
+		"attack": [
+			{
+				"name": "claws",
+				"kind": "slash",
+				"damage": "4~7"
+			},
+			{
+				"dot": {
+					"%": "10%",
+					"id": "silence",
+					"duration": 5
+				}
+			}
+		],
+		"resist": {
+			"fire": 60,
+			"light": -30
+		},
+		"statedata": {
+			"firedart": {
+				"need": null,
+				"cd": 3,
+				"result": null,
+				"damage": "3~5",
+				"attack": {
+					"damage": "i.damage||0",
+					"kind": "fire",
+					"tohit": 1,
+					"potencies": ["spelldmg", "firedmg"]
+				}
+			}
+		}
+	},
+	{
+		"id": "sum_quasit",
+		"name": "quasit",
+		"desc": "Like a demonic humanoid vulture.",
+		"kind": "demon",
+		"tags": "t_summon",
+		"noproc": true,
+		"level": 22,
+		"hp": 79,
+		"defense": 33,
+		"regen": 7,
+		"spells": "searingbolt,magebolt",
+		"attack": {
+			"name": "claws",
+			"kind": "slash",
+			"damage": "4~9"
+		},
+		"resist": {
+			"fire": 40,
+			"light": -20
+		},
+		"statedata": {
+			"searingbolt": {
+				"need": null,
+				"cd": 3,
+				"result": null,
+				"damage": "6~8",
+				"attack": {
+					"damage": "i.damage||0",
+					"tohit": 5,
+					"kind": "fire",
+					"potencies": ["spelldmg", "firedmg"],
+					"dot": {
+						"kind": "fire",
+						"damage": "2~3",
+						"duration": 10,
+						"potencies": ["spelldmg", "firedmg"]
+					}
+				}
+			}
+		}
+	},
+	{
+		"id": "sum_grimstalk",
+		"name": "grimstalk",
+		"desc": "A wooden demon with fingers like blades.",
+		"kind": "demon",
+		"tags": "t_summon",
+		"noproc": true,
+		"level": 34,
+		"hp": 444,
+		"defense": 55,
+		"regen": 7,
+		"attack": {
+			"name": "claws",
+			"kind": "slash",
+			"damage": "12~28"
+		},
+		"resist": {
+			"fire": -10,
+			"light": -10
+		}
+	},
+	{
+		"id": "sum_demon",
+		"name": "demon",
+		"flavor": "He should really trim his horns a bit, they are starting to get tangled.",
+		"tags": "t_summon",
+		"level": 42,
+		"kind": "demon",
+		"hp": 666,
+		"noproc": true,
+		"defense": 666,
+		"regen": 6.6,
+		"attack": {
+			"name": "darksword",
+			"kind": "shadow",
+			"damage": "33~66"
+		},
+		"resist": {
+			"fire": 80,
+			"light": -30
+		}
+	},
+	{
+		"id": "sum_stone_barrier",
+		"name": "stone wall",
+		"tags": "t_summon",
+		"level": 10,
+		"kind": "construct",
+		"desc": "Rock climbing's becoming popular these days.",
+		"hp": 20,
+		"noproc": true,
+		"defense": 40,
+		"dodge": -10,
+		"onSummon": {
+			"name": "impassable",
+			"targets": "self",
+			"dot": {
+				"tags": "t_taunt",
+				"flags": "taunt"
+			}
+		},
+		"resist": {
+			"physical": 75,
+			"slash": 75,
+			"blunt": 50,
+			"pierce": 90,
+			"water": 50,
+			"fire": 50,
+			"nature": 50,
+			"air": -50
+		},
+		"immune": "earth,spirit"
+	},
+	{
+		"id": "sum_beartrap",
+		"name": "beartrap",
+		"tags": "t_summon",
+		"level": 10,
+		"kind": "construct",
+		"desc": "Don't tread on me.",
+		"hp": 10,
+		"noproc": true,
+		"defense": 15,
+		"onDeath": {
+			"name": "crunch",
+			"targets": "enemy",
+			"damage": "10~20",
+			"dot": {
+				"id": "mangle",
+				"damage": 5,
+				"mod": {
+					"self.speed": -5
+				},
+				"duration": 3
+			},
+			"tohit": 15,
+			"kind": "pierce"
+		},
+		"immune": "spirit"
+	},
+	{
+		"id": "sillyrabbitcomp",
+		"tags": "t_animalcompanion",
+		"slot": "companion",
+		"require": "g.rabbittrick>0",
+		"name": "rabbit companion",
+		"level": 20,
+		"kind": "beast",
+		"noproc": true,
+		"speed": 15,
+		"hp": 10,
+		"tohit": 20,
+		"defense": -1,
+		"dodge": 1400,
+		"regen": 1,
+		"onSummon": {
+			"name": "wascally",
+			"targets": "self",
+			"dot": {
+				"tags": "t_taunt",
+				"flags": "taunt"
+			}
+		},
+		"attack": [
+			{
+				"name": "vorpal bite",
+				"kind": "pierce",
+				"targets": "enemy",
+				"damage": "1+(Math.random()*Math.min(t.hp.max/10, 50))"
+			},
+			{
+				"name": "tomfoolery",
+				"kind": "chaos",
+				"targets": "enemy",
+				"damage": "1~7",
+				"dot": {
+					"mod": {
+						"self.resist.chaos": -20
+					},
+					"duration": 10
+				}
+			},
+			{
+				"name": "shenanigans",
+				"kind": "chaos",
+				"targets": "enemies",
+				"maxTargets": 999,
+				"damage": "1~7",
+				"dot": {
+					"name": "jinx",
+					"kind": "spirit",
+					"duration": 10,
+					"mod": {
+						"self.tohit": -2
+					}
+				}
+			}
+		],
+		"immune": "chaos",
+		"flavor": "Loves childish tricks."
+	},
+	{
+		"id": "iceelemental2",
+		"name": "Greater Ice Elemental",
+		"desc": "What's so scary about a bunch of icicles? Well... this.",
+		"kind": "elemental",
+		"level": 46,
+		"resist": { "water": 50 },
+		"attack": {
+			"name": "ice avalanche",
+			"kind": "water",
+			"damage": "a.damage"
+		},
+		"loot": {
+			"watergem": "1~3",
+			"amberroot": { "%": "60%", "value": "2~3" }
+		}
+	},
+	{
+		"id": "airelemental2",
+		"name": "Greater Air Elemental",
+		"desc": "It must have been a lot, a lot of wind",
+		"kind": "elemental",
+		"level": 46,
+		"resist": { "air": 50 },
+		"speed": 40,
+		"attack": {
+			"name": "wind blades",
+			"kind": "air",
+			"damage": "a.damage"
+		},
+		"loot": {
+			"airgem": "1~3",
+			"amberroot": { "%": "60%", "value": "2~3" }
+		}
+	},
+	{
+		"id": "fireelemental2",
+		"name": "Greater Fire Elemental",
+		"desc": "Too hot to even look at.",
+		"kind": "elemental",
+		"level": 46,
+		"resist": { "fire": 50 },
+		"attack": {
+			"name": "fireball",
+			"targets": "enemies",
+			"maxTargets": 6,
+			"kind": "fire",
+			"damage": "a.damage*0.8"
+		},
+		"loot": {
+			"firegem": "1~3",
+			"amberroot": { "%": "60%", "value": "2~3" }
+		}
+	},
+	{
+		"id": "earthelemental2",
+		"name": "Greater Earth Elemental",
+		"desc": "How do you fight dirt the very ground you stand on?",
+		"kind": "elemental",
+		"level": 46,
+		"resist": { "earth": 20 },
+		"speed": 0,
+		"attack": {
+			"name": "earthquake",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"kind": "earth",
+			"damage": "a.damage*0.7"
+		},
+		"loot": {
+			"earthgem": "1~3",
+			"amberroot": { "%": "60%", "value": "2~3" }
+		}
+	},
+	{
+		"id": "tempestelemental",
+		"name": "Tempest Elemental",
+		"desc": "Deafening, violent and unforgiving. One can only hope it'll pass in another direction. Truly an untamed disaster.",
+		"kind": "elemental",
+		"level": 52,
+		"resist": { "fire": 20 },
+		"speed": 80,
+		"attack": [
+			{
+				"name": "lightning",
+				"kind": "air",
+				"damage": "a.damage*0.6"
+			},
+			{
+				"name": "torrent",
+				"kind": "water",
+				"damage": "a.damage*0.6"
+			}
+		],
+		"loot": {
+			"airrune": "1~2",
+			"waterrune": "1~2",
+			"amberroot": { "%": "60%", "value": "4~6" }
+		}
+	},
+	{
+		"id": "mudelemental",
+		"name": "Mud Elemental",
+		"desc": "Hulking mass, constantly shifting and dripping. Slow, but immense. Truly an untamed disaster.",
+		"kind": "elemental",
+		"level": 52,
+		"resist": { "air": 20 },
+		"speed": 20,
+		"attack": {
+			"name": "entomb",
+			"targets": "enemies",
+			"maxTargets": 999,
+			"kind": "earth",
+			"damage": "60~80",
+			"dot": {
+				"name": "entombed",
+				"duration": 4,
+				"kind": "water",
+				"damage": 15,
+				"mod": { "self.speed": -5 }
+			}
+		},
+		"loot": {
+			"earthrune": "1~2",
+			"waterrune": "1~2",
+			"amberroot": { "%": "60%", "value": "4~6" }
+		}
+	},
+	{
+		"id": "magmaelemental",
+		"name": "Magma Elemental",
+		"desc": "Relentless and everflowing. But calm and serene... at least until it's provoked. Truly an untamed disaster.",
+		"kind": "elemental",
+		"level": 52,
+		"resist": { "earth": 20 },
+		"speed": 40,
+		"attack": {
+			"name": "magma surge",
+			"kind": "earth",
+			"damage": "40~60",
+			"dot": {
+				"name": "burning",
+				"duration": 4,
+				"kind": "fire",
+				"damage": 15
+			}
+		},
+		"loot": {
+			"earthrune": "1~2",
+			"firerune": "1~2",
+			"amberroot": { "%": "60%", "value": "2~3" }
+		}
+	},
+	{
+		"id": "ashelemental",
+		"name": "Ash Elemental",
+		"desc": "Weight of what was lost, and hope of what shall be born anew. Aftermath of the disaster is never pretty.",
+		"flavor": "Plin plin plon...",
+		"kind": "elemental",
+		"unique": true,
+		"level": 55,
+		"hp": 1500,
+		"speed": 0,
+		"resist": {
+			"water": 25,
+			"air": 25,
+			"fire": 25,
+			"earth": 25
+		},
+		"attack": [
+			{
+				"name": "Tide of Regret",
+				"dot": {
+					"name": "Burning regret",
+					"duration": 4,
+					"kind": "fire",
+					"damage": "70~100"
+				}
+			},
+			{
+				"name": "Sting of Sorrow",
+				"dot": {
+					"name": "Piercing sorrow",
+					"duration": 4,
+					"kind": "air",
+					"damage": "50~120"
+				}
+			},
+			{
+				"name": "Cover of Longing",
+				"kind": "nature",
+				"targets": "self",
+				"healing": "30~50"
+			}
+		],
+		"loot": {
+			"airrune": "1~2",
+			"firerune": "1~2",
+			"runestones": "3~4"
+		}
+	},
+	{
+		"id": "abyssal_dreg",
+		"name": "Dreg of the Abyss",
+		"kind": "abyssal",
+		"noproc": true,
+		"level": 58,
+		"hp": 500,
+		"dodge": 30,
+		"attack": {
+			"name": "pale struggle",
+			"kind": "shadow",
+			"damage": "60~90"
+		}
+	},
+	{
+		"id": "abyssal_lesser_shadow",
+		"name": "Lesser Shadow of the Abyss",
+		"kind": "abyssal",
+		"noproc": true,
+		"level": 63,
+		"hp": 650,
+		"defense": 25,
+		"dodge": 30,
+		"attack": {
+			"name": "spectral wallop",
+			"kind": "spirit",
+			"damage": "100~150"
+		}
+	},
+	{
+		"id": "abyssal_rat_mother",
+		"name": "Rat Mother of the Abyss",
+		"kind": "abyssal",
+		"noproc": true,
+		"level": 63,
+		"hp": 600,
+		"dodge": 30,
+		"attack": {
+			"name": "tainted slam",
+			"kind": "nature",
+			"damage": "20~60"
+		}
+	},
+	{
+		"id": "abyssal_rat",
+		"name": "Rat of the Abyss",
+		"kind": "abyssal",
+		"noproc": true,
+		"level": 48,
+		"hp": 200,
+		"dodge": 30,
+		"attack": {
+			"name": "tainted bite",
+			"kind": "nature",
+			"damage": "5~55"
+		}
+	},
+	{
+		"id": "abyssal_raven_flock",
+		"name": "Raven Flock of the Abyss",
+		"kind": "abyssal",
+		"noproc": true,
+		"level": 64,
+		"hp": 750,
+		"dodge": 40,
+		"attack": {
+			"name": "swarming assault",
+			"kind": "air",
+			"damage": "120~170"
+		}
+	},
+	{
+		"id": "abyssal_cinder_golem",
+		"name": "Cinder Golem of the Abyss",
+		"kind": "abyssal",
+		"noproc": true,
+		"level": 70,
+		"hp": 1200,
+		"defense": 160,
+		"speed": 20,
+		"attack": [
+			{
+				"name": "boulder sling",
+				"kind": "earth",
+				"damage": "600~750"
+			},
+			{
+				"name": "heatwave",
+				"kind": "fire",
+				"targets": "enemies",
+				"damage": "150~260"
+			}
+		]
+	},
+	{
+		"id": "abyssal_proselyte",
+		"name": "Proselyte of the Abyss",
+		"kind": "abyssal",
+		"noproc": true,
+		"level": 74,
+		"hp": 1200,
+		"dodge": 30,
+		"attack": {
+			"name": "lightless burst",
+			"kind": "light",
+			"damage": "120~180",
+			"targets": "enemies"
+		}
+	},
+	{
+		"id": "abyssal_soldier",
+		"name": "Soldier of the Abyss",
+		"kind": "abyssal",
+		"noproc": true,
+		"level": 74,
+		"hp": 1200,
+		"defense": 25,
+		"dodge": 35,
+		"attack": {
+			"name": "piercing thrust",
+			"kind": "pierce",
+			"damage": "140~160"
+		}
+	},
+	{
+		"id": "abyssal_knight",
+		"name": "Knight of the Abyss",
+		"kind": "abyssal",
+		"noproc": true,
+		"level": 78,
+		"hp": 1300,
+		"defense": 50,
+		"dodge": 35,
+		"attack": {
+			"name": "square off",
+			"kind": "slash",
+			"damage": "180~220"
+		}
+	}
+]

@@ -1,0 +1,912 @@
+[
+	{
+		"id": "apprentice",
+		"desc": "Apprentice to a notable wizard.",
+		"actname": "Apprenticeship",
+		"actdesc": "Become an apprentice.",
+		"require": "research",
+		"disable": ["cleanstables"],
+		"warn": false,
+		"log": {
+			"name": "Apprentice",
+			"desc": "After paying a small fee, you became apprenticed to a local wizard."
+		},
+		"cost": {
+			"research": 10,
+			"gold": 20
+		},
+		"result": {
+			"research.max": 10,
+			"player.exp": 5
+		},
+		"sortOrder": 1
+	},
+	{
+		"id": "job_smith",
+		"name": "Smith",
+		"tags": "t_job",
+		"actdesc": "Smith equipment for your master to enchant.",
+		"require": "g.crafting>=5",
+		"warn": true,
+		"cost": {
+			"gold": 250
+		},
+		"result": {
+			"player.exp": 20
+		},
+		"mod": {
+			"gold.rate": 0.1,
+			"lore.max": 2,
+			"crafting.max": 1,
+			"weaponlore.max": 1
+		},
+		"flavor": "Is it normal to feel the ringing of the hammer in my arm when I wake up the next day?",
+		"sortOrder": 2
+	},
+	{
+		"id": "falconer",
+		"tags": "t_job",
+		"actdesc": "Tend your master's owls and falcons.",
+		"require": "animals",
+		"cost": {
+			"gold": 100,
+			"research": 100
+		},
+		"result": {
+			"player.exp": 10
+		},
+		"mod": {
+			"gold.rate": 0.1,
+			"lore.max": 2,
+			"animals.max": 1,
+			"naturelore.max": 1
+		},
+		"flavor": "On the bright side, the bandages almost make up for the holes in my glove.",
+		"sortOrder": 3
+	},
+	{
+		"id": "herbalist",
+		"tags": "t_job",
+		"actdesc": "Gather herbs for your master's potions and alchemy.",
+		"require": "herbalism",
+		"cost": {
+			"gold": 100,
+			"research": 100
+		},
+		"result": {
+			"player.exp": 10
+		},
+		"mod": {
+			"gold.rate": 0.1,
+			"lore.max": 2,
+			"herbalism.max": 1,
+			"alchemy.max": 1
+		},
+		"flavor": "Green thumb? My hands are almost entirely green most of the time...",
+		"sortOrder": 4
+	},
+	{
+		"id": "scribe",
+		"tags": "t_job",
+		"actdesc": "Become your master's personal scribe.",
+		"require": "scribescroll",
+		"cost": {
+			"gold": 100,
+			"research": 100
+		},
+		"mod": {
+			"gold.rate": 0.1,
+			"lore.max": 2,
+			"history.max": 1,
+			"languages.max": 1
+		},
+		"flavor": "When I get a little money I buy books, and if any is left I buy food and clothes.",
+		"sortOrder": 5
+	},
+	{
+		"id": "adept",
+		"name": "adept",
+		"actname": "End Apprenticeship",
+		"tags": "t_tier0",
+		"require": "g.t0unlocker>0&&g.research.max>=100&&g.lore>=4",
+		"desc": "Your master behind you, you set off into the world alone. You had better find a new place to stay.",
+		"actdesc": "Purchase freedom from your apprenticeship. You will become an independent practitioner of magic.",
+		"cost": {
+			"research": 225,
+			"gold": 200
+		},
+		"mod": {
+			"mysticism.max": 1,
+			"lore.max": 1,
+			"history.max": 1,
+			"languages.max": 1,
+			"mana.max": 5,
+			"mana.rate": 0.1
+		},
+		"sortOrder": 6
+	},
+	{
+		"id": "darkadept",
+		"name": "dark adept",
+		"actname": "Slay Master",
+		"desc": "Your master lies dead.  Now your journey to true power begins.  Best leave before people start asking questions...",
+		"actdesc": "Murder your master in their sleep.",
+		"flavor": "Save heaps of money with the power of evil.",
+		"tags": "t_tier0",
+		"require": "g.t0unlocker>0&&g.research.max>=100&&g.lore>=4",
+		"cost": {
+			"research": 225
+		},
+		"log": {
+			"name": "Master Slain",
+			"desc": "Your master was a fool. A quick murder in the dark put an end to their petty demands, and frees you to pursue your own grander designs."
+		},
+		"mod": {
+			"mysticism.max": 1,
+			"spiritlore.max": 1,
+			"shadowlore.max": 1,
+			"trickery.max": 1,
+			"shadow.max": 5,
+			"shadow.rate": 0.1
+		},
+		"result": {
+			"evil": true,
+			"bodies": 1
+		},
+		"sortOrder": 7
+	},
+	{
+		"id": "redadept",
+		"name": "red adept",
+		"desc": "Go on a journey to further your capabilities in combat.",
+		"require": "g.t0unlocker>0&&g.research.max>=100&&g.lore>=4",
+		"need": "g.evt_early_combat>0",
+		"needtext": "Must have reached a commoner's limit by clearing edges of treffil's woods before making a spellbook",
+		"tags": "t_tier0",
+		"mod": {
+			"anatomy.max": 1,
+			"firelore.max": 1,
+			"weaponlore.max": 1,
+			"mysticism.max": 1,
+			"stamina.rate": 0.1,
+			"vigor.rate": 0.01
+		},
+		"flavor": "Danger is just an excuse for the weak.",
+		"sortOrder": 8
+	},
+	{
+		"id": "blueadept",
+		"name": "blue adept",
+		"desc": "Dedicate yourself to putting the world in order.",
+		"require": "g.t0unlocker>0&&g.research.max>=100&&g.lore>=4",
+		"need": "g.virtue>=200",
+		"needtext": "Must have at least 200 virtue",
+		"tags": "t_tier0",
+		"mod": {
+			"mysticism.max": 1,
+			"lightlore.max": 1,
+			"spiritlore.max": 1,
+			"divination.max": 1,
+			"light.max": 5,
+			"light.rate": 0.1
+		},
+		"sortOrder": 9
+	},
+	{
+		"id": "savant",
+		"name": "mystic savant",
+		"desc": "You have no need of these dry tomes and musty old books.",
+		"actname": "Forgo Studies",
+		"tags": "t_tier0",
+		"require": "g.t0unlocker>0&&g.research.max>=100&&g.lore>=4",
+		"need": "g.study<=0",
+		"needtext": "You cannot have used the study action at any point",
+		"mod": {
+			"mysticism.max": 2,
+			"conjuration.max": 1,
+			"spiritlore.max": 1,
+			"mysticism.mod.prismatic.rate": 0.01
+		},
+		"sortOrder": 10
+	},
+	{
+		"id": "magician",
+		"tags": "t_tier1,t_manaclass,t_knowledgeclass",
+		"desc": "Magic in its purest form.",
+		"actdesc": "Pursue the path of pure magic.",
+		"require": "g.t1unlocker>0&&g.lore>=10",
+		"cost": {
+			"research": 500,
+			"codices": 2
+		},
+		"mod": {
+			"research.max": 100,
+			"arcana.rate": 0.001,
+			"mana.max": 2,
+			"mana.rate": 0.4,
+			"mysticism.mod.mana.rate": 0.05,
+			"lore.max": 1,
+			"astronomy.max": 1,
+			"languages.max": 1
+		},
+		"sortOrder": 100
+	},
+	{
+		"id": "trickster",
+		"name": "arcane trickster",
+		"desc": "Use magic for deceit and trickery.",
+		"secret": true,
+		"actname": "Path of Trickery",
+		"tags": "t_tier1,t_chaosclass",
+		"require": "g.trickery>=4&&g.t1unlocker>0&&g.tier1==0",
+		"mod": {
+			"player.dodge": 2.2,
+			"research.max": 2,
+			"mana.max": 2,
+			"chaos.max": 3,
+			"chaos.rate": 0.1,
+			"trickery.max": 2,
+			"conjuration.max": 1,
+			"spiritlore.max": 1,
+			"potions.max": 1
+		},
+		"sortOrder": 101
+	},
+	{
+		"id": "madcap",
+		"name": "mystic madcap",
+		"desc": "A penchant for chaos.",
+		"secret": true,
+		"tags": "t_tier2,t_chaosclass",
+		"require": "g.trickery>=7&&g.t2unlocker>0&&g.tier2==0",
+		"cost": {
+			"managem": 7,
+			"airgem": 7,
+			"watergem": 7
+		},
+		"mod": {
+			"player.dodge": 2.2,
+			"gold.max": "5%",
+			"trickery.max": 2,
+			"conjuration.max": 1,
+			"mysticism.max": 1,
+			"potions.max": 1,
+			"lore.max": 1
+		},
+		"sortOrder": 150
+	},
+	{
+		"id": "jester",
+		"name": "jester",
+		"desc": "Elevate pranks to a new height of artform and wizardry.",
+		"secret": true,
+		"actname": "Infinite Jest",
+		"tags": "t_tier4,t_chaosclass",
+		"require": "g.trickery>=15&&g.t_chaosclass>0&&g.t4unlocker>0&&g.tier4==0",
+		"cost": {
+			"managem": 13,
+			"airgem": 13,
+			"watergem": 13
+		},
+		"mod": {
+			"player.dodge": 2.6,
+			"gold.max": "10%",
+			"facemuseum.mod.space.max": 20,
+			"trickery.max": 3,
+			"conjuration.max": 2,
+			"lore.max": 2,
+			"chaoslore.max": 1,
+			"mysticism.max": 1
+		},
+		"sortOrder": 250
+	},
+	{
+		"id": "battlemage",
+		"name": "battle mage",
+		"tags": "t_tier2,t_swordclass,t_manaclass",
+		"actdesc": "Pursue the path of battle.",
+		"require": "g.t2unlocker>0&&g.weaponlore>=6&&g.tier2==0",
+		"mod": {
+			"mana.max": 4,
+			"mana.rate": 0.5,
+			"firelore.max": 2,
+			"earthlore.max": 1
+		},
+		"sortOrder": 151
+	},
+	{
+		"id": "bloodmage",
+		"name": "blood mage",
+		"tags": "t_tier3,t_bloodclass,t_manaclass",
+		"desc": "The magic in your veins.",
+		"require": "g.t3unlocker>0&&(g.battlemage>0||g.hp.max>=150)&&g.tier3==0",
+		"cost": {
+			"bloodgem": 20
+		},
+		"mod": {
+			"bloodgem.max": 10,
+			"bloodgem.mod.bloodsiphon.effect.hp": 0.02,
+			"mana.max": 2,
+			"mana.rate": 0.5,
+			"anatomy.max": 3,
+			"earthlore.max": 2,
+			"waterlore.max": 1
+		},
+		"sortOrder": 200
+	},
+	{
+		"id": "summoner",
+		"tags": "t_tier3,t_summonclass",
+		"desc": "Alone or with friends, a summoner is never without an army.",
+		"require": "g.summoning>=5&&g.t3unlocker>0&&g.lore>=20",
+		"mod": {
+			"minions.max": 1,
+			"mana.max": 2,
+			"summoning.max": 4,
+			"conjuration.max": 2,
+			"charms.max": 1,
+			"lore.max": 2
+		},
+		"flavor": "How you do I; hope you've met my...",
+		"sortOrder": 201
+	},
+	{
+		"id": "warden",
+		"desc": "A keeper of the forests, mountains, and hills.",
+		"tags": "t_tier1,t_natureclass",
+		"require": "g.t1unlocker>0&&g.naturelore>=8",
+		"cost": {
+			"herbs": 50
+		},
+		"mod": {
+			"research.max": 5,
+			"naturelore.max": 3,
+			"animals.max": 3,
+			"potions.max": 1
+		},
+		"sortOrder": 102
+	},
+	{
+		"id": "alchemist",
+		"tags": "t_tier2,t_bloodclass,t_potionclass,t_craftingclass",
+		"desc": "An alchemist uses magical knowledge to craft wonders.",
+		"require": "g.t2unlocker>0&&g.potions>=4&&g.alchemy>=5",
+		"cost": {
+			"managem": 5,
+			"firegem": 2,
+			"watergem": 2,
+			"earthgem": 2
+		},
+		"mod": {
+			"research.max": 100,
+			"crafting.max": 3,
+			"potions.max": 3,
+			"potionessence.rate": 0.00028,
+			"alchemy.max": 3,
+			"lore.max": 1
+		},
+		"sortOrder": 152
+	},
+	{
+		"id": "enchanter",
+		"desc": "A master of charms and enchantments.",
+		"require": "g.t2unlocker>0&&g.enchanting>=6&&g.charms>=3",
+		"tags": "t_tier2,t_craftingclass,t_enchantingclass",
+		"cost": {
+			"managem": 5
+		},
+		"mod": {
+			"research.max": 15,
+			"enchanting.max": 3,
+			"arcana.max": 2,
+			"naturelore.max": 2,
+			"mana.max": 3,
+			"airlore.max": 2,
+			"waterlore.max": 2
+		},
+		"sortOrder": 153
+	},
+	{
+		"id": "geomancer",
+		"desc": "Lord of rocks.",
+		"tags": "t_tier2,t_earthclass,t_hammerclass",
+		"actdesc": "A mage specialising in earth manipulation and endurance.",
+		"require": "g.t2unlocker>0&&g.earthlore>=7&&g.tier2==0",
+		"cost": {
+			"earthgem": 10
+		},
+		"mod": {
+			"earthlore.max": 2,
+			"geosculpting.max": 2,
+			"stamina.max": "10%",
+			"mana.max": 2,
+			"earthspire.mod.space.max": 50
+		},
+		"flavor": "Your empire of dirt.",
+		"sortOrder": 154
+	},
+	{
+		"id": "earthshaker",
+		"desc": "Master of the tectonics.",
+		"tags": "t_tier4,t_earthclass,t_hammerclass",
+		"actdesc": "A supreme master of earth's destructive magics.",
+		"require": "g.t4unlocker>0&&g.earthlore>=11&&g.tier4==0",
+		"cost": {
+			"earthgem": 50
+		},
+		"mod": {
+			"earthlore.max": 3,
+			"player.defense": 15,
+			"stamina.max": "20%",
+			"earth.rate": 0.3,
+			"earthspire.mod.space.max": 50
+		},
+		"flavor": "Finally, a subduction license!",
+		"sortOrder": 251
+	},
+	{
+		"id": "titan",
+		"desc": "A mantle of metal and stone.",
+		"tags": "t_tier6,t_earthclass,t_hammerclass",
+		"actdesc": "An unstoppable force of nature, a Titan is Will incarnate.",
+		"require": "g.t6unlocker>0&&g.t_earthclass>0&&g.hammerlore>=10&&g.geosculpting>=10&&g.tier6==0",
+		"cost": {
+			"earthgem": 100,
+			"earthrune": 20
+		},
+		"mod": {
+			"earthlore.max": 3,
+			"player.defense": 30,
+			"stamina.max": "20%",
+			"hammerlore.max": 3,
+			"earthspire.mod.space.max": 100
+		},
+		"flavor": "When in good moods, Titans sculpted mountains. In bad ones, nations became craters.",
+		"sortOrder": 350
+	},
+	{
+		"id": "hydromancer",
+		"desc": "Master of water.",
+		"tags": "t_tier2,t_waterclass",
+		"actdesc": "A mage specialising in water manipulation and adaptability.",
+		"require": "g.t2unlocker>0&&g.waterlore>=10",
+		"cost": {
+			"watergem": 10
+		},
+		"mod": {
+			"waterlore.max": 2,
+			"dodge": "10%",
+			"mana.max": 2
+		},
+		"flavor": "",
+		"sortOrder": 155
+	},
+	{
+		"id": "windmage",
+		"name": "wind mage",
+		"desc": "To walk on the wind.",
+		"tags": "t_tier2,t_airclass",
+		"actdesc": "A mage specialising in air manipulation and intuition.",
+		"require": "g.t2unlocker>0&&g.airlore>=10",
+		"cost": {
+			"airgem": 10
+		},
+		"mod": {
+			"airlore.max": 2,
+			"dodge": "10%",
+			"mana.max": 2
+		},
+		"flavor": "There's a storm coming.",
+		"sortOrder": 156
+	},
+	{
+		"id": "stormcaller",
+		"desc": "Harness the violence of natural forces.",
+		"require": "(g.t_waterclass>0||g.t_airclass>0)&&g.t3unlocker>0",
+		"tags": "t_tier3,t_waterclass,t_airclass",
+		"cost": {
+			"airgem": 20,
+			"watergem": 20
+		},
+		"mod": {
+			"lore.max": 1,
+			"mana.max": 2,
+			"airlore.max": 3,
+			"waterlore.max": 3
+		},
+		"flavor": "I am the storm.",
+		"sortOrder": 202
+	},
+	{
+		"id": "elementalist",
+		"desc": "Master of elemental forces.",
+		"require": "g.t1unlocker>0&&g.airlore>=3&&g.firelore>=3&&g.earthlore>=3&&g.waterlore>=3",
+		"tags": "t_tier1,t_elementalclass",
+		"mod": {
+			"research.max": 5,
+			"elemental.max": 2,
+			"elemental.rate": 0.2
+		},
+		"sortOrder": 103
+	},
+	{
+		"id": "sorcerer",
+		"desc": "A wielder of raw magical power.",
+		"require": "g.t4unlocker>0&&(g.earthlore>=15||g.waterlore>=15||g.firelore>=15)&&(g.t_elementalclass+g.t_fireclass+g.t_waterclass+g.t_earthclass)>0",
+		"tags": "t_tier4,t_elementalclass",
+		"cost": {
+			"managem": 5,
+			"firegem": 15,
+			"earthgem": 15,
+			"watergem": 15
+		},
+		"mod": {
+			"lore.max": 1,
+			"mana.max": 1,
+			"earthlore.max": 2,
+			"waterlore.max": 2,
+			"firelore.max": 2
+		},
+		"sortOrder": 252
+	},
+	{
+		"id": "druid",
+		"desc": "A spellcaster dedicated to the natural world.",
+		"tags": "t_tier3,t_natureclass",
+		"require": "g.t3unlocker>0&&g.naturelore>=15",
+		"cost": {
+			"naturegem": 20,
+			"herbs": 50
+		},
+		"mod": {
+			"naturelore.max": 3,
+			"animals.max": 2,
+			"herbalism.max": 2,
+			"potions.max": 1
+		},
+		"sortOrder": 203
+	},
+	{
+		"id": "highelemental",
+		"name": "high elementalist",
+		"tags": "t_tier3,t_elementalclass",
+		"desc": "Lord of the elements.",
+		"require": "g.t3unlocker>0&&g.airlore>=8&&g.firelore>=8&&g.waterlore>=8&&g.earthlore>=8",
+		"cost": {
+			"airgem": 20,
+			"firegem": 20,
+			"earthgem": 20,
+			"watergem": 20
+		},
+		"mod": {
+			"airlore.max": 2,
+			"firelore.max": 2,
+			"earthlore.max": 2,
+			"waterlore.max": 2,
+			"research.max": 25,
+			"elemental.max": 2,
+			"elemental.rate": 0.2
+		},
+		"sortOrder": 204
+	},
+	{
+		"id": "oracle",
+		"tags": "t_tier1,t_divinationclass",
+		"desc": "Fortune and misfortune are merely expressions of cause and effect.",
+		"require": "g.t1unlocker>0&&g.spiritlore>=5&&g.divination>=5",
+		"mod": {
+			"virtue": 1,
+			"research.max": 15,
+			"lore.max": 2,
+			"scrying.max": 2,
+			"mana.max": 3,
+			"divination.max": 2,
+			"airlore.max": 1,
+			"spiritlore.max": 1
+		},
+		"sortOrder": 104
+	},
+	{
+		"id": "seer",
+		"desc": "Read the room, read the person, divine their future.",
+		"require": "g.t2unlocker>0&&g.divination>=10",
+		"tags": "t_tier2,t_divinationclass",
+		"mod": {
+			"virtue": 5,
+			"lore.max": 2,
+			"mana.max": 3,
+			"divination.max": 2,
+			"scrying.max": 2,
+			"spiritlore.max": 2
+		},
+		"sortOrder": 157
+	},
+	{
+		"id": "mage",
+		"desc": "Member of an arcane order.",
+		"tags": "t_tier2,t_manaclass,t_knowledgeclass",
+		"require": "g.t2unlocker>0&&g.lore>=14",
+		"cost": {
+			"research": 1000,
+			"codices": 5
+		},
+		"mod": {
+			"research.max": 40,
+			"firelore.max": 1,
+			"mysticism.max": 2,
+			"enchanting.max": 1,
+			"lore.max": 2,
+			"mana.max": 3
+		},
+		"sortOrder": 158
+	},
+	{
+		"id": "highmage",
+		"name": "high mage",
+		"desc": "Elite of an arcane order.",
+		"tags": "t_tier3,t_manaclass,t_knowledgeclass",
+		"require": "g.t3unlocker>0&&g.lore>=18",
+		"cost": {
+			"research": 2000,
+			"tomes": 5
+		},
+		"mod": {
+			"research.max": 50,
+			"firelore.max": 1,
+			"mysticism.max": 2,
+			"alchemy.max": 1,
+			"spellcraft.max": 2,
+			"crafting.max": 1,
+			"lore.max": 2
+		},
+		"sortOrder": 205
+	},
+	{
+		"id": "doomsayer",
+		"desc": "Harbinger of ruin.",
+		"require": "g.t3unlocker>0&&g.spirit>=12&&g.divination>=12",
+		"tags": "t_tier3,t_divinationclass",
+		"cost": {
+			"spiritgem": 15
+		},
+		"mod": {
+			"spiritlore.max": 2,
+			"divination.max": 3,
+			"planeslore.max": 1,
+			"scrying.max": 2,
+			"lore.max": 2,
+			"mana.max": 1
+		},
+		"flavor": "You call it an empire, but in the gloaming I see only heaps of crumbled stone.",
+		"sortOrder": 206
+	},
+	{
+		"id": "fey",
+		"name": "fey (DEPRECATED)",
+		"desc": "A deprecated class.",
+		"tags": "t_tier4,t_chaosclass,t_natureclass",
+		"require": "g.lore>999",
+		"mod": {
+			"waterlore.max": 2,
+			"earthlore.max": 2,
+			"airlore.max": 2,
+			"naturelore.max": 3,
+			"animals.max": 2,
+			"herbalism.max": 2
+		}
+	},
+	{
+		"id": "destined",
+		"alias": "thaumaturge",
+		"name": "destined",
+		"desc": "A maker of miracles",
+		"require": "g.t4unlocker>0&&g.spirit>=15&&g.divination>=15",
+		"tags": "t_tier4,t_enchantingclass,t_divinationclass",
+		"cost": {
+			"spiritgem": 20
+		},
+		"mod": {
+			"spiritlore.max": 2,
+			"divination.max": 3,
+			"spellcraft.max": 2,
+			"lore.max": 2,
+			"light.max": 2,
+			"light.rate": "0.2+5%",
+			"mana.max": 3
+		},
+		"sortOrder": 253
+	},
+	{
+		"id": "wizard",
+		"desc": "Raw magic power.",
+		"tags": "t_tier4,t_manaclass,t_knowledgeclass",
+		"require": "g.t4unlocker>0&&g.lore>=25",
+		"cost": {
+			"research": 6000,
+			"tomes": 15,
+			"runestones": 5
+		},
+		"mod": {
+			"languages.max": 2,
+			"conjuration.max": 1,
+			"crafting.max": 1,
+			"lore.max": 3,
+			"spellcraft.max": 3,
+			"mana.max": 4,
+			"mana.rate": "5%",
+			"mysticism.max": 1,
+			"spelllist.max": 5
+		},
+		"flavor": "'Do not take me for some conjurer of cheap tricks.'",
+		"sortOrder": 254
+	},
+	{
+		"id": "wizard2",
+		"alias": "dhrunic wizard",
+		"name": "dhrunic wizard",
+		"desc": "Raw magic power.",
+		"tags": "t_tier5,t_manaclass,t_knowledgeclass",
+		"require": "g.t5unlocker>0&&g.lore>=30",
+		"cost": {
+			"research": 15000,
+			"tomes": 10,
+			"runestones": 10
+		},
+		"mod": {
+			"languages.max": 2,
+			"firelore.max": 1,
+			"waterlore.max": 1,
+			"airlore.max": 1,
+			"lightlore.max": 1,
+			"crafting.max": 2,
+			"lore.max": 5,
+			"mana.max": 4,
+			"mana.rate": "10%",
+			"mysticism.max": 1,
+			"mysticism.mod.mana.rate": 0.05,
+			"spelllist.max": 5
+		},
+		"flavor": "In the end it was three Thule Wizards and The Necromancer who brought the locks to heel.",
+		"sortOrder": 300
+	},
+	{
+		"id": "kell",
+		"desc": "Immortal spirits of nature, even the weakest Kell are beings to rival wizards.",
+		"tags": "t_tier5,t_natureclass",
+		"require": "g.t5unlocker>0&&g.naturelore>=21&&g.t_natureclass>0&&g.t_permanent_transformation>0",
+		"cost": {
+			"naturegem": 50,
+			"herbs": 75
+		},
+		"mod": {
+			"lore.max": 2,
+			"airlore.max": 2,
+			"naturelore.max": 3,
+			"animals.max": 2,
+			"herbalism.max": 1
+		},
+		"flavor": "Kell are not of mortal blood, and only potent magics can imbue a mortal with their essence.",
+		"sortOrder": 301
+	},
+	{
+		"id": "heresiarch",
+		"desc": "A reckoning comes.",
+		"require": "g.t5unlocker>0&&g.spirit>=15&&g.divination>=17",
+		"tags": "t_tier5,t_divinationclass",
+		"cost": {
+			"spiritgem": 50
+		},
+		"mod": {
+			"spiritlore.max": 3,
+			"divination.max": 3,
+			"scrying.max": 2,
+			"lore.max": 2
+		},
+		"flavor": "It waits in time.",
+		"sortOrder": 302
+	},
+	{
+		"id": "highkell",
+		"name": "high kell (DEPRECATED)",
+		"desc": "A deprecated class.",
+		"tags": "t_tier6,t_natureclass",
+		"require": "g.lore>999",
+		"mod": {
+			"airlore.max": 2,
+			"naturelore.max": 3,
+			"animals.max": 2,
+			"earthlore.max": 1
+		}
+	},
+	{
+		"id": "wizard3",
+		"name": "mythic wizard",
+		"desc": "Their names reappear throughout the ages, and few believe they ever existed.",
+		"tags": "t_tier6,t_manaclass,t_knowledgeclass",
+		"require": "g.t6unlocker>0&&g.lore>=35&&g.spellcraft>=10",
+		"cost": {
+			"research": 20000,
+			"tomes": 20,
+			"sindel": 3,
+			"runestones": 10
+		},
+		"mod": {
+			"spellcraft.max": 1,
+			"firelore.max": 1,
+			"enchanting.max": 1,
+			"waterlore.max": 1,
+			"earthlore.max": 1,
+			"crafting.max": 2,
+			"history.max": 1,
+			"potions.max": 1,
+			"alchemy.max": 1,
+			"mana.max": 5,
+			"mana.rate": "15%",
+			"mysticism.max": 2,
+			"spelllist.max": 5
+		},
+		"flavor": "After a mythic ascends, even the Archlocks curb their appetites.",
+		"sortOrder": 351
+	},
+	{
+		"id": "astralseer",
+		"name": "astral seer",
+		"desc": "The stars are an open book, to those who can read.",
+		"tags": "t_tier6",
+		"require": "g.t6unlocker>0&&g.astronomy>=15&&g.planeslore>=12",
+		"cost": {
+			"sindel": 3
+		},
+		"mod": {
+			"manadmg": 5,
+			"spellcraft.max": 1,
+			"planeslore.max": 2,
+			"astronomy.max": 2,
+			"scrying.max": 1,
+			"sindel.rate": "5%",
+			"mysticism.max": 2,
+			"crafting.max": 2
+		},
+		"flavor": "Standing in the distant light of celestials, the mortal world seems so... Petty.",
+		"sortOrder": 352
+	},
+	{
+		"id": "c_avatar",
+		"name": "avatar",
+		"desc": "An incarnation of raw, elemental forces.",
+		"tags": "t_tier6,t_elementalclass",
+		"require": "g.t6unlocker>0&&(g.t_elementalclass+g.t_natureclass+g.heresiarch+g.destined)>=2",
+		"cost": {
+			"sindel": 3,
+			"managem": 70,
+			"airgem": 40,
+			"earthgem": 40,
+			"firegem": 40,
+			"watergem": 40
+		},
+		"mod": {
+			"airlore.max": 2,
+			"earthlore.max": 3,
+			"waterlore.max": 2,
+			"firelore.max": 1
+		},
+		"flavor": "'I am the flood and the tempest, the whisper-wind and the inferno'.",
+		"sortOrder": 353
+	},
+	{
+		"id": "conjurer",
+		"tags": "t_tier1,t_summonclass",
+		"desc": "A master of quickly moving things from one place to another.",
+		"require": "g.conjuration>=5&&g.t1unlocker>0",
+		"mod": {
+			"minions.max": 1,
+			"summoning.max": 2,
+			"charms.max": 1,
+			"lore.max": 2,
+			"mana.max": 2,
+			"conjuration.max": 4
+		},
+		"flavor": "Surely they can't 'just appear'...",
+		"sortOrder": 105
+	}
+]

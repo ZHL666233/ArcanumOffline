@@ -1,0 +1,84 @@
+{
+	"module": "fool",
+	"data": {
+		"events": [
+			{
+				"id": "fool_init",
+				"name": "Inexplicable commotion",
+				"desc": "A huge commotion right outside your window catches your attention.",
+				"require": "g.tier0>0"
+			},
+			{
+				"id": "fool_end",
+				"name": "Dragon...falls?",
+				"desc": "As the construct falls apart, some very angry festival-goers approach you. Apparently you 'attacked a parade float' and 'disrupted the festivities'. You choose to beat a hasty retreat, but not before grabbing a souvenir.",
+				"require": "g.fool_clash1>0||g.fool_clash2>0",
+				"loot": {
+					"fool_tshirt": 1
+				},
+				"lock": ["fool_clash1", "fool_clash2"]
+			}
+		],
+		"clashes": [
+			{
+				"id": "fool_clash1",
+				"name": "Dragon attacking",
+				"desc": "An enormous dragon is attacking the town! Get out there and fight it before it gets to you!",
+				"level": 1,
+				"dist": 1,
+				"length": 1,
+				"sym": "⚔💀",
+				"require": "g.fool_init>0&&g.temple_of_strativax==0",
+				"unreturnable": true,
+				"boss": "fool_strativax"
+			},
+			{
+				"id": "fool_clash2",
+				"name": "Strativax attacking",
+				"desc": "Somehow, Strativax returned! Get out there and fight it before it gets to you!",
+				"level": 1,
+				"dist": 1,
+				"length": 1,
+				"sym": "⚔💀",
+				"require": "g.fool_init>0&&g.temple_of_strativax>0&&g.fool_clash1.locked",
+				"unreturnable": true,
+				"boss": "fool_strativax"
+			}
+		],
+		"monsters": [
+			{
+				"id": "fool_strativax",
+				"name": "Strativax",
+				"desc": "An enormous dragon, wreathed in dancing flames stands before you. It might be hopeless.",
+				"level": 80,
+				"unique": true,
+				"kind": "dragon",
+				"hp": 5000,
+				"defense": -10000,
+				"dodge": -10000,
+				"speed": 15,
+				"attack": [
+					{
+						"name": "tail slap",
+						"kind": "blunt",
+						"damage": "0~1"
+					},
+					{
+						"name": "silken flames",
+						"targets": "enemies",
+						"maxTargets": 999,
+						"kind": "blunt",
+						"damage": "0~1"
+					}
+				],
+				"loot": {},
+				"onHit": {
+					"name": "Panic",
+					"targets": "self",
+					"damage": 50,
+					"unreflectable": true
+				}
+			}
+		]
+	}
+}

@@ -1,0 +1,14 @@
+<resources>
+    <!-- 基础应用主题（无标题栏） -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- 可自定义颜色等 -->
+    </style>
+
+    <!-- 启动画面主题 -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_background</item> <!-- 背景色 -->
+        <item name="windowSplashScreenAnimatedIcon">@android:mipmap/sym_def_app_icon</item> <!-- 居中图标 -->
+        <item name="windowSplashScreenAnimationDuration">1000</item> <!-- 动画时长（可选） -->
+        <item name="postSplashScreenTheme">@style/AppTheme</item> <!-- 启动后切换到的主题 -->
+    </style>
+</resources>

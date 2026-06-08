@@ -1,0 +1,796 @@
+[
+	{
+		"id": "magicgems",
+		"name": "Magic Gems"
+	},
+	{
+		"id": "gemimbue",
+		"name": "Imbue Gem",
+		"bundleUnlocks": true,
+		"bundleName": "Gem Imbuements"
+	},
+	{
+		"id": "manas",
+		"name": "Mana Energies"
+	},
+	{
+		"id": "fundamentalgems",
+		"name": "fundamental Gems"
+	},
+	{
+		"id": "prismaticgems",
+		"name": "Prismatic Gems"
+	},
+	{
+		"id": "elementalgems",
+		"name": "Elemental Gems"
+	},
+	{
+		"id": "primalgems",
+		"name": "Primal Gems"
+	},
+	{
+		"id": "fundamentalrunes",
+		"name": "fundamental Runes"
+	},
+	{
+		"id": "prismaticrunes",
+		"name": "Prismatic Runes"
+	},
+	{
+		"id": "elementalrunes",
+		"name": "Elemental Runes"
+	},
+	{
+		"id": "primalrunes",
+		"name": "Primal Runes"
+	},
+	{
+		"id": "t_nospellcraft",
+		"name": "Cannot spellcraft"
+	},
+	{
+		"id": "t_nomemorize",
+		"name": "Cannot Memorize"
+	},
+	{
+		"id": "t_rest",
+		"name": "Resting"
+	},
+	{
+		"id": "t_restmod",
+		"name": "Leisure focus"
+	},
+	{
+		"id": "manadot",
+		"name": "Mana"
+	},
+	{
+		"id": "stamdot",
+		"name": "Fount"
+	},
+	{
+		"id": "whirlingstep",
+		"name": "Whirling Step"
+	},
+	{
+		"id": "toughskin",
+		"name": "Tough Skin"
+	},
+	{
+		"id": "lightregen",
+		"name": "Pulsing Light"
+	},
+	{
+		"id": "strike",
+		"name": "Enhanced Strike"
+	},
+	{
+		"id": "bloodbuff",
+		"name": "Defiant"
+	},
+	{
+		"id": "t_animalcompanion",
+		"name": "animal companion"
+	},
+	{
+		"id": "t_extremegood",
+		"name": "Virtuous Acts"
+	},
+	{
+		"id": "t_extremeevil",
+		"name": "Vile Acts"
+	},
+	{
+		"id": "t_goodact",
+		"name": "Good Acts"
+	},
+	{
+		"id": "t_evilact",
+		"name": "Evil Acts"
+	},
+	{
+		"id": "t_graveyard_remodel",
+		"name": "Graveyard Remodeling"
+	},
+	{
+		"id": "t_healspell",
+		"name": "Healing Spell"
+	},
+	{
+		"id": "t_furn_portal",
+		"name": "home portal"
+	},
+	{
+		"id": "t_furn_researchable",
+		"name": "research object"
+	},
+	{
+		"id": "t_infusion",
+		"name": "infusion",
+		"sharecd": true
+	},
+	{
+		"id": "t_glossary_entry",
+		"name": "glossary entry"
+	},
+	{
+		"id": "t_gloss_tasks",
+		"name": "tasks"
+	},
+	{
+		"id": "t_gloss_stats",
+		"name": "stats"
+	},
+	{
+		"id": "t_gloss_school",
+		"name": "spell school"
+	},
+	{
+		"id": "t_gloss_animation",
+		"name": "animation"
+	},
+	{
+		"id": "t_gloss_crafting",
+		"name": "crafting"
+	},
+	{
+		"id": "t_gloss_minions",
+		"name": "minions"
+	},
+	{
+		"id": "t_gloss_skill",
+		"name": "skill"
+	},
+	{
+		"id": "t_gloss_resource",
+		"name": "resource"
+	},
+	{
+		"id": "t_gloss_hall",
+		"name": "hall"
+	},
+	{
+		"id": "t_gloss_player",
+		"name": "player"
+	},
+	{
+		"id": "t_gloss_action",
+		"name": "action"
+	},
+	{
+		"id": "t_gloss_enchant",
+		"name": "enchant"
+	},
+	{
+		"id": "t_gloss_combat",
+		"name": "combat"
+	},
+	{
+		"id": "t_gloss_exploration",
+		"name": "exploration"
+	},
+	{
+		"id": "t_gloss_chaos",
+		"name": "chaos"
+	},
+	{
+		"id": "t_gloss_equipment",
+		"name": "equipment"
+	},
+	{
+		"id": "t_summon",
+		"name": "summon"
+	},
+	{
+		"id": "t_healthpot",
+		"name": "health potion",
+		"sharecd": true
+	},
+	{
+		"id": "t_manapot",
+		"name": "mana potion",
+		"sharecd": true
+	},
+	{
+		"id": "t_stampot",
+		"name": "stamina potion",
+		"sharecd": true
+	},
+	{
+		"id": "t_combatpot",
+		"name": "combat potion"
+	},
+	{
+		"id": "t_explodypot",
+		"name": "explosive potion",
+		"sharecd": true
+	},
+	{
+		"id": "t_statuspot",
+		"name": "status recovery potion",
+		"sharecd": true
+	},
+	{
+		"id": "t_coating",
+		"name": "coating",
+		"sharecd": true
+	},
+	{
+		"id": "t_oneiropot",
+		"name": "oneiric potion",
+		"sharecd": true
+	},
+	{
+		"id": "t_speeddown",
+		"name": "speed reduction"
+	},
+	{
+		"id": "t_tohitdown",
+		"name": "accuracy reduction"
+	},
+	{
+		"id": "t_tohitup",
+		"name": "accuracy increase"
+	},
+	{
+		"id": "t_speedup",
+		"name": "speed increase"
+	},
+	{
+		"id": "t_craftwork",
+		"name": "craftwork"
+	},
+	{
+		"id": "t_languagework",
+		"name": "wordplay"
+	},
+	{
+		"id": "t_enchantment",
+		"name": "enchantment"
+	},
+	{
+		"id": "t_stambuff",
+		"name": "stamina buff",
+		"sharecd": true
+	},
+	{
+		"id": "t_dodgebuff",
+		"name": "dodge buff",
+		"sharecd": true
+	},
+	{
+		"id": "t_manabuff",
+		"name": "mana buff",
+		"sharecd": true
+	},
+	{
+		"id": "t_regenbuff",
+		"name": "regen buff",
+		"sharecd": true
+	},
+	{
+		"id": "t_defbuff",
+		"name": "defense buff",
+		"sharecd": true
+	},
+	{
+		"id": "t_speedbuff",
+		"name": "speed buff",
+		"sharecd": true
+	},
+	{
+		"id": "t_accuracybuff",
+		"name": "accuracy buff",
+		"sharecd": true
+	},
+	{
+		"id": "t_immunitybuff",
+		"name": "immunity buff",
+		"sharecd": true
+	},
+	{
+		"id": "t_waterhealbuff",
+		"name": "water heal buff",
+		"sharecd": true
+	},
+	{
+		"id": "t_waterheal",
+		"name": "mending river"
+	},
+	{
+		"id": "t_naturehealbuff",
+		"name": "nature heal buff",
+		"sharecd": true
+	},
+	{
+		"id": "t_natureheal",
+		"name": "life's bloom"
+	},
+	{
+		"id": "t_obscurebuff",
+		"name": "obscuring buff",
+		"sharecd": true
+	},
+	{
+		"id": "t_etherealbuff",
+		"name": "ethereal buff",
+		"sharecd": true
+	},
+	{
+		"id": "t_silencespell",
+		"name": "silence spell",
+		"sharecd": true
+	},
+	{
+		"id": "t_confusespell",
+		"name": "confusion spell",
+		"sharecd": true
+	},
+	{
+		"id": "t_resist_debuff",
+		"name": "resistance debuff",
+		"sharecd": true
+	},
+	{
+		"id": "t_actionexpansion",
+		"name": "advanced extra action upgrade"
+	},
+	{
+		"id": "t_bulk_sale_task",
+		"name": "bulk sale task"
+	},
+	{
+		"id": "t_chaosclass",
+		"name": "master of chaos"
+	},
+	{
+		"id": "t_lightclass",
+		"name": "master of light"
+	},
+	{
+		"id": "t_mobilehome",
+		"name": "mobile home"
+	},
+	{
+		"id": "t_underground",
+		"name": "underground"
+	},
+	{
+		"id": "t_natureclass",
+		"name": "master of nature"
+	},
+	{
+		"id": "t_earthclass",
+		"name": "master of earth"
+	},
+	{
+		"id": "t_waterclass",
+		"name": "master of water"
+	},
+	{
+		"id": "t_airclass",
+		"name": "master of air"
+	},
+	{
+		"id": "t_fireclass",
+		"name": "master of fire"
+	},
+	{
+		"id": "t_elementalclass",
+		"name": "master of elements"
+	},
+	{
+		"id": "t_divinationclass",
+		"name": "master of divination"
+	},
+	{
+		"id": "t_manaclass",
+		"name": "master of the arcane"
+	},
+	{
+		"id": "t_knowledgeclass",
+		"name": "master of knowledge"
+	},
+	{
+		"id": "t_shadowclass",
+		"name": "master of shadow"
+	},
+	{
+		"id": "t_demonclass",
+		"name": "master of demonology"
+	},
+	{
+		"id": "t_healingclass",
+		"name": "master of healing"
+	},
+	{
+		"id": "t_necroclass",
+		"name": "master of necromancy"
+	},
+	{
+		"id": "t_spiritclass",
+		"name": "master of spirits"
+	},
+	{
+		"id": "t_swordclass",
+		"name": "master of swords"
+	},
+	{
+		"id": "t_duelingclass",
+		"name": "master of duels"
+	},
+	{
+		"id": "t_hammerclass",
+		"name": "master of hammers"
+	},
+	{
+		"id": "t_spearclass",
+		"name": "master of spears"
+	},
+	{
+		"id": "t_bloodclass",
+		"name": "master of blood"
+	},
+	{
+		"id": "t_summonclass",
+		"name": "master of summoning"
+	},
+	{
+		"id": "t_minionclass",
+		"name": "master of minions"
+	},
+	{
+		"id": "t_potionclass",
+		"name": "master of potions"
+	},
+	{
+		"id": "t_craftingclass",
+		"name": "master of crafting"
+	},
+	{
+		"id": "t_enchantingclass",
+		"name": "master of enchanting"
+	},
+	{
+		"id": "t_mechaclass",
+		"name": "master of mechanics"
+	},
+	{
+		"id": "t_shapeshiftclass",
+		"name": "master of forms"
+	},
+	{
+		"id": "t_body_preparation",
+		"name": "body preparation"
+	},
+	{
+		"id": "t_omendot",
+		"name": "omen"
+	},
+	{
+		"id": "t_fortunedot",
+		"name": "fortune"
+	},
+	{
+		"id": "t_misfortunedot",
+		"name": "misfortune"
+	},
+	{
+		"id": "t_prophecydot",
+		"name": "prophecy"
+	},
+	{
+		"id": "t_brand",
+		"name": "brand"
+	},
+	{
+		"id": "t_birthsign",
+		"name": "Birth Signs",
+		"bundleUnlocks": true
+	},
+	{
+		"id": "t_school",
+		"name": "School of Magic"
+	},
+	{
+		"id": "t_locale",
+		"name": "Locale",
+		"bundleUnlocks": true,
+		"bundleName": "Locales",
+		"bundleVerbose": true
+	},
+	{
+		"id": "t_dungeon",
+		"name": "Dungeon",
+		"bundleUnlocks": true,
+		"bundleName": "Dungeons",
+		"bundleVerbose": true
+	},
+	{
+		"id": "t_clash",
+		"name": "Clash"
+	},
+	{
+		"id": "t_craftedbag",
+		"name": "Illicit Sack"
+	},
+	{
+		"id": "site_of_learning",
+		"name": "Site of Learning"
+	},
+	{
+		"id": "loot_equip_gen",
+		"name": "Loot Generator",
+		"hide": true
+	},
+	{
+		"id": "t_bookfurn",
+		"name": "Book furniture"
+	},
+	{
+		"id": "t_heist_act",
+		"name": "grand larceny"
+	},
+	{
+		"id": "t_stance",
+		"name": "combat stance"
+	},
+	{
+		"id": "t_shade_spell",
+		"name": "shade",
+		"hide": true
+	},
+	{
+		"id": "t_undead_spell",
+		"name": "undead",
+		"hide": true
+	},
+	{
+		"id": "t_ventspell",
+		"name": "Vent Spell"
+	},
+	{
+		"id": "t_class",
+		"name": "class",
+		"hide": true,
+		"bundleUnlocks": true,
+		"bundleName": "classes",
+		"bundleVerbose": true
+	},
+	{
+		"id": "t_basicclass",
+		"name": "Basic Class"
+	},
+	{
+		"id": "t_advancedclass",
+		"name": "Advanced Class"
+	},
+	{
+		"id": "t_expertclass",
+		"name": "Expert class"
+	},
+	{
+		"id": "t0quest",
+		"name": "Tier 0 Quest"
+	},
+	{
+		"id": "t1quest",
+		"name": "Tier 1 Quest"
+	},
+	{
+		"id": "t2quest",
+		"name": "Tier 2 Quest"
+	},
+	{
+		"id": "t3quest",
+		"name": "Tier 3 Quest"
+	},
+	{
+		"id": "t4quest",
+		"name": "Tier 4 Quest"
+	},
+	{
+		"id": "t5quest",
+		"name": "Tier 5 Quest"
+	},
+	{
+		"id": "t6quest",
+		"name": "Tier 6 Quest"
+	},
+	{
+		"id": "t_advancedquest",
+		"name": "Advanced Quest"
+	},
+	{
+		"id": "t_expertquest",
+		"name": "Expert Quest"
+	},
+	{
+		"id": "t_spell",
+		"name": "Spell",
+		"hide": true,
+		"bundleUnlocks": true,
+		"bundleName": "Spells",
+		"bundleVerbose": true
+	},
+	{
+		"id": "hall",
+		"name": "hall",
+		"hide": true
+	},
+	{
+		"id": "t_permanent_transformation",
+		"name": "permanent transformation"
+	},
+	{
+		"id": "t_summon_beast",
+		"name": "summoned fauna"
+	},
+	{
+		"id": "t_bodyplan",
+		"name": "bodily configuration"
+	},
+	{
+		"id": "t_fauna_spell",
+		"name": "fauna spell",
+		"hide": true
+	},
+	{
+		"id": "t_shopkeeper_assistant",
+		"name": "assistant shopkeeper"
+	},
+	{
+		"id": "t_waterbreathing",
+		"name": "water breathing"
+	},
+	{
+		"id": "t_apprenticehome",
+		"name": "apprentice lodgings"
+	},
+	{
+		"id": "t_basicfurn",
+		"name": "Basic Furniture",
+		"hide": true,
+		"bundleUnlocks": true
+	},
+	{
+		"id": "t_section",
+		"name": "Section",
+		"hide": true,
+		"bundleUnlocks": true,
+		"bundleName": "Sections",
+		"bundleVerbose": true
+	},
+	{
+		"id": "t_basicsource",
+		"name": "Investigation Subject",
+		"hide": true,
+		"bundleUnlocks": true,
+		"bundleName": "Objects to Investigate",
+		"bundleVerbose": true
+	},
+	{
+		"id": "t_material",
+		"name": "Crafting Material",
+		"hide": true,
+		"bundleUnlocks": true,
+		"bundleName": "Crafting Materials"
+	},
+	{
+		"id": "t_weapon",
+		"name": "Weapon",
+		"hide": true,
+		"bundleUnlocks": true,
+		"bundleName": "Weapon Designs"
+	},
+	{
+		"id": "t_armor",
+		"name": "Armor",
+		"hide": true,
+		"bundleUnlocks": true,
+		"bundleName": "Armor Designs"
+	},
+	{
+		"id": "t_starterarea",
+		"name": "Starter Area",
+		"hide": true,
+		"bundleUnlocks": true,
+		"bundleName": "Locations",
+		"bundleVerbose": true
+	},
+	{
+		"id": "t_trickerypranks",
+		"name": "Clever Pranks",
+		"hide": true,
+		"bundleUnlocks": true,
+		"bundleVerbose": true
+	},
+	{
+		"id": "t_home",
+		"name": "Home",
+		"hide": true,
+		"bundleUnlocks": true,
+		"bundleName": "Homes",
+		"bundleVerbose": true
+	},
+	{
+		"id": "t_furniture",
+		"name": "Furniture",
+		"hide": true,
+		"bundleUnlocks": true,
+		"bundleName": "Furnitures",
+		"bundleVerbose": true
+	},
+	{
+		"id": "t_floodgate",
+		"name": "Floodgate",
+		"hide": true,
+		"bundleUnlocks": true,
+		"bundleName": "Quests",
+		"bundleVerbose": true
+	},
+	{
+		"id": "t_orb",
+		"name": "Orb",
+		"bundleUnlocks": true,
+		"bundleName": "Orbs",
+		"bundleVerbose": true
+	},
+	{
+		"id": "t_book",
+		"name": "Manuscript",
+		"bundleUnlocks": true,
+		"bundleName": "Books to Write",
+		"bundleVerbose": true
+	},
+	{
+		"id": "skill",
+		"name": "Skill",
+		"bundleUnlocks": true,
+		"bundleName": "Skills",
+		"bundleVerbose": true
+	},
+	{
+		"id": "t_adaptation",
+		"name": "Adaptation",
+		"hide": true,
+		"bundleUnlocks": true,
+		"bundleName": "Adaptation Upgrades"
+	},
+	{
+		"id": "t_construction",
+		"name": "Construction Task",
+		"bundleUnlocks": true,
+		"bundleName": "Construction Tasks",
+		"bundleVerbose": true
+	},
+	{
+		"id": "t_barrier_upgrade",
+		"name": "Barrier Upgrade",
+		"hide": true,
+		"bundleUnlocks": true,
+		"bundleName": "Barrier Upgrades",
+		"bundleVerbose": true
+	}
+]

@@ -1,0 +1,140 @@
+[
+	{
+		"id": "physdmg",
+		"name": "physical potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "spelldmg",
+		"name": "spell potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "runicdmg",
+		"name": "runic potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "spellheal",
+		"name": "healing potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "slashdmg",
+		"name": "slashing potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "piercedmg",
+		"name": "piercing potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "bluntdmg",
+		"name": "bludgeoning potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "manadmg",
+		"name": "mana potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "waterdmg",
+		"name": "water potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "airdmg",
+		"name": "air potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "firedmg",
+		"name": "fire potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "earthdmg",
+		"name": "earth potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "naturedmg",
+		"name": "nature potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "spiritdmg",
+		"name": "spirit potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "lightdmg",
+		"name": "light potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "shadowdmg",
+		"name": "shadow potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "chaosdmg",
+		"name": "chaos potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "timedmg",
+		"name": "time potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "voiddmg",
+		"name": "void potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "poisondmg",
+		"name": "poison potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "blooddmg",
+		"name": "blood potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "astraldmg",
+		"name": "astral potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	},
+	{
+		"id": "charmdmg",
+		"name": "charm potency",
+		"val": 100,
+		"damage": "Math.max((i.value/100)||0,0)"
+	}
+]

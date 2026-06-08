@@ -1,0 +1,1132 @@
+{
+	"module": "halloween_shapeshifting",
+	"sym": "🎃",
+	"data": {
+		"tags": [
+			{
+				"id": "t_hal_infected",
+				"name": "Zombie Plague"
+			},
+			{
+				"id": "t_hal_horseshoes",
+				"name": "Horseshoes"
+			},
+			{
+				"id": "t_hal_horns",
+				"name": "Horns"
+			}
+		],
+		"equipslots": [
+			{
+				"id": "hal_horns",
+				"name": "Horns",
+				"desc": "armor.",
+				"slotgroup": "equip",
+				"max": 0,
+				"sortOrder": 301
+			},
+			{
+				"id": "hal_hooves",
+				"name": "Hooves",
+				"desc": "armor.",
+				"slotgroup": "equip",
+				"max": 0,
+				"sortOrder": 1201
+			},
+			{
+				"id": "hal_breath",
+				"name": "Breath",
+				"slotgroup": "equip",
+				"max": 0,
+				"sortOrder": 101
+			},
+			{
+				"id": "hal_scales",
+				"name": "Scales",
+				"slotgroup": "equip",
+				"max": 0,
+				"sortOrder": 1001
+			}
+		],
+		"monsters": [
+			{
+				"id": "hal_sum_zombie_10",
+				"name": "lesser hallow zombie",
+				"level": 10,
+				"hp": 25,
+				"regen": 2.5,
+				"kind": "undead",
+				"tags": "t_summon_undead",
+				"noproc": true,
+				"onSummon": {
+					"name": "decaying",
+					"id": "mon_selfdestruct",
+					"targets": "self",
+					"dot": {
+						"duration": 25,
+						"onExpire": {
+							"name": "decay",
+							"harmless": true,
+							"nodefense": true,
+							"targets": "self",
+							"damage": "100+a.hp"
+						}
+					}
+				},
+				"attack": {
+					"name": "bite",
+					"kind": "pierce",
+					"damage": "2~3",
+					"targets": "enemy",
+					"targetspec": {
+						"notaffectedby": {
+							"condition": ["t_hal_infected"],
+							"conditiontext": "infection"
+						}
+					},
+					"dot": {
+						"duration": 25,
+						"name": "infected",
+						"id": "inf_10",
+						"tags": "t_hal_infected",
+						"level": 10,
+						"onDeath": {
+							"name": "Plague revival",
+							"summon": [
+								{
+									"summoncondition": "a.level>=0",
+									"summonconditiontext": "Target's level is greater than 0",
+									"id": "hal_sum_zombie_10",
+									"count": 1,
+									"max": 5
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"id": "hal_sum_zombie_20",
+				"name": "hallow zombie",
+				"level": 20,
+				"hp": 75,
+				"regen": 7.5,
+				"kind": "undead",
+				"tags": "t_summon_undead",
+				"noproc": true,
+				"onSummon": {
+					"name": "decaying",
+					"id": "mon_selfdestruct",
+					"targets": "self",
+					"dot": {
+						"duration": 25,
+						"onExpire": {
+							"name": "decay",
+							"harmless": true,
+							"nodefense": true,
+							"targets": "self",
+							"damage": "100+a.hp"
+						}
+					}
+				},
+				"attack": {
+					"name": "bite",
+					"kind": "pierce",
+					"damage": "5~8",
+					"targets": "enemy",
+					"targetspec": {
+						"notaffectedby": {
+							"condition": ["t_hal_infected"],
+							"conditiontext": "infection"
+						}
+					},
+					"dot": {
+						"duration": 25,
+						"name": "infected",
+						"id": "inf_20",
+						"tags": "t_hal_infected",
+						"level": 20,
+						"onDeath": {
+							"name": "Plague revival",
+							"summon": [
+								{
+									"summoncondition": "a.level>=0",
+									"summonconditiontext": "Target's level is greater than 0",
+									"id": "hal_sum_zombie_10",
+									"count": 1,
+									"max": 5
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"id": "hal_sum_zombie_35",
+				"name": "greater hallow zombie",
+				"level": 35,
+				"hp": 150,
+				"regen": 15,
+				"kind": "undead",
+				"tags": "t_summon_undead",
+				"noproc": true,
+				"onSummon": {
+					"name": "decaying",
+					"id": "mon_selfdestruct",
+					"targets": "self",
+					"dot": {
+						"duration": 25,
+						"onExpire": {
+							"name": "decay",
+							"harmless": true,
+							"nodefense": true,
+							"targets": "self",
+							"damage": "100+a.hp"
+						}
+					}
+				},
+				"attack": {
+					"name": "bite",
+					"kind": "pierce",
+					"damage": "12~15",
+					"targets": "enemy",
+					"targetspec": {
+						"notaffectedby": {
+							"condition": ["t_hal_infected"],
+							"conditiontext": "infection"
+						}
+					},
+					"dot": {
+						"duration": 25,
+						"name": "infected",
+						"id": "inf_35",
+						"tags": "t_hal_infected",
+						"level": 35,
+						"onDeath": {
+							"name": "Plague revival",
+							"summon": [
+								{
+									"summoncondition": "a.level>=0&&a.level<15",
+									"summonconditiontext": "Target's level is between 0 and 15",
+									"id": "hal_sum_zombie_10",
+									"count": 1,
+									"max": 5
+								},
+								{
+									"summoncondition": "a.level>=15",
+									"summonconditiontext": "Target's level is greater than 15",
+									"id": "hal_sum_zombie_20",
+									"count": 1,
+									"max": 5
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"id": "hal_sum_zombie_45",
+				"name": "supreme hallow zombie",
+				"level": 45,
+				"hp": 300,
+				"regen": 30,
+				"kind": "undead",
+				"tags": "t_summon_undead",
+				"noproc": true,
+				"onSummon": {
+					"name": "decaying",
+					"id": "mon_selfdestruct",
+					"targets": "self",
+					"dot": {
+						"duration": 25,
+						"onExpire": {
+							"name": "decay",
+							"harmless": true,
+							"nodefense": true,
+							"targets": "self",
+							"damage": "100+a.hp"
+						}
+					}
+				},
+				"attack": {
+					"name": "bite",
+					"kind": "pierce",
+					"damage": "30~40",
+					"targets": "enemy",
+					"targetspec": {
+						"notaffectedby": {
+							"condition": ["t_hal_infected"],
+							"conditiontext": "infection"
+						}
+					},
+					"dot": {
+						"duration": 25,
+						"name": "infected",
+						"id": "inf_45",
+						"tags": "t_hal_infected",
+						"level": 45,
+						"onDeath": {
+							"name": "Plague revival",
+							"summon": [
+								{
+									"summoncondition": "a.level>=0&&a.level<15",
+									"summonconditiontext": "Target's level is between 0 and 15",
+									"id": "hal_sum_zombie_10",
+									"count": 1,
+									"max": 5
+								},
+								{
+									"summoncondition": "a.level>=15&&a.level<30",
+									"summonconditiontext": "Target's level is between 15 and 30",
+									"id": "hal_sum_zombie_20",
+									"count": 1,
+									"max": 5
+								},
+								{
+									"summoncondition": "a.level>=30",
+									"summonconditiontext": "Target's level is greater than 30",
+									"id": "hal_sum_zombie_35",
+									"count": 1,
+									"max": 5
+								}
+							]
+						}
+					}
+				}
+			}
+		],
+		"spells": [
+			{
+				"id": "asp_zombie_bite",
+				"name": "Infectious bite",
+				"level": 1,
+				"require": "g.asp_zombie>0",
+				"need": "g.asp_zombie>0",
+				"needtext": "Only usable by zombies",
+				"desc": "Bite a target of your choice, priming them to join your horde upon their demise.",
+				"extdesc": "Zombies produced that way will decay naturally, but are capable of carrying on the infection on their own",
+				"school": "halloween",
+				"keywords": {
+					"type": ["summon", "damage"],
+					"target": ["enemy"],
+					"targets": ["single"],
+					"delivery": ["over time"]
+				},
+				"buy": {
+					"chaosgem": 20
+				},
+				"cost": {
+					"vigor": 5
+				},
+				"cd": 2,
+				"attack": {
+					"targets": "enemy",
+					"targetspec": {
+						"notaffectedby": {
+							"condition": ["t_hal_infected"],
+							"conditiontext": "infection"
+						}
+					},
+					"dot": {
+						"duration": 25,
+						"name": "infected",
+						"id": "inf_master",
+						"tags": "t_hal_infected",
+						"level": 100,
+						"onDeath": {
+							"name": "Plague revival",
+							"summon": [
+								{
+									"summoncondition": "a.level>=0&&a.level<15",
+									"summonconditiontext": "Target's level is between 0 and 15",
+									"id": "hal_sum_zombie_10",
+									"count": 1,
+									"max": 5
+								},
+								{
+									"summoncondition": "a.level>=15&&a.level<30",
+									"summonconditiontext": "Target's level is between 15 and 30",
+									"id": "hal_sum_zombie_20",
+									"count": 1,
+									"max": 5
+								},
+								{
+									"summoncondition": "a.level>=30&&a.level<45",
+									"summonconditiontext": "Target's level is between 30 and 45",
+									"id": "hal_sum_zombie_35",
+									"count": 1,
+									"max": 5
+								},
+								{
+									"summoncondition": "a.level>=45",
+									"summonconditiontext": "Target's level is 45 or greater",
+									"id": "hal_sum_zombie_45",
+									"count": 1,
+									"max": 5
+								}
+							]
+						}
+					}
+				},
+				"mod": {
+					"hal_sum_zombie_10.value": "?1",
+					"hal_sum_zombie_20.value": "?1",
+					"hal_sum_zombie_35.value": "?1",
+					"hal_sum_zombie_45.value": "?1"
+				},
+				"modtext": "Unlocks the Hallow Zombie entries in the bestiary after first cast."
+			}
+		],
+		"upgrades": [
+			{
+				"name": "Develop shapeshifting",
+				"tags": "t_halloween_aspect",
+				"id": "asp_unlock",
+				"desc": "The remains of the creature churn and throb with volatile energies. What if you could... harness them?",
+				"extdesc": "Unlocks an ability to radically shapeshift for the duration of the season. Also allows you to find chaos gems in halloween locations.",
+				"require": "(g.hal_mill_intime>0||g.hal_mill_late>0)",
+				"cost": {
+					"chaosgem": 20
+				},
+				"mod": {
+					"anatomy.max": 1,
+					"trickery.max": 1
+				},
+				"group": "halloween 🎃"
+			},
+			{
+				"name": "Zombie Aspect",
+				"tags": "t_halloween_aspect,t_bodyplan",
+				"id": "asp_zombie",
+				"desc": "The restless souls wander around, wrecking havoc wherever they are.",
+				"extdesc": "A zombie has no arms, but possesses a terribly infectious bite and a natural ability to shrug off potentially lethal damage.",
+				"require": "g.asp_unlock>0&&g.anatomy>=5",
+				"buy": {
+					"chaosgem": 5
+				},
+				"cost": {
+					"chaosgem": 15
+				},
+				"slot": "bodyplan",
+				"max": 1,
+				"mod": {
+					"hp.max": "25%",
+					"player.defense": "25%",
+					"head.max": 1,
+					"back.max": 1,
+					"waist.max": 1,
+					"neck.max": 3,
+					"trinket.max": 1,
+					"chest.max": 1,
+					"shins.max": 1,
+					"feet.max": 1,
+					"mainhand.max": -99,
+					"offhand.max": -99
+				},
+				"group": "halloween 🎃"
+			},
+			{
+				"id": "asp_satyr",
+				"name": "Satyr Aspect",
+				"tags": "t_halloween_aspect,t_bodyplan",
+				"desc": "Dancing under the moonlight, and misleading wanderers.",
+				"extdesc": "Satyrs dispense with lower body accoutrements as well as all forms of headwear in favor of horns and horseshoes. They are much luckier than normal",
+				"require": "g.asp_unlock>0&&g.trickery>5&&g.nature>10",
+				"buy": {
+					"chaosgem": 5
+				},
+				"cost": {
+					"chaosgem": 15
+				},
+				"slot": "bodyplan",
+				"max": 1,
+				"mod": {
+					"luck": "25%",
+					"hands.max": 1,
+					"back.max": 1,
+					"waist.max": 1,
+					"neck.max": 3,
+					"trinket.max": 1,
+					"fingers.max": 4,
+					"chest.max": 1,
+					"hal_horns.max": 1,
+					"hal_hooves.max": 1
+				},
+				"group": "halloween 🎃"
+			},
+			{
+				"id": "asp_drake",
+				"name": "Drake Aspect",
+				"tags": "t_halloween_aspect,t_bodyplan",
+				"desc": "Ancient flying monstrosities.",
+				"require": "g.asp_unlock>0",
+				"need": "g.tier4>0&&g.alchemylearn2>0&&g.mtgorborung>0",
+				"needtext": "You need to be tier 4 and posess expertise in alchemy to be able to control this kind of body. You also must investigate Mount Gorborung.",
+				"slot": "bodyplan",
+				"max": 1,
+				"buy": {
+					"chaosgem": 5
+				},
+				"cost": {
+					"chaosgem": 15
+				},
+				"mod": {
+					"hal_breath.max": 1,
+					"hal_scales.max": 4,
+					"mainhand.max": -99,
+					"offhand.max": -99,
+					"self.immunities.silence": 1,
+					"self.immunities.entangle": 1,
+					"self.immunities.paralysis": 1
+				},
+				"group": "halloween 🎃"
+			}
+		],
+		"materials": [
+			{
+				"id": "mat_horns_iron",
+				"name": "Iron plating",
+				"adj": "Iron-plated %i",
+				"level": 2,
+				"kind": "horns",
+				"only": "t_hal_horns",
+				"cost": {
+					"iron": 15,
+					"leather": 13,
+					"cotton": 8
+				},
+				"require": "g.craftinglearn1>0&&g.asp_satyr>0",
+				"alter": {
+					"sell": { "iron": 10, "leather": 2 }
+				}
+			},
+			{
+				"id": "mat_horns_quicksteel",
+				"name": "Quicksteel plating",
+				"adj": "Quicksteel-plated %i",
+				"level": 4,
+				"kind": "horns",
+				"only": "t_hal_horns",
+				"cost": {
+					"quicksteel": 15,
+					"serpentskin": 13,
+					"spidersilk": 8,
+					"managem": 4,
+					"research": 200
+				},
+				"require": "g.craftinglearn2>0&&g.asp_satyr>0",
+				"alter": {
+					"sell": { "quicksteel": 10, "serpentskin": 2 },
+					"enchants.max": 1,
+					"damage.min": "100%",
+					"damage.max": "100%",
+					"shield": 10,
+					"evasion": 2,
+					"armor": 2
+				}
+			},
+			{
+				"id": "mat_horns_adamant",
+				"name": "Adamant plating",
+				"adj": "Adamant-plated %i",
+				"level": 14,
+				"kind": "horns",
+				"only": "t_hal_horns",
+				"cost": {
+					"adamant": 15,
+					"aetherhide": 13,
+					"runestones": 4,
+					"amberroot": 8,
+					"research": 800
+				},
+				"require": "g.craftinglearn4>0&&g.asp_satyr>0",
+				"alter": {
+					"sell": { "adamant": 10, "aetherhide": 2 },
+					"enchants.max": 2,
+					"damage.min": "300%",
+					"damage.max": "300%",
+					"shield": 25,
+					"evasion": 5,
+					"armor": 5
+				}
+			},
+			{
+				"id": "mat_horseshoes_iron",
+				"name": "Iron",
+				"adj": "Iron",
+				"level": 2,
+				"kind": "horseshoes",
+				"only": "t_hal_horseshoes",
+				"cost": {
+					"iron": 15
+				},
+				"require": "g.craftinglearn1>0&&g.asp_satyr>0",
+				"alter": {
+					"sell": { "iron": 10 }
+				}
+			},
+			{
+				"id": "mat_horseshoes_quicksteel",
+				"name": "Quicksteel",
+				"adj": "Quicksteel",
+				"level": 4,
+				"kind": "horseshoes",
+				"only": "t_hal_horseshoes",
+				"cost": {
+					"quicksteel": 15
+				},
+				"require": "g.craftinglearn2>0&&g.asp_satyr>0",
+				"alter": {
+					"sell": { "quicksteel": 10 },
+					"enchants.max": 1,
+					"mod.luck": 2
+				}
+			},
+			{
+				"id": "mat_horseshoes_adamant",
+				"name": "Adamant",
+				"adj": "Adamant",
+				"level": 14,
+				"kind": "horseshoes",
+				"only": "t_hal_horseshoes",
+				"cost": {
+					"adamant": 15
+				},
+				"require": "g.craftinglearn4>0&&g.asp_satyr>0",
+				"alter": {
+					"sell": { "adamant": 10 },
+					"enchants.max": 2,
+					"mod.luck": 5
+				}
+			},
+			{
+				"id": "mat_dragonbreath_cone",
+				"name": "Conical",
+				"adj": "Conical %i",
+				"require": "g.asp_drake>0&&g.alchemylearn2>0",
+				"level": 14,
+				"kind": "breath",
+				"only": "t_dragonbreath",
+				"length": 30,
+				"cost": {
+					"runestones": 4,
+					"amberroot": 8,
+					"chaosgem": 5
+				},
+				"alter": {
+					"mod": {
+						"physdmg": 10,
+						"spelldmg": 10
+					},
+					"attack": {
+						"name": "dragonfire",
+						"kind": "dragonfire",
+						"targets": "enemies",
+						"maxTargets": 999,
+						"damagedesc": "Breathes fire in a wide cone, dealing 200% base damage to all enemies.",
+						"damage": "(i.damage||0)*2",
+						"potencies": ["physdmg", "spelldmg"]
+					}
+				}
+			},
+			{
+				"id": "mat_dragonbreath_narrow",
+				"name": "Narrow",
+				"adj": "Narrow %i",
+				"require": "g.asp_drake>0&&g.alchemylearn2>0",
+				"level": 14,
+				"kind": "breath",
+				"only": "t_dragonbreath",
+				"length": 30,
+				"cost": {
+					"runestones": 4,
+					"amberroot": 8,
+					"chaosgem": 5
+				},
+				"alter": {
+					"mod": {
+						"physdmg": 20,
+						"spelldmg": 20
+					},
+					"attack": {
+						"name": "dragonfire",
+						"kind": "dragonfire",
+						"targets": "enemy",
+						"repeathits": 2,
+						"damagedesc": "Breathes fire in a narrow cone, dealing 150% base damage twice.",
+						"damage": "(i.damage||0)*1.5",
+						"potencies": ["physdmg", "spelldmg"]
+					}
+				}
+			},
+			{
+				"id": "mat_dragonbreath_sticky",
+				"name": "Napalm",
+				"adj": "Napalm %i",
+				"require": "g.asp_drake>0&&g.alchemylearn2>0",
+				"level": 14,
+				"kind": "breath",
+				"only": "t_dragonbreath",
+				"length": 30,
+				"cost": {
+					"runestones": 4,
+					"amberroot": 8,
+					"chaosgem": 5
+				},
+				"alter": {
+					"mod": {
+						"physdmg": 10,
+						"spelldmg": 10
+					},
+					"attack": {
+						"name": "dragonfire",
+						"kind": "dragonfire",
+						"targets": "enemies",
+						"maxTargets": 3,
+						"damagedesc": "Breathes sticky fire in a cone, dealing 100% base damage to up to 3 enemies and burning them.",
+						"damage": "(i.damage||0)",
+						"potencies": ["physdmg", "spelldmg"],
+						"dot": {
+							"name": "Burning",
+							"duration": 4,
+							"kind": "dragonfire",
+							"potencies": ["physdmg", "spelldmg"],
+							"damage": 10,
+							"mod": {
+								"self.speed": -7
+							}
+						}
+					}
+				}
+			},
+			{
+				"id": "mat_dragonbreath_radiant",
+				"name": "Radiant",
+				"adj": "Radiant %i",
+				"require": "g.asp_drake>0&&g.alchemylearn2>0&&g.makeclaws>0",
+				"level": 14,
+				"kind": "breath",
+				"only": "t_dragonbreath",
+				"length": 30,
+				"cost": {
+					"runestones": 4,
+					"amberroot": 8,
+					"chaosgem": 5
+				},
+				"alter": {
+					"attack": {
+						"name": "dragonfire",
+						"kind": "dragonfire",
+						"targets": "enemies",
+						"maxTargets": 999,
+						"damagedesc": "Releases flames from within in a wide cone, dealing 100% base damage, modified by your blazing heat.",
+						"damage": "(i.damage||0) + Math.pow((a.context.getData('blazingheat')||0)*0.15,0.9)",
+						"potencies": ["physdmg", "spelldmg"],
+						"acquire": {
+							"blazingheat": "1+(Math.pow(g.soulember,1.2))",
+							"consumingflames": "-1+-1*(Math.pow(g.soulember/3,1.1))"
+						}
+					}
+				}
+			},
+			{
+				"id": "mat_scales_resilient",
+				"name": "Resilient",
+				"adj": "Resilient %i",
+				"level": 14,
+				"kind": "scales",
+				"only": "hal_dragonscale",
+				"cost": {
+					"adamant": 5,
+					"aetherhide": 3,
+					"runestones": 2,
+					"amberroot": 3,
+					"research": 500
+				},
+				"require": "g.asp_drake>0&&g.alchemylearn2>0",
+				"alter": {
+					"sell": { "adamant": 2, "aetherhide": 2 },
+					"shield": 120,
+					"mod.self.chainhit": 1.25,
+					"attack": {
+						"name": "Shimmer",
+						"targets": "self",
+						"acquire": { "barrier": "t.barrier.max * 0.02" }
+					}
+				}
+			},
+			{
+				"id": "mat_scales_sharp",
+				"name": "Sharp",
+				"adj": "Sharp %i",
+				"level": 14,
+				"kind": "scales",
+				"only": "hal_dragonscale",
+				"cost": {
+					"adamant": 5,
+					"aetherhide": 3,
+					"runestones": 2,
+					"amberroot": 3,
+					"research": 500
+				},
+				"require": "g.asp_drake>0&&g.alchemylearn2>0",
+				"alter": {
+					"sell": { "adamant": 2, "aetherhide": 2 },
+					"armor": 75,
+					"mod.self.thorns": 5
+				}
+			},
+			{
+				"id": "mat_scales_rainbow",
+				"name": "Rainbow",
+				"adj": "Rainbow %i",
+				"level": 14,
+				"kind": "scales",
+				"only": "hal_dragonscale",
+				"cost": {
+					"adamant": 5,
+					"aetherhide": 3,
+					"runestones": 2,
+					"amberroot": 3,
+					"research": 500
+				},
+				"require": "g.asp_drake>0&&g.alchemylearn2>0",
+				"alter": {
+					"sell": { "adamant": 2, "aetherhide": 2 },
+					"mod.self.resist.blunt": 50,
+					"mod.self.resist.pierce": 50,
+					"mod.self.resist.slash": 50,
+					"mod.self.resist.mana": 50,
+					"mod.self.resist.water": 50,
+					"mod.self.resist.air": 50,
+					"mod.self.resist.fire": 50,
+					"mod.self.resist.earth": 50,
+					"mod.self.resist.nature": 50,
+					"mod.self.resist.spirit": 50,
+					"mod.self.resist.light": 50,
+					"mod.self.resist.shadow": 50,
+					"mod.prismatic.rate": 0.3
+				}
+			}
+		],
+		"weapons": [
+			{
+				"id": "hal_blunthorns",
+				"name": "Ram horns",
+				"level": 11,
+				"slot": "hal_horns",
+				"tags": "t_hal_horns",
+				"sell": {},
+				"enchants": 1,
+				"damage": "1~3",
+				"only": "horns",
+				"require": "g.asp_satyr>0",
+				"cost": {
+					"chaosgem": 5
+				},
+				"craftcostmult": 2,
+				"armor": 25,
+				"shield": 50,
+				"attack": {
+					"name": "Headbutt",
+					"kind": "blunt",
+					"damage": "(i.damage||0)*1",
+					"potencies": ["physdmg", "bluntdmg"]
+				},
+				"alter": { "mod.self.chainhit": 1 }
+			},
+			{
+				"id": "hal_piercehorns",
+				"name": "Bull horns",
+				"level": 11,
+				"slot": "hal_horns",
+				"tags": "t_hal_horns",
+				"sell": {},
+				"enchants": 1,
+				"only": "horns",
+				"damage": "1~3",
+				"require": "g.asp_satyr>0",
+				"cost": {
+					"chaosgem": 5
+				},
+				"craftcostmult": 2,
+				"armor": 15,
+				"evasion": 25,
+				"attack": {
+					"name": "Gore",
+					"kind": "pierce",
+					"damage": "(i.damage||0)*1",
+					"potencies": ["physdmg", "piercedmg"]
+				},
+				"alter": { "mod.self.chainhit": 1 }
+			},
+			{
+				"id": "hal_dragonbreath",
+				"name": "Dragonbreath",
+				"level": 11,
+				"slot": "hal_breath",
+				"tags": "t_dragonbreath",
+				"sell": {},
+				"enchants": 0,
+				"only": "breath",
+				"damage": "10~18",
+				"require": "g.asp_drake>0&&g.alchemylearn2>0",
+				"cost": {
+					"chaosgem": 5
+				},
+				"craftcostmult": 2
+			}
+		],
+		"armors": [
+			{
+				"id": "hal_horseshoes",
+				"name": "Horseshoes",
+				"level": 11,
+				"slot": "hal_hooves",
+				"tags": "t_hal_horseshoes",
+				"sell": {},
+				"enchants": 1,
+				"only": "horseshoes",
+				"require": "g.asp_satyr>0",
+				"cost": {
+					"chaosgem": 5
+				},
+				"craftcostmult": 2,
+				"alter": { "mod.luck": 7 }
+			},
+			{
+				"id": "hal_dragonscale",
+				"name": "Scale Treatment",
+				"level": 11,
+				"slot": "hal_scales",
+				"tags": "t_dragonscale",
+				"sell": {},
+				"enchants": 0,
+				"only": "scales",
+				"require": "g.asp_drake>0&&g.alchemylearn2>0",
+				"cost": {
+					"chaosgem": 5
+				},
+				"craftcostmult": 2
+			}
+		],
+		"enchants": [
+			{
+				"id": "en_hal_horns_evasion",
+				"name": "Mirage",
+				"adj": "Mirage",
+				"desc": "Focus your horns on evasion",
+				"extdesc": "Effect scales with item's base stats",
+				"require": "g.enchanting>0&&g.asp_satyr>0",
+				"buy": {
+					"chaosgem": 5,
+					"arcana": 1,
+					"research": 100
+				},
+				"level": 2,
+				"only": "t_hal_horns",
+				"length": 30,
+				"cost": { "arcana": 1 },
+				"alter": { "evasion": "100%", "armor": "50%", "shield": "50%" }
+			},
+			{
+				"id": "en_hal_horns_armor",
+				"name": "Bulwark",
+				"adj": "Bulwark",
+				"desc": "Focus your horns on defense",
+				"extdesc": "Effect scales with item's base stats",
+				"require": "g.enchanting>0&&g.asp_satyr>0",
+				"buy": {
+					"chaosgem": 5,
+					"arcana": 1,
+					"research": 100
+				},
+				"level": 2,
+				"only": "t_hal_horns",
+				"length": 30,
+				"cost": { "arcana": 1 },
+				"alter": { "evasion": "50%", "armor": "100%", "shield": "50%" }
+			},
+			{
+				"id": "en_hal_horns_barrier",
+				"name": "Shimmering",
+				"adj": "Shimmering",
+				"desc": "Focus your horns on barrier",
+				"extdesc": "Effect scales with item's base stats",
+				"require": "g.enchanting>0&&g.asp_satyr>0",
+				"buy": {
+					"chaosgem": 5,
+					"arcana": 1,
+					"research": 100
+				},
+				"level": 2,
+				"only": "t_hal_horns",
+				"length": 30,
+				"cost": { "arcana": 1 },
+				"alter": { "evasion": "50%", "armor": "50%", "shield": "100%" }
+			},
+			{
+				"id": "en_hal_horns_phys",
+				"name": "Ram's tenacity",
+				"adj": "%i of ramming",
+				"desc": "Focus your horns on the physical world.",
+				"require": "g.enchanting>0&&g.asp_satyr>0",
+				"buy": {
+					"chaosgem": 5,
+					"arcana": 1,
+					"research": 100
+				},
+				"level": 1,
+				"only": "t_hal_horns",
+				"length": 30,
+				"cost": { "arcana": 1 },
+				"alter": {
+					"mod.self.resist.blunt": 20,
+					"mod.self.resist.pierce": 20,
+					"mod.self.resist.slash": 20,
+					"mod.bluntdmg": 25,
+					"mod.piercedmg": 25,
+					"mod.physdmg": 10
+				}
+			},
+			{
+				"id": "en_hal_horns_mag",
+				"name": "Satyr's ingenuity",
+				"adj": "%i of channeling",
+				"desc": "Focus your horns on the mythical world.",
+				"require": "g.enchanting>0&&g.asp_satyr>0",
+				"buy": {
+					"chaosgem": 5,
+					"arcana": 1,
+					"research": 100
+				},
+				"level": 1,
+				"only": "t_hal_horns",
+				"length": 30,
+				"cost": { "arcana": 1 },
+				"alter": {
+					"mod.self.resist.mana": 20,
+					"mod.self.resist.water": 20,
+					"mod.self.resist.air": 20,
+					"mod.self.resist.fire": 20,
+					"mod.self.resist.earth": 20,
+					"mod.self.resist.nature": 20,
+					"mod.self.resist.spirit": 20,
+					"mod.self.resist.light": 20,
+					"mod.self.resist.shadow": 20,
+					"mod.spelldmg": 15,
+					"mod.self.chainhit": -0.5,
+					"mod.self.chaincast": 0.3
+				}
+			},
+			{
+				"id": "en_hal_horns_luck",
+				"name": "Wolpertinger's luck",
+				"adj": "Rabbit's %i",
+				"desc": "Align your horns towards luck",
+				"require": "g.enchanting>0&&g.asp_satyr>0",
+				"buy": {
+					"chaosgem": 5,
+					"arcana": 1,
+					"research": 100
+				},
+				"level": 1,
+				"only": "t_hal_horns",
+				"length": 30,
+				"cost": { "arcana": 1 },
+				"alter": { "mod.luck": "25+10%", "mod.self.chaincast": 0.15, "mod.self.chainhit": 0.15 }
+			},
+			{
+				"id": "en_hal_horseshoes_disable",
+				"name": "Disable Negation",
+				"adj": "%i of Freedom",
+				"desc": "Improves chance of negating binding effects.",
+				"require": "g.enchanting>0&&g.asp_satyr>0",
+				"buy": {
+					"chaosgem": 5,
+					"arcana": 3,
+					"research": 300
+				},
+				"level": 1,
+				"only": "t_hal_horseshoes",
+				"length": 30,
+				"cost": { "arcana": 1 },
+				"alter": {
+					"mod.self.negate.silence": 100,
+					"mod.self.negate.paralysis": 100,
+					"mod.self.negate.entangle": 100
+				}
+			},
+			{
+				"id": "en_hal_horseshoes_agility",
+				"name": "Agile horseshoes",
+				"adj": "%i of Agility",
+				"desc": "Improves evasion and accuracy.",
+				"require": "g.enchanting>0&&g.asp_satyr>0",
+				"buy": {
+					"chaosgem": 5,
+					"arcana": 3,
+					"research": 300
+				},
+				"level": 2,
+				"only": "t_hal_horseshoes",
+				"length": 30,
+				"cost": { "arcana": 1 },
+				"alter": {
+					"mod.self.dodge": "20%",
+					"mod.self.tohit": "20%"
+				}
+			},
+			{
+				"id": "en_hal_horseshoes_celerity",
+				"name": "Celerity",
+				"adj": "%i of Celerity",
+				"desc": "Improves speed.",
+				"require": "g.enchanting>0&&g.asp_satyr>0",
+				"buy": {
+					"chaosgem": 5,
+					"arcana": 3,
+					"research": 300
+				},
+				"level": 1,
+				"only": "t_hal_horseshoes",
+				"length": 30,
+				"cost": { "arcana": 1 },
+				"alter": {
+					"mod.self.speed": "2+10%"
+				}
+			},
+			{
+				"id": "en_hal_horseshoes_stampede",
+				"name": "Stampede",
+				"adj": "%i of Stampede",
+				"desc": "Allows your horseshoes to imbue you and your allies with speed.",
+				"require": "g.enchanting>0&&g.asp_satyr>0",
+				"buy": {
+					"chaosgem": 5,
+					"arcana": 3,
+					"research": 300
+				},
+				"level": 2,
+				"only": "t_hal_horseshoes",
+				"length": 30,
+				"cost": { "arcana": 1 },
+				"alter": {
+					"mod": {
+						"self.speed": 3
+					},
+					"attack": {
+						"name": "Stampede",
+						"targets": "minions",
+						"dot": {
+							"name": "Stampede",
+							"duration": 25,
+							"mod": { "self.speed": 3 },
+							"effect": { "self.timer": -0.1 }
+						}
+					}
+				}
+			}
+		]
+	}
+}

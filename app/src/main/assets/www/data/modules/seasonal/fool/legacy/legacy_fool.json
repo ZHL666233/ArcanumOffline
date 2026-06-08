@@ -1,0 +1,21 @@
+{
+	"module": "legacy_halloween",
+	"data": {
+		"rares": [
+			{
+				"id": "fool_tshirt",
+				"sym": "🃏",
+				"name": "Painted cotton shirt",
+				"desc": "You have slain a dragon and all you got was a lousy t-shirt!",
+				"flavor": "That IS a sick painting of a dragon though",
+				"level": 1,
+				"type": "armor",
+				"slot": "chest",
+				"tags": "t_chestplate",
+				"sell": {},
+				"enchants": 0,
+				"alter": { "mod.hp.max": 1 }
+			}
+		]
+	}
+}

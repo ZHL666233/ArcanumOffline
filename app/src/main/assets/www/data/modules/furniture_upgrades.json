@@ -1,0 +1,89 @@
+{
+	"module": "furniture_upgrades",
+	"data": {
+		"upgrades": [
+			{
+				"id": "better_arcanestudy",
+				"name": "magically soundproofed study",
+				"desc": "Magically refine your enchanted study into an ideal location for researching topics without any distractions.",
+				"require": "g.enchanted_study>0&&g.airlore2>=1",
+				"cost": {
+					"codices": 15,
+					"gold": 6750,
+					"research": 250,
+					"airgem": 60,
+					"arcana": 12
+				},
+				"mod": {
+					"studyroom.mod.focus.result.runner.skillprogress": "25%"
+				},
+				"group": "furniture"
+			},
+			{
+				"id": "better_study",
+				"name": "soundproof study",
+				"desc": "Refine your study into an ideal location for researching topics without any distractions.",
+				"require": "g.studyroom>0&&g.airlore>=5",
+				"cost": {
+					"scrolls": 12,
+					"gold": 2000,
+					"gems": 30,
+					"arcana": 3,
+					"bookcase": 5
+				},
+				"mod": {
+					"studyroom.mod.focus.result.runner.skillprogress": "10%"
+				},
+				"group": "furniture"
+			},
+			{
+				"id": "better_pedestal",
+				"name": "utility pedestal",
+				"desc": "A pedestal with added grooves to keep the reading material in place, small compartments holding spare bookmarks and even a light gem holder for night reading.",
+				"require": "g.pedestal>0&&g.crafting>=7",
+				"cost": {
+					"scrolls": 3,
+					"gold": 700,
+					"arcana": 1,
+					"research": 200,
+					"lightgem": 3
+				},
+				"mod": {
+					"pedestal.mod.focus.result.runner.skillprogress": "5%"
+				},
+				"group": "furniture"
+			},
+			{
+				"id": "packmule",
+				"name": "pack mule",
+				"desc": "A clever design from the sack-maker's guild.",
+				"require": "g.mule>=1",
+				"cost": {
+					"gold": 500,
+					"herbs": 10,
+					"ironchest": 1
+				},
+				"mod": {
+					"mule.mod.inv.max": 5,
+					"mule.mod.gold.max": 150
+				},
+				"group": "mount"
+			},
+			{
+				"id": "rejuvenation_feed",
+				"name": "rejuvenation feed",
+				"desc": "A new concoction of herbs, carrots, and exotic fruits to invigorate the weary steed.",
+				"require": "(g.mule+g.oldnag)>=1&&g.potions>=3",
+				"cost": {
+					"gold": 800,
+					"herbs": 30
+				},
+				"mod": {
+					"mule.mod.dist": 50,
+					"oldnag.mod.dist": 60
+				},
+				"group": "mount"
+			}
+		]
+	}
+}

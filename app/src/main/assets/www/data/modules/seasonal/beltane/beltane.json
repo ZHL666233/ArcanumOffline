@@ -1,0 +1,747 @@
+{
+	"module": "beltane",
+	"sym": "🔥",
+	"data": {
+		"events": [
+			{
+				"id": "evt_beltane_arrival",
+				"require": "evt_helper",
+				"name": "beltane arrives",
+				"result": {
+					"hawthorn_blossoms": 5
+				},
+				"desc": "The first day of Spring brings Beltane, when the old pacts loosen and the kell walk freely among mortals. The great fires are kindled, maypoles are raised, and fertility and fire magic surge through the land.",
+				"flavor": "The air itself seems to shimmer with Beltane's magic."
+			}
+		],
+		"resources": [
+			{
+				"id": "hawthorn_blossoms",
+				"name": "hawthorn blossom",
+				"desc": "Sacred flowers from the hawthorn tree, gathered on Beltane morning. They carry the essence of protection and fertility magic.",
+				"max": 10,
+				"group": "beltane 🔥",
+				"tags": "herb,reagent",
+				"mod": {
+					"nature.rate": 0.003,
+					"hp.rate": 0.005
+				},
+				"flavor": "The fae are said to guard hawthorn trees, and their blossoms are most potent when gathered at dawn on Spring's first day."
+			},
+			{
+				"id": "mayflower",
+				"name": "mayflower",
+				"desc": "Flowers blessed by the Beltane fires, vibrant with seasonal magic.",
+				"max": 30,
+				"group": "beltane 🔥",
+				"tags": "herb,reagent",
+				"mod": {
+					"nature.rate": 0.001,
+					"herbs.rate": 0.002
+				},
+				"flavor": "Wearing a mayflower crown grants protection from the fae's mischief."
+			},
+			{
+				"id": "fertility_token",
+				"name": "fertility token",
+				"desc": "A token blessed by the Beltane fires and the Old Growth's touch, granting growth and abundance.",
+				"max": 20,
+				"group": "beltane 🔥",
+				"tags": "reagent",
+				"mod": {
+					"herbs.rate": 0.003
+				},
+				"flavor": "Carved from hawthorn wood and blessed in the Beltane flames."
+			}
+		],
+		"tasks": [
+			{
+				"id": "gather_hawthorn",
+				"name": "gather hawthorn blossoms",
+				"desc": "Collect hawthorn blossoms at dawn on Beltane morning, when their magic is strongest. The fae watch but allow those who show proper respect.",
+				"require": "g.evt_beltane_arrival>0",
+				"length": 10,
+				"fill": "hawthorn_blossoms",
+				"run": {
+					"stamina": 0.3
+				},
+				"effect": {
+					"naturelore.exp": 0.5,
+					"player.exp": 0.1
+				},
+				"result": {
+					"hawthorn_blossoms": "2~4",
+					"naturegem": "25%"
+				},
+				"group": "beltane 🔥",
+				"flavor": "The fae watch from the shadows, but allow respectful gathering."
+			},
+			{
+				"id": "prepare_mayflowers",
+				"name": "sort and prepare mayflowers",
+				"desc": "Sort through gathered mayflowers, trimming stems and separating the best blooms. The offcuts take root surprisingly fast in Beltane soil.",
+				"extdesc": "Yields prepared mayflowers and a few herbs from the trimmings",
+				"require": "g.mayflower>=5",
+				"length": 20,
+				"fill": "mayflower",
+				"cost": {
+					"mayflower": 3,
+					"herbs": 2
+				},
+				"run": {
+					"stamina": 0.4
+				},
+				"effect": {
+					"naturelore.exp": 1,
+					"herbalism.exp": 0.5,
+					"player.exp": 0.1
+				},
+				"result": {
+					"mayflower": "4~6",
+					"herbs": "1~2",
+					"naturegem": "50%"
+				},
+				"group": "beltane 🔥",
+				"flavor": "You toss the clippings aside and they're already sprouting by the time you look back."
+			},
+			{
+				"id": "old_growths_blessing",
+				"name": "old growth's blessing",
+				"desc": "Perform the ancient Beltane fertility ritual, calling upon the Old Growth to bless the land with abundant growth.",
+				"require": "g.loc_may_meadow>=1&&g.naturelore>=3",
+				"length": 25,
+				"fill": "fertility_token",
+				"cost": {
+					"hawthorn_blossoms": 5,
+					"naturegem": 1,
+					"mana": 2
+				},
+				"run": {
+					"stamina": 0.5,
+					"mana": 1
+				},
+				"effect": {
+					"naturelore.exp": 1.5,
+					"player.exp": 0.15
+				},
+				"result": {
+					"fertility_token": 1
+				},
+				"group": "beltane 🔥",
+				"flavor": "The Old Growth's presence fills the grove with life."
+			}
+		],
+		"locales": [
+			{
+				"id": "loc_may_meadow",
+				"name": "may meadow",
+				"desc": "A vibrant meadow where hawthorn trees bloom and mayflowers carpet the ground. On Beltane, the old pacts loosen here first, and fae lights dance among the flowers.",
+				"tags": "site_of_learning",
+				"require": "g.evt_beltane_arrival>0&&g.t_job>=1",
+				"level": 2,
+				"run": {
+					"stamina": 0.2
+				},
+				"effect": {
+					"naturelore.exp": 1,
+					"stress": -0.1,
+					"player.exp": 0.1
+				},
+				"result": {
+					"hawthorn_blossoms": "2~5",
+					"mayflower": "1~3",
+					"naturegem": 1
+				},
+				"mod": {
+					"nature.rate": "0.04//5/-1"
+				},
+				"flavor": "Fae lights dance among the flowers, guiding those who honor the old ways.",
+				"encs": [
+					"enc_beltane_hawthorn",
+					"enc_beltane_mayflowers",
+					"enc_beltane_fae_blessing",
+					"enc_beltane_meadow_walk",
+					"enc_beltane_mayflower_gathering",
+					"enc_beltane_blossom_rain",
+					"enc_beltane_hawthorn_shade",
+					"enc_chest1",
+					"enc_primer1"
+				]
+			},
+			{
+				"id": "loc_beltane_grove",
+				"name": "beltane grove",
+				"desc": "An ancient grove where the Beltane fires have burned every spring since before anyone kept count. Here stands the maypole, and here the Old Growth walks.",
+				"tags": "site_of_learning",
+				"require": "g.evt_beltane_arrival>0&&g.hawthorn_blossoms>=20&&g.naturelore>=5",
+				"level": 4,
+				"run": {
+					"stamina": 0.4,
+					"mana": 0.5
+				},
+				"buy": {
+					"hawthorn_blossoms": 40,
+					"fertility_token": 3
+				},
+				"effect": {
+					"naturelore.exp": 3,
+					"firelore.exp": 0.5,
+					"player.exp": 0.2
+				},
+				"result": {
+					"fertility_token": "20%"
+				},
+				"runmod": {
+					"nature.rate": 0.02
+				},
+				"mod": {
+					"naturelore.mod.herbalism.mod.herbs.max": "0.005//20/-10"
+				},
+				"flavor": "The maypole's ribbons never stop moving, even when there's no wind.",
+				"encs": [
+					"enc_beltane_dancer",
+					"enc_beltane_hawthorn_tree",
+					"enc_beltane_old_growth",
+					"enc_beltane_sacred_ground",
+					"enc_beltane_fae_blessing",
+					"enc_beltane_blossom_rain",
+					"enc_chest2",
+					"enc_primer1",
+					"enc_chest1"
+				]
+			}
+		],
+		"upgrades": [
+			{
+				"id": "old_growths_gift",
+				"name": "old growth's gift",
+				"desc": "The Old Growth's blessing expands your capacity to hold the sacred blossoms.",
+				"require": "g.old_growths_blessing>=1",
+				"max": 1,
+				"cost": {
+					"fertility_token": 1
+				},
+				"mod": {
+					"hawthorn_blossoms.max": 10
+				},
+				"group": "beltane 🔥",
+				"flavor": "The Old Growth's touch expands your capacity."
+			},
+			{
+				"id": "beltane_blessing",
+				"name": "beltane blessing",
+				"desc": "Receive the blessing of the Beltane fires and the Old Growth, deepening your bond with the land and its oldest inhabitants.",
+				"require": "g.hawthorn_blossoms>=30&&g.fertility_token>=2",
+				"max": 1,
+				"cost": {
+					"hawthorn_blossoms": 15,
+					"herbs": 30,
+					"research": 200,
+					"naturegem": 10
+				},
+				"mod": {
+					"nature.rate": 0.05,
+					"herbs.rate": 0.15,
+					"naturelore.mod.naturegem.max": 1,
+					"hawthorn_blossoms.max": 10
+				},
+				"group": "beltane 🔥",
+				"flavor": "The fires' blessing burns eternal within you."
+			},
+			{
+				"id": "fertility_charm",
+				"name": "fertility charm",
+				"desc": "A charm carved from hawthorn wood and blessed in the Beltane fires, ensuring abundant growth wherever you go.",
+				"require": "g.fertility_token>=5",
+				"max": 1,
+				"cost": {
+					"fertility_token": 5,
+					"herbs": 50,
+					"research": 500,
+					"naturegem": 25
+				},
+				"mod": {
+					"herbs.rate": 0.25,
+					"nature.rate": 0.05,
+					"mayflower.max": 20
+				},
+				"group": "beltane 🔥",
+				"flavor": "The Old Growth's touch lingers in the wood."
+			},
+			{
+				"id": "sacred_grove",
+				"name": "sacred grove",
+				"desc": "A grove of hawthorn trees blessed by Beltane magic, where the kell walk freely while the pacts hold loose.",
+				"require": "g.mayflower>=30&&g.naturelore>=8",
+				"max": 1,
+				"cost": {
+					"mayflower": 30,
+					"fertility_token": 10,
+					"herbs": 75,
+					"naturegem": 50
+				},
+				"mod": {
+					"herbs.rate": 0.5,
+					"nature.rate": 0.1,
+					"hawthorn_blossoms.max": 20,
+					"mayflower.rate": 0.1
+				},
+				"group": "beltane 🔥",
+				"flavor": "Roots drink deep where the fires have burned."
+			},
+			{
+				"id": "beltane_attunement",
+				"name": "beltane attunement",
+				"desc": "Offer tokens to the bonfire and feel Beltane's magic deepen your connection to the natural world.",
+				"require": "g.loc_beltane_grove>0&&g.old_growths_blessing>=10",
+				"need": "g.old_growths_blessing>=((g.beltane_attunement+1)*10)",
+				"needtext": "Requires 10 more completions of the Old Growth's blessing ritual for each level.",
+				"max": 5,
+				"cost": {
+					"fertility_token": 3,
+					"naturegem": 25
+				},
+				"mod": {
+					"naturelore.mod.naturegem.rate": 0.0002
+				},
+				"group": "beltane 🔥",
+				"flavor": "Each token burned opens another layer of the old knowlege."
+			}
+		],
+		"spells": [
+			{
+				"id": "beltane_hawthorn_bloom",
+				"name": "hawthorn bloom",
+				"desc": "Call upon the hawthorn tree's magic to cause blossoms to bloom, a brief ritual that takes focus to perform.",
+				"require": "g.naturelore>=2&&g.fertility_token>=1",
+				"level": 2,
+				"school": "beltane",
+				"tags": "t_beltane_spell",
+				"cd": 5,
+				"keywords": {
+					"type": ["utility"],
+					"target": ["self"],
+					"targets": ["single"],
+					"delivery": ["instant"]
+				},
+				"buy": {
+					"codices": 1
+				},
+				"cost": {
+					"mana": 2
+				},
+				"result": {
+					"naturelore.exp": 0.2,
+					"hawthorn_blossoms": "2~4"
+				},
+				"flavor": "The blossoms appear as if summoned by the fae themselves."
+			},
+			{
+				"id": "beltane_fire_leap",
+				"name": "leap the fires",
+				"desc": "Leap through the Beltane bonfire, letting the flames sear away weariness and kindle new growth in your wake.",
+				"require": "g.naturelore>=4&&g.fertility_token>=2",
+				"level": 3,
+				"school": "beltane",
+				"tags": "t_beltane_spell",
+				"cd": 10,
+				"keywords": {
+					"type": ["utility"],
+					"target": ["self"],
+					"targets": ["single"],
+					"delivery": ["instant"]
+				},
+				"buy": {
+					"mayflower": 10,
+					"research": 100
+				},
+				"cost": {
+					"mana": 2
+				},
+				"result": {
+					"naturelore.exp": 0.1,
+					"firelore.exp": 0.1,
+					"herbs": "3~6",
+					"mayflower": "2~4"
+				},
+				"flavor": "Your shadow stays behind when you land on the other side."
+			},
+			{
+				"id": "beltane_fertility_rite",
+				"name": "fertility rite",
+				"desc": "Scatter hawthorn petals into the bonfire and chant the old words. The smoke carries the Old Growth's blessing across the fields.",
+				"require": "g.naturelore>=6&&g.fertility_token>=3",
+				"level": 5,
+				"school": "beltane",
+				"tags": "t_beltane_spell",
+				"cd": 15,
+				"keywords": {
+					"type": ["utility"],
+					"target": ["self"],
+					"targets": ["single"],
+					"delivery": ["instant"]
+				},
+				"buy": {
+					"fertility_token": 1,
+					"research": 200
+				},
+				"cost": {
+					"fertility_token": 1,
+					"mana": 2
+				},
+				"result": {
+					"naturelore.exp": 0.2,
+					"herbs": "3~5"
+				},
+				"mod": {
+					"herbs.rate": "0.02//10/-5"
+				},
+				"flavor": "The smoke rises thick and sweet, and where it settles the soil darkens with promise."
+			},
+			{
+				"id": "beltane_renewal",
+				"name": "beltane renewal",
+				"desc": "Draw deep from the bonfire's heart and let Beltane's oldest magic knit flesh and spirit back together.",
+				"require": "g.naturelore>=8&&g.fertility_token>=5",
+				"level": 8,
+				"school": "beltane",
+				"tags": "t_beltane_spell",
+				"cd": 30,
+				"keywords": {
+					"type": ["recovery", "utility"],
+					"target": ["self"],
+					"targets": ["single"],
+					"delivery": ["instant"]
+				},
+				"buy": {
+					"fertility_token": 2,
+					"research": 500
+				},
+				"cost": {
+					"fertility_token": 1,
+					"mana": 3
+				},
+				"dot": {
+					"duration": 300,
+					"healing": 5,
+					"potencies": [],
+					"effect": {
+						"stress": -0.5,
+						"weary": -0.3
+					}
+				},
+				"result": {
+					"naturelore.exp": 0.2,
+					"firelore.exp": 0.1,
+					"hawthorn_blossoms": "3~6",
+					"mayflower": "2~4",
+					"naturegem": 1
+				},
+				"mod": {
+					"nature.rate": "0.01//15/-5"
+				},
+				"flavor": "The fire's warmth reaches places no ordinary heat can touch."
+			}
+		],
+		"encounters": [],
+		"tags": [
+			{
+				"id": "t_beltane_spell",
+				"name": "beltane spell"
+			}
+		],
+		"furniture": [
+			{
+				"id": "maypole_circle",
+				"name": "maypole circle",
+				"desc": "A great maypole stands at the center of a ritual circle, its colorful ribbons dancing in the Beltane winds. The ancient magic of the dance flows through this space.",
+				"tags": "naturesource,ritesource",
+				"require": "g.hawthorn_blossoms>=40&&g.naturelore>=3&&g.fertility_token>=3",
+				"max": 1,
+				"cost": {
+					"hawthorn_blossoms": 40,
+					"fertility_token": 3,
+					"mayflower": 15,
+					"research": 300,
+					"gold": 200,
+					"naturegem": 25
+				},
+				"mod": {
+					"nature.rate": 0.05,
+					"naturelore.rate": 0.1,
+					"hawthorn_blossoms.max": 10,
+					"mayflower.max": 15,
+					"fertility_token.max": 5
+				},
+				"flavor": "Sometimes you can hear laughter from somewhere inside the pole."
+			}
+		],
+		"dungeons": [
+			{
+				"id": "fae_realm",
+				"name": "fae realm",
+				"desc": "Where the ancient pacts hold weakest, the kell gather to test anyone bold enough to enter. Shared blood counts for nothing here — a few years among them is beneath their notice. Survive the trials and the Old Growth itself will judge you worthy.",
+				"log": {
+					"name": "Fae-tested",
+					"desc": "You endured the kell's trials and earned their grudging respect."
+				},
+				"difficulty": "💀💀💀",
+				"sortOrder": 40,
+				"require": "g.hawthorn_blossoms>=40&&g.naturelore>=6",
+				"dist": 50,
+				"run": {
+					"stamina": 0.5,
+					"mana": 0.3
+				},
+				"runmod": {
+					"nature.rate": 0.03
+				},
+				"result": {
+					"title": "Fae-tested"
+				},
+				"loot": {
+					"fertility_token": "2~4",
+					"hawthorn_blossoms": "3~6",
+					"mayflower": "2~5"
+				},
+				"length": 28,
+				"boss": "old_growth",
+				"spawns": [
+					["beltane_fae", "beltane_fae", "beltane_fae"],
+					"hawthorn_wraith",
+					["fertility_guardian", "beltane_fae"],
+					["hawthorn_wraith", "hawthorn_wraith"],
+					"beltane_fire_spirit",
+					["beltane_fae", "fertility_guardian"],
+					["beltane_fire_spirit", "hawthorn_wraith"]
+				]
+			}
+		],
+		"monsters": [
+			{
+				"id": "beltane_fae",
+				"name": "beltane fae",
+				"desc": "A fae spirit unbound by the loosened pacts. It regards you with ancient eyes and a grin that means trouble.",
+				"flavor": "It does not care what you are. It has been here longer.",
+				"kind": "nature",
+				"level": 24,
+				"hp": 35,
+				"noproc": true,
+				"defense": 12,
+				"speed": 1,
+				"attack": {
+					"name": "fae glamour",
+					"kind": "nature",
+					"damage": "7~10"
+				},
+				"loot": {
+					"hawthorn_blossoms": "30%",
+					"mayflower": "20%"
+				}
+			},
+			{
+				"id": "fertility_guardian",
+				"name": "fertility guardian",
+				"desc": "A guardian spirit that protects Beltane's sacred groves, shaped by the Old Growth's will.",
+				"flavor": "The guardian's form shifts between tree and spirit.",
+				"kind": "nature",
+				"level": 28,
+				"hp": 70,
+				"noproc": true,
+				"defense": 20,
+				"speed": 0,
+				"resist": {
+					"nature": 150
+				},
+				"attack": {
+					"name": "hawthorn strike",
+					"kind": "nature",
+					"damage": "11~15"
+				},
+				"loot": {
+					"fertility_token": "40%"
+				}
+			},
+			{
+				"id": "hawthorn_wraith",
+				"name": "hawthorn wraith",
+				"desc": "A spirit bound to an ancient hawthorn tree, awakened by Beltane's magic to guard the sacred groves.",
+				"flavor": "The wraith's thorns seem to move of their own accord.",
+				"kind": "nature",
+				"level": 26,
+				"hp": 50,
+				"noproc": true,
+				"defense": 15,
+				"speed": 0,
+				"attack": {
+					"name": "thorny grasp",
+					"kind": "nature",
+					"damage": "8~12"
+				},
+				"loot": {
+					"mayflower": "35%",
+					"hawthorn_blossoms": "25%"
+				}
+			},
+			{
+				"id": "beltane_fire_spirit",
+				"name": "beltane fire spirit",
+				"desc": "A spirit born from the Beltane bonfires, combining fire and nature magic in perfect harmony.",
+				"flavor": "The flames dance with an almost sentient grace.",
+				"kind": "fire",
+				"level": 30,
+				"hp": 85,
+				"noproc": true,
+				"defense": 22,
+				"speed": 1,
+				"attack": {
+					"name": "purifying flame",
+					"kind": "fire",
+					"damage": "13~17"
+				},
+				"loot": {
+					"fertility_token": "50%"
+				}
+			},
+			{
+				"id": "old_growth",
+				"name": "old growth",
+				"desc": "An ancient kell spirit of the deep forest, bound by pacts older than memory. During Beltane it walks freely, testing those who enter its groves.",
+				"flavor": "Its face shifts between bark and bone, never quite settling on either.",
+				"kind": "kell",
+				"unique": true,
+				"level": 35,
+				"hp": 180,
+				"noproc": true,
+				"regen": 1.2,
+				"defense": 35,
+				"speed": 0,
+				"tohit": 4,
+				"resist": {
+					"nature": 200,
+					"blunt": 120,
+					"pierce": 120
+				},
+				"attack": {
+					"name": "nature's wrath",
+					"kind": "nature",
+					"targets": "enemies",
+					"maxTargets": 999,
+					"damage": "18~25"
+				},
+				"loot": {
+					"fertility_token": 1,
+					"hawthorn_blossoms": "3~6"
+				}
+			}
+		],
+		"potions": [
+			{
+				"id": "mayflowertea",
+				"name": "mayflower tea",
+				"desc": "A fragrant tea brewed from mayflowers gathered on Beltane morning, filling you with vitality and protection from fae mischief.",
+				"require": "g.potions>=1&&g.hawthorn_blossoms>=20",
+				"school": "utility",
+				"keywords": {
+					"utility": ["resource"],
+					"delivery": ["over time"]
+				},
+				"buy": {
+					"gold": 200,
+					"mayflower": 5
+				},
+				"cost": {
+					"herbs": 20,
+					"mayflower": 5
+				},
+				"sell": {
+					"gold": 80
+				},
+				"flavor": "The tea's warmth spreads through you like Beltane's first light.",
+				"use": {
+					"dot": {
+						"id": "mayflowertea",
+						"name": "mayflower tea",
+						"duration": 1800,
+						"mod": {
+							"nature.rate": 0.05,
+							"herbs.rate": 0.15,
+							"hp.rate": 0.05
+						}
+					}
+				}
+			},
+			{
+				"id": "fertilityelixir",
+				"name": "fertility elixir",
+				"desc": "Pour this over tilled soil and watch seedlings push through before your eyes. The Old Growth's touch lingers in every drop.",
+				"require": "g.potions>=3&&g.fertility_token>=3&&g.naturelore>=5",
+				"school": "utility",
+				"keywords": {
+					"utility": ["resource"],
+					"delivery": ["over time"]
+				},
+				"buy": {
+					"gold": 500,
+					"fertility_token": 2
+				},
+				"cost": {
+					"fertility_token": 2,
+					"hawthorn_blossoms": 10,
+					"herbs": 40,
+					"mana": 5
+				},
+				"sell": {
+					"gold": 200
+				},
+				"flavor": "Smells like rain on warm earth and something older underneath.",
+				"use": {
+					"dot": {
+						"id": "fertilityelixir",
+						"name": "fertility elixir",
+						"duration": 3600,
+						"mod": {
+							"nature.rate": 0.1,
+							"herbs.rate": 0.25,
+							"mayflower.rate": 0.05
+						}
+					}
+				}
+			}
+		],
+
+		"hall": {
+			"data": {
+				"upgrades": [
+					{
+						"id": "beltane_grove_hall",
+						"name": "hawthorn sanctuary",
+						"sym": "🏰🔥",
+						"tags": "hall",
+						"group": "beltane 🔥",
+						"desc": "Transform part of your hall into a sacred Beltane grove, where hawthorn trees grow and the fae may visit.",
+						"extdesc": "The grove brings Beltane's magic into your hall, enhancing nature and herb growth.",
+						"require": "g.sacred_grove>0",
+						"max": 1,
+						"cost": {
+							"hawthorn_blossoms": 50,
+							"fertility_token": 10,
+							"mayflower": 20,
+							"research": 500,
+							"gold": 500
+						},
+						"mod": {
+							"nature.rate": 0.02,
+							"herbs.rate": 0.1,
+							"hawthorn_blossoms.max": 10,
+							"mayflower.max": 20
+						},
+						"result": {
+							"fame": 10
+						}
+					}
+				]
+			}
+		}
+	}
+}

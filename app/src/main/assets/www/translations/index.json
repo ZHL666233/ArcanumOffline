@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "description": "锅巴汉化翻译数据索引",
+  "files": [
+    "ui.json",
+    "items.json",
+    "spells.json",
+    "monsters.json",
+    "locations.json",
+    "descriptions.json",
+    "misc.json"
+  ]
+}

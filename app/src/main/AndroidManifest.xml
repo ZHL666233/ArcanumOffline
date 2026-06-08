@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+    <!-- 如果需要访问外部存储导入脚本，可能需要 READ_EXTERNAL_STORAGE，但 Android 11+ 推荐使用 ACTION_OPEN_DOCUMENT，无需权限 -->
+    <!-- 这里使用 GetContent 不需要任何权限，因此可以不加 -->
+
+    <application
+        android:allowBackup="true"
+        android:icon="@android:mipmap/sym_def_app_icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        <!-- 启动画面 Activity -->
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:icon="@android:mipmap/sym_def_app_icon"
+            android:screenOrientation="portrait"
+            android:roundIcon="@android:mipmap/sym_def_app_icon"
+            android:configChanges="orientation|screenSize|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 主 Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- 脚本管理相关 Activity -->
+        <activity android:name=".ScriptListActivity"  android:screenOrientation="portrait" android:label="脚本管理器" />
+        <activity android:name=".ScriptEditActivity"   android:label="编辑脚本" />
+    </application>
+</manifest>

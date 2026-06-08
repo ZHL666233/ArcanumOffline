@@ -1,0 +1,728 @@
+[
+	{
+		"id": "neophyte",
+		"actdesc": "The final step on the twisting stairwell of apprenticeship.",
+		"wizardtier": true,
+		"require": "(g.evt_helper>0)&&g.research.max>=125&&g.spellbook>0",
+		"need": "pestcontrol",
+		"needtext": "Master refuses to teach you more until you clear out the Leaky Cellar.",
+		"log": {
+			"name": "Neophyte",
+			"desc": "Your master has decided you are ready to take the next step on the path of wizardry."
+		},
+		"flavor": "Why does Master charge so many fees?",
+		"cost": {
+			"gold": 150,
+			"research": 175,
+			"arcana": 3
+		},
+		"result": {
+			"player.exp": 10
+		},
+		"mod": {
+			"research.max": 10,
+			"arcana.rate": 0.01,
+			"lore.max": 1
+		},
+		"group": "advancement"
+	},
+	{
+		"id": "t_0",
+		"name": "Tier 0 - Solitary Magic",
+		"desc": "Some say the study of magic doesn't truly begin until apprenticeship ends. People say a lot of things.",
+		"wizardtier": true,
+		"max": 1,
+		"require": "g.neophyte>0",
+		"need": "false",
+		"needtext": "Will be acquired with your next class advancement.",
+		"lock": ["mustylibrary"],
+		"mod": {
+			"research.max": 15,
+			"buyscroll.result.scrolls": 1,
+			"buyscroll.cost.gold": 20,
+			"player.hp.max": 10,
+			"player.tohit": 1
+		},
+		"group": "advancement"
+	},
+	{
+		"id": "t_1",
+		"name": "Tier 1 - Professional Magick",
+		"wizardtier": true,
+		"max": 1,
+		"desc": "Every province has its handful of runaway apprentices and failed Adepts. It's not uncommon for thieves and rangers to know a spell or two. They are nothing compared to the talents of a true professional.",
+		"require": "g.tier0>0",
+		"need": "false",
+		"needtext": "Will be acquired with your next class advancement.",
+		"lock": ["prestidigitation"],
+		"mod": {
+			"crafting.max": 1,
+			"arcanebody.max": 1,
+			"occultendure.max": 1,
+			"crystalmind.max": 1,
+			"buyscroll.result.scrolls": 1,
+			"buyscroll.cost.gold": 30,
+			"sublore.max": 10
+		},
+		"group": "advancement"
+	},
+	{
+		"id": "t_2",
+		"name": "Tier 2 - Arcane Ascendant",
+		"wizardtier": true,
+		"max": 1,
+		"desc": "The masses of arcane dabblers never reach such heights.",
+		"require": "g.tier1>0",
+		"need": "false",
+		"needtext": "Will be acquired with your next class advancement.",
+		"mod": {
+			"lore.max": 2,
+			"arcanebody.max": 1,
+			"occultendure.max": 1,
+			"crystalmind.max": 1,
+			"buyscroll.result.scrolls": 1,
+			"buyscroll.cost.gold": 40,
+			"sublore.max": 10
+		},
+		"group": "advancement"
+	},
+	{
+		"id": "t_3",
+		"name": "Tier 3 - Magical Mastery",
+		"wizardtier": true,
+		"max": 1,
+		"desc": "You are a master of your field of magic.",
+		"require": "g.tier2>0",
+		"need": "false",
+		"needtext": "Will be acquired with your next class advancement.",
+		"mod": {
+			"lore.max": 3,
+			"crafting.max": 2,
+			"arcanebody.max": 1,
+			"occultendure.max": 1,
+			"crystalmind.max": 1,
+			"buyscroll.result.scrolls": 1,
+			"buyscroll.cost.gold": 50,
+			"sublore.max": 10
+		},
+		"group": "advancement"
+	},
+	{
+		"id": "t_4",
+		"name": "Tier 4 - Supreme Sorcery",
+		"wizardtier": true,
+		"max": 1,
+		"desc": "Not even the masters could challenge you.",
+		"disable": ["buyscroll"],
+		"require": "g.tier3>0",
+		"need": "false",
+		"needtext": "Will be acquired with your next class advancement.",
+		"mod": {
+			"lore.max": 4,
+			"crafting.max": 2,
+			"arcanebody.max": 1,
+			"occultendure.max": 1,
+			"crystalmind.max": 1,
+			"sublore.max": 10
+		},
+		"group": "advancement"
+	},
+	{
+		"id": "t_5",
+		"name": "Tier 5 - Dhrunic Magic",
+		"wizardtier": true,
+		"max": 1,
+		"desc": "Magic from a forgotten age.",
+		"require": "g.tier4>0",
+		"need": "false",
+		"needtext": "Will be acquired with your next class advancement.",
+		"mod": {
+			"lore.max": 4,
+			"crafting.max": 2,
+			"arcanebody.max": 1,
+			"arcanebody2.max": 2,
+			"occultendure.max": 1,
+			"crystalmind.max": 2,
+			"sublore.max": 10
+		},
+		"group": "advancement"
+	},
+	{
+		"id": "t_6",
+		"name": "Tier 6 - Ageless Magic",
+		"wizardtier": true,
+		"max": 1,
+		"desc": "Ages of the world come and go; only these endure.",
+		"require": "g.tier5>0",
+		"need": "false",
+		"needtext": "Will be acquired with your next class advancement",
+		"mod": {
+			"lore.max": 3,
+			"crafting.max": 4,
+			"arcanebody.max": 1,
+			"arcanebody2.max": 1,
+			"occultendure.max": 1,
+			"crystalmind.max": 1,
+			"sublore.max": 10
+		},
+		"group": "advancement"
+	},
+	{
+		"id": "t0unlocker",
+		"name": "Graduand Magus",
+		"desc": "Having established a proper foundation of magical knowledge for further specialization, there is little your master can still teach you.",
+		"require": "g.neophyte>0",
+		"need": "g.t0quest>=4",
+		"needtext": "Complete all 4 Tier 0 Quests. Necessary for your next class advancement.",
+		"max": 1,
+		"cost": {
+			"arcana": 5
+		},
+		"result": {
+			"fame": 1
+		},
+		"lock": "t0quest",
+		"group": "advancement"
+	},
+	{
+		"id": "q_t0mustylibrary",
+		"name": "Erudition",
+		"desc": "Going through all of your master's simpler texts, you have sufficiently grasped the fundamentals of magic.",
+		"tags": "t0quest",
+		"max": 1,
+		"require": "g.neophyte>0",
+		"need": "g.up_mustylibrary>=4",
+		"needtext": "Purchase Library Haul 4 times.",
+		"group": "tier"
+	},
+	{
+		"id": "q_t0mount",
+		"name": "Equestrian",
+		"desc": "More interesting locales are much too far away to walk on foot, you will need the assistance of your trusty steed to go any further.",
+		"tags": "t0quest",
+		"max": 1,
+		"require": "g.neophyte>0",
+		"need": "g.steed.owned",
+		"needtext": "Purchase a steed.",
+		"group": "tier"
+	},
+	{
+		"id": "q_t0arcanaaction",
+		"name": "Night Owl",
+		"desc": "The time you are currently wasting in bed could be just as well-spent as any waking moment. Magically hasten your mind's recovery to save those precious hours.",
+		"tags": "t0quest",
+		"max": 1,
+		"require": "g.neophyte>0",
+		"need": "arcanaaction",
+		"group": "tier"
+	},
+	{
+		"id": "q_t0spells",
+		"name": "Spellcaster",
+		"desc": "You can finally express the fruits of your study by manipulating mana into spells for adventuring.",
+		"tags": "t0quest",
+		"max": 1,
+		"require": "g.neophyte>0",
+		"need": "g.spelllist.used>0",
+		"needtext": "Construct a spelllist by memorizing learnt spells.",
+		"group": "tier"
+	},
+	{
+		"id": "t1unlocker",
+		"name": "Mana Proficiency",
+		"desc": "Despite having just recently graduated, your thirst for knowledge knowns no end. You are now proficient in magic use.",
+		"require": "g.tier0>0",
+		"need": "g.t1quest>=4",
+		"needtext": "Complete at least 4 Tier 1 Quests. Necessary for your next class advancement.",
+		"max": 1,
+		"cost": {
+			"research": 250,
+			"codices": 5,
+			"gold": 300,
+			"gems": 2
+		},
+		"result": {
+			"fame": 2
+		},
+		"lock": "t1quest",
+		"group": "advancement"
+	},
+	{
+		"id": "q_t1mana",
+		"name": "Energy Spectrum",
+		"require": "g.tier0>0",
+		"desc": "The various prismatic magics develop from raw mana taking to natural phenomena. Channel them all within your body to further your research.",
+		"tags": "t1quest",
+		"max": 1,
+		"need": "g.earthlore>0&&g.waterlore>0&&g.airlore>0&&g.firelore>0&&g.lightlore>0&&g.shadowlore>0&&g.spiritlore>0&&g.naturelore>0",
+		"needtext": "Learn all the prismatic mana types, consisting of standard mana, the 4 elemental, and 4 primal forces. You will need to purchase upgrades to act as a source for the respective mana type to unlock the corresponding skills.",
+		"cost": {
+			"fire": 1,
+			"water": 1,
+			"air": 1,
+			"earth": 1,
+			"light": 1,
+			"shadow": 1,
+			"spirit": 1,
+			"nature": 1
+		},
+		"group": "tier"
+	},
+	{
+		"id": "q_t1combat",
+		"name": "Root Out Banditry",
+		"require": "g.tier0>0",
+		"desc": "You spotted a thief hideout nearby while exploring. It'd be wise to nip this threat in the bud before they learn of your wealth.",
+		"flavor": "No foul if you steal from a thief.",
+		"tags": "t1quest",
+		"max": 1,
+		"need": "underden",
+		"group": "tier"
+	},
+	{
+		"id": "q_t1explore",
+		"name": "Uncover The Crypt",
+		"desc": "An ominous ancient burial site near your maps' periphery remains mostly uncharted to this day. Explore what lies within.",
+		"flavor": "Looks old enough to be archaeology instead of grave-robbing.",
+		"require": "g.tier0>0",
+		"tags": "t1quest",
+		"max": 1,
+		"need": "ruinedcrypt",
+		"group": "tier"
+	},
+	{
+		"id": "q_t1house",
+		"name": "Home Sweet Home",
+		"desc": "Lodging at this seedy inn with its overpriced room rate is a temporary necessity. Go prospect other abodes.",
+		"require": "g.tier0>0",
+		"tags": "t1quest",
+		"max": 1,
+		"need": "g.innroom==0",
+		"needtext": "Move out of the Inn to more permanent housing.",
+		"group": "tier"
+	},
+	{
+		"id": "q_t1loom",
+		"name": "Enchanted Scrollery",
+		"desc": "It is simply not practical to painstakingly scribe all these hundreds of scrolls. You have heard that experienced mages delegate this responsibility to their looms.",
+		"flavor": "A hands off approach to research.",
+		"require": "g.tier0>0",
+		"tags": "t1quest",
+		"max": 1,
+		"need": "g.scrollloom.locked==0",
+		"needtext": "Learn how to automate scroll production. This requires the Weaving skill.",
+		"group": "tier"
+	},
+	{
+		"id": "q_t1equip",
+		"name": "Well-Armed",
+		"desc": "While peppering your foes with arcane blasts or wielding training gear seems to still do the trick, your combat power could reach another level with a proper weapon.",
+		"require": "g.tier0>0",
+		"tags": "t1quest",
+		"max": 1,
+		"need": "(g.player.getWeapon().hasTag('t_martial')||g.player.getWeapon().hasTag('t_caster'))&&!g.player.getWeapon().hasTag('t_training')",
+		"needtext": "Equip a non-training weapon you have crafted.",
+		"group": "tier"
+	},
+	{
+		"id": "t2unlocker",
+		"name": "Arcane Expertise",
+		"desc": "Surpassing even most professional mages, your arcane prowess is regarded as remarkable.",
+		"require": "g.tier1>0",
+		"need": "g.t2quest>=4",
+		"needtext": "Complete at least 4 Tier 2 Quests. Necessary for your next class advancement.",
+		"max": 1,
+		"cost": {
+			"research": 850,
+			"tomes": 1,
+			"gold": 1000,
+			"gems": 5
+		},
+		"result": {
+			"fame": 3
+		},
+		"lock": "t2quest",
+		"group": "advancement"
+	},
+	{
+		"id": "q_t2combat",
+		"name": "Prismatic Rift",
+		"desc": "The realm of pure elements is sure to provide rich rewards to those capable of slaying the native elementals.",
+		"flavor": "Where do they find the gemstones?",
+		"require": "g.tier1>0",
+		"tags": "t2quest",
+		"max": 1,
+		"need": "elementalrift",
+		"group": "tier"
+	},
+	{
+		"id": "q_t2explore",
+		"name": "Vesparia's Gilded Age",
+		"desc": "The bustling markets of Vesparia's capital attract both the best and worst of society. It is time to make your foray into Reedburgh's commercial sector.",
+		"require": "g.tier1>0",
+		"tags": "t2quest",
+		"max": 1,
+		"need": "reedburgh_market",
+		"needtext": "Explore Reedburgh Markets. You will need a Reedburgh City Pass to be allowed entry, which requires the City Navigation skill.",
+		"group": "tier"
+	},
+	{
+		"id": "q_t2enchanting",
+		"name": "Thaumaturgy",
+		"desc": "One of the principal applications of magic, enchanting is the most essential skill for a wizard to further progress.",
+		"require": "g.tier1>0",
+		"tags": "t2quest",
+		"max": 1,
+		"need": "g.enchanting>0&&g.watergem>0&&g.airgem>0&&g.firegem>0&&g.earthgem>0&&g.lightgem>0&&g.shadowgem>0&&g.spiritgem>0&&g.naturegem>0&&g.managem>0",
+		"needtext": "Learn the enchanting skill and possess at least one of each of the 9 prismatic gem types.",
+		"group": "tier"
+	},
+	{
+		"id": "q_t2potion",
+		"name": "Bubbling Concoctions",
+		"desc": "Philtres of all varieties, typically used to apply either long-lasting buffs or powerful instant effects. Useful for a wizard looking to optimize.",
+		"require": "g.tier1>0",
+		"tags": "t2quest",
+		"max": 1,
+		"need": "g.t_potion.owned",
+		"needtext": "Brew your first potion. The Potions skill requires Alchemy.",
+		"group": "tier"
+	},
+	{
+		"id": "q_t2shopkeeping",
+		"name": "Mercantile Ventures",
+		"desc": "Your experimental ventures seem to be costing ever-increasing amounts of gold. You will need to look at methods to finance further research.",
+		"require": "g.tier1>0",
+		"tags": "t2quest",
+		"max": 1,
+		"need": "g.shopkeeping>0",
+		"needtext": "Learn Shopkeeping. Requires 1000 gold to unlock.",
+		"group": "tier"
+	},
+	{
+		"id": "q_t2morality",
+		"name": "Alignment Bias",
+		"desc": "Even the moral character of a wizard is capable of deeply influencing their magical capabilities. Take another step down your chosen path.",
+		"flavor": "This road chose me.",
+		"require": "g.tier1>0",
+		"tags": "t2quest",
+		"max": 1,
+		"need": "g.good2>0||g.evil2>0||g.balanced1>0||g.detached1>0",
+		"needtext": "Select your Tier 1 morality. Options include Scrupulous for good, Sinister for evil, and either Balanced or Detached for neutrality. You can refer to the glossary for further information.",
+		"group": "tier"
+	},
+	{
+		"id": "t3unlocker",
+		"name": "Preeminent Magus",
+		"desc": "The capacity for magic most can only dream to reach after a lifetime of study. You are now amongst the most talented of your generation.",
+		"require": "g.tier2>0",
+		"need": "g.t3quest>=4",
+		"needtext": "Complete at least 4 Tier 3 Quests. Necessary for your next class advancement.",
+		"max": 1,
+		"cost": {
+			"scrolls": 100,
+			"codices": 10,
+			"tomes": 5,
+			"gold": 2500,
+			"gems": 10
+		},
+		"result": {
+			"fame": 4
+		},
+		"lock": "t3quest",
+		"group": "advancement"
+	},
+	{
+		"id": "q_t3combat_spider",
+		"name": "Tattered Cobwebs",
+		"desc": "Monstrous spiders dwell in that infested cave, luring adventurers to their swathed demise. However, their silk is of excellent quality for crafting gear.",
+		"require": "g.tier2>0",
+		"tags": "t3quest",
+		"max": 1,
+		"need": "spidercave",
+		"group": "tier"
+	},
+	{
+		"id": "q_t3combat_gorborung",
+		"name": "Mountain Trekking",
+		"desc": "One of the most dangerous climbs in all of Dhrune with threats abound for any would-be mountaineer. At its peak, you feel on top of the world.",
+		"require": "g.tier2>0",
+		"tags": "t3quest",
+		"max": 1,
+		"need": "mtgorborung",
+		"group": "tier"
+	},
+	{
+		"id": "q_t3explore",
+		"name": "Fazbit's Magnum Opus",
+		"desc": "The workshop of the legendary alchemist said to have come closest to crafting the philosopher's stone. Despite having degraded, you can still glean a great deal of wisdom from Fazbit's experiments.",
+		"require": "g.tier2>0",
+		"tags": "t3quest",
+		"max": 1,
+		"need": "fazbitshop",
+		"group": "tier"
+	},
+	{
+		"id": "q_t3books",
+		"name": "Ghost Writer",
+		"desc": "It is common for powerful wizards to bind lesser spirits to perform menial tasks. These chained spirits greatly enhance your production of texts.",
+		"flavor": "Knowledge from another life.",
+		"require": "g.tier2>0",
+		"tags": "t3quest",
+		"max": 1,
+		"need": "g.unseenscribe>=12",
+		"needtext": "Have 12 Unseen Scribes.",
+		"group": "tier"
+	},
+	{
+		"id": "q_t3study",
+		"name": "Gematria",
+		"desc": "Further hidden meanings lie beneath a magical text's surface, enchant your grimoires to decode these arcane ciphers.",
+		"require": "g.tier2>0",
+		"tags": "t3quest",
+		"max": 1,
+		"need": "enchanted_study",
+		"needtext": "Enchant your Personal Study.",
+		"group": "tier"
+	},
+	{
+		"id": "t4unlocker",
+		"name": "Esoteric Occultist",
+		"desc": "Your magical might is deemed nearly inhuman, exceeding what is believed to be possible for a mortal to achieve.",
+		"require": "g.tier3>0",
+		"need": "g.t4quest>=4",
+		"needtext": "Complete at least 4 Tier 4 Quests. Necessary for your next class advancement.",
+		"max": 1,
+		"cost": {
+			"scrolls": 250,
+			"codices": 65,
+			"tomes": 15,
+			"gold": 5000,
+			"gems": 25
+		},
+		"result": {
+			"fame": 5
+		},
+		"lock": "t4quest",
+		"group": "advancement"
+	},
+	{
+		"id": "q_t4books",
+		"name": "Bibliophile",
+		"desc": "Your body of work has grown so voluminous it now needs to be stored in a great library.",
+		"require": "g.tier3>0",
+		"tags": "t4quest",
+		"max": 1,
+		"need": "library",
+		"group": "tier"
+	},
+	{
+		"id": "q_t4combat",
+		"name": "Ruins of Reverence",
+		"desc": "Challenge the encroaching inhabitants dwelling within the grand temple of the Seredites.",
+		"flavor": "What gods did they worship? How did they show devotion? Only the sea knows now.",
+		"require": "g.tier3>0",
+		"tags": "t4quest",
+		"max": 1,
+		"need": "sereditetemple",
+		"group": "tier"
+	},
+	{
+		"id": "q_t4explore",
+		"name": "Echo of the Ages",
+		"desc": "Where some of the greatest mages in history continue researching in isolation, having long since severed all worldly ties.",
+		"require": "g.tier3>0",
+		"tags": "t4quest",
+		"max": 1,
+		"need": "loc_ageshall",
+		"group": "tier"
+	},
+	{
+		"id": "q_t4chronomancy",
+		"name": "Timeline Bifurcation",
+		"desc": "Similar to how a river fragments into lesser streams, you have split your own time in twain, now capable of performing multiple actions simultaneously.",
+		"require": "g.tier3>0",
+		"tags": "t4quest",
+		"max": 1,
+		"need": "g.chronomancy>=5&&g.timesplit>0",
+		"needtext": "Gain an additional action slot from Timesplit while possessing 5 Chronomancy.",
+		"group": "tier"
+	},
+	{
+		"id": "q_t4spellcraft",
+		"name": "Spell Construction",
+		"desc": "It is regarded as a rite of passage for truly capable mages to begin creating spells of their own design.",
+		"require": "g.tier3>0",
+		"tags": "t4quest",
+		"max": 1,
+		"need": "g.spellcraft>0",
+		"needtext": "Learn Spellcraft.",
+		"group": "tier"
+	},
+	{
+		"id": "q_t4rune",
+		"name": "Runic Labourers",
+		"desc": "Specialized in nothing but runesmithing, they charge a more than fair price per rune stone.",
+		"require": "g.tier3>0",
+		"tags": "t4quest",
+		"max": 1,
+		"need": "(g.up_runecrafter+g.up_evil_runecrafter)>0",
+		"needtext": "Hire either a Dwarven Runecrafter or Skeletal Runecarver. Requires Runic Lore.",
+		"group": "tier"
+	},
+	{
+		"id": "t5unlocker",
+		"name": "Magic Immemorial",
+		"desc": "A level of wizardry seen only in myths, chalked up as little more than fairy tales. Yet still, you aim towards a step even further beyond.",
+		"flavor": "No longer human.",
+		"require": "g.tier4>0",
+		"need": "g.t5quest>=4&&g.t_permanent_transformation>0",
+		"needtext": "Complete at least 4 Tier 5 Quests. Attain a permanent transformation. Necessary for your next class advancement.",
+		"max": 1,
+		"cost": {
+			"tomes": 25,
+			"runestones": 20,
+			"gold": 8000,
+			"gems": 35
+		},
+		"result": {
+			"fame": 6
+		},
+		"lock": "t5quest",
+		"group": "advancement"
+	},
+	{
+		"id": "q_t5combat_plane",
+		"name": "Disaster's Emissaries",
+		"desc": "At the heart of the elemental realm, clash against the greater elementals worthy of the moniker of 'disaster'.",
+		"require": "g.tier4>0",
+		"tags": "t5quest",
+		"max": 1,
+		"need": "elementalplane",
+		"group": "tier"
+	},
+	{
+		"id": "q_t5combat_desilla",
+		"name": "Den of Pleasure",
+		"desc": "Where Desilla's harem still lays together in happy union. Bring about an end to their insidious playtime.",
+		"require": "g.tier4>0",
+		"tags": "t5quest",
+		"max": 1,
+		"need": "desillagrotto",
+		"group": "tier"
+	},
+	{
+		"id": "q_t5vivification",
+		"name": "Endless Stamina",
+		"desc": "Infusing magical vitality within your muscles, gain stamina far beyond human limits.",
+		"require": "g.tier4>0",
+		"tags": "t5quest",
+		"max": 1,
+		"need": "g.vivification>0",
+		"needtext": "Learn Vivification.",
+		"group": "tier"
+	},
+	{
+		"id": "q_t5frosted",
+		"name": "Aerated Abode",
+		"desc": "Perpetual magical cooling allows you to continuously perform experiments with minimal exhaustion.",
+		"require": "g.tier4>0",
+		"tags": "t5quest",
+		"max": 1,
+		"need": "up_stam3",
+		"group": "tier"
+	},
+	{
+		"id": "q_t5nexus",
+		"name": "Realm Splitter",
+		"desc": "A marvel of magical engineering, a nexus serves as the highest application of planes magic - acting as a permanent gateway to distant realms.",
+		"require": "g.tier4>0",
+		"tags": "t5quest",
+		"max": 1,
+		"need": "gate",
+		"group": "tier"
+	},
+	{
+		"id": "t6unlocker",
+		"name": "Eternal Transcendence",
+		"desc": "Unfathomable power yet dedicating this eternity to even further research. You are the strongest a wizard can hope of being.",
+		"require": "g.tier5>0",
+		"need": "g.t6quest>=4",
+		"needtext": "Complete at least 4 Tier 6 Quests. Necessary for your next class advancement.",
+		"max": 1,
+		"cost": {
+			"tomes": 15,
+			"runestones": 35,
+			"gold": 10000,
+			"gems": 50
+		},
+		"result": {
+			"fame": 7
+		},
+		"lock": "t6quest",
+		"group": "advancement"
+	},
+	{
+		"id": "q_t6combat",
+		"name": "Ashen Glory",
+		"desc": "It is a rare opportunity to be able to fight one of the infamous Archlocks. Slay the greatest butcher of men in history who still stalks these lands.",
+		"require": "g.tier5>0",
+		"tags": "t6quest",
+		"max": 1,
+		"need": "charredkeep",
+		"group": "tier"
+	},
+	{
+		"id": "q_t6explore",
+		"name": "Dunes of Orrem",
+		"desc": "The lone and level sands stretch far away, all that remains of Orrem's great cities. Utterly inhospitable, it still echoes the magic of that mighty state.",
+		"require": "g.tier5>0",
+		"tags": "t6quest",
+		"max": 1,
+		"need": "loc_orrem",
+		"group": "tier"
+	},
+	{
+		"id": "q_t6voidlore",
+		"name": "Stare Back",
+		"desc": "The void beckons. Grasp how to mould it into useful positive and negative space.",
+		"flavor": "It blinked first.",
+		"require": "g.tier5>0",
+		"tags": "t6quest",
+		"max": 1,
+		"need": "g.voidlore>0",
+		"needtext": "Learn Abyss Gazing.",
+		"group": "tier"
+	},
+	{
+		"id": "q_t6astrallore",
+		"name": "Wish Upon A Star",
+		"desc": "Arcane secrets lie scattered across the heavens, hidden in plain sight.",
+		"require": "g.tier5>0",
+		"tags": "t6quest",
+		"max": 1,
+		"need": "g.sindel.max>=5",
+		"needtext": "Be capable of storing 5 star shards. Requires Astral Communion.",
+		"group": "tier"
+	},
+	{
+		"id": "q_t6werry",
+		"name": "Pocket Dimension",
+		"desc": "Through careful utilisation of your Dhrunic Nexus, you can construct planes of various magical energies. This would prove invaluable for further storage.",
+		"require": "g.tier5>0",
+		"tags": "t6quest",
+		"max": 1,
+		"need": "t_werry",
+		"group": "tier"
+	},
+	{
+		"id": "q_t6hall",
+		"name": "Wizard Association",
+		"desc": "A wizard's hall is where the mightiest mages gather, exchanging the most guarded of secrets amongst each other. Truly unstoppable as a combined force.",
+		"require": "g.tier5>0",
+		"tags": "t6quest",
+		"max": 1,
+		"need": "wizardhall",
+		"group": "tier"
+	}
+]
