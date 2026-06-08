@@ -277,11 +277,11 @@
             '    overflow-x:hidden !important;',
             '    box-sizing:border-box !important;',
             '  }',
-            /* 确认弹窗居中 + 移动端适配（仅对 JS 定位的弹窗） */
-            '  div.popup[style*="left"] {',
+            /* 所有弹窗居中 */
+            '  div.popup, .popup {',
             '    left:50% !important;',
             '    transform:translateX(-50%) !important;',
-            '    max-width:88vw !important;',
+            '    max-width:90vw !important;',
             '    min-width:0 !important;',
             '    padding:12px !important;',
             '  }',
@@ -717,12 +717,14 @@
         moreBtn.textContent = '⋯';
         moreBtn.title = '更多操作';
 
-        // 收集 topbar 内所有可交互元素
+        // 收集 topbar 内所有可交互元素（每次从 live DOM 查询）
         function collectButtons() {
+            var liveTopbar = document.querySelector('.top-bar');
+            if (!liveTopbar) liveTopbar = topbarEl;
             var items = [];
             var seen = {};
-            // 遍历 load-opts, items, link-bar 三个区域，收集所有 button/a/.text-button/[onclick]
-            var areas = topbarEl.querySelectorAll('.load-opts, .items, .link-bar');
+            // 遍历 load-opts, items, link-bar 三个区域
+            var areas = liveTopbar.querySelectorAll('.load-opts, .items, .link-bar');
             for (var si = 0; si < areas.length; si++) {
                 var kids = areas[si].querySelectorAll('button, a, .text-button, [onclick]');
                 for (var ki = 0; ki < kids.length; ki++) {
@@ -841,8 +843,9 @@
         // 插入到 topbar 末尾
         topbarEl.appendChild(moreBtn);
 
-        // 隐藏次要元素（链接、设置按钮、快进 — 只在"更多"下拉显示）
-        var linkBar = topbarEl.querySelector('.link-bar');
+        // 隐藏次要元素（从 live DOM）
+        var liveTop = document.querySelector('.top-bar') || topbarEl;
+        var linkBar = liveTop.querySelector('.link-bar');
         if (linkBar) {
             var links = linkBar.querySelectorAll('a');
             for (var li = 0; li < links.length; li++) {
@@ -856,7 +859,7 @@
             }
         }
         // 隐藏快进按钮
-        var itemsEl = topbarEl.querySelector('.items');
+        var itemsEl = liveTop.querySelector('.items');
         if (itemsEl) {
             var ffBtn = itemsEl.querySelector('button');
             if (ffBtn) ffBtn.classList.add('mobile-topbar-hidden');
