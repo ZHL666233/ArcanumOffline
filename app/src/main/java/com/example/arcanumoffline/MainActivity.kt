@@ -355,24 +355,28 @@ class MainActivity : AppCompatActivity() {
     private inner class WebAppInterface {
         @JavascriptInterface
         fun saveFile(filename: String, base64Data: String) {
-            pendingFileData = filename to base64Data
-            val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
-                addCategory(Intent.CATEGORY_OPENABLE)
-                type = "*/*"
-                putExtra(Intent.EXTRA_TITLE, filename)
+            runOnUiThread {
+                pendingFileData = filename to base64Data
+                val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+                    addCategory(Intent.CATEGORY_OPENABLE)
+                    type = "*/*"
+                    putExtra(Intent.EXTRA_TITLE, filename)
+                }
+                createFileLauncher.launch(intent)
             }
-            createFileLauncher.launch(intent)
         }
 
         @JavascriptInterface
         fun saveBlob(base64Data: String, filename: String) {
-            pendingFileData = filename to base64Data
-            val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
-                addCategory(Intent.CATEGORY_OPENABLE)
-                type = "application/json"
-                putExtra(Intent.EXTRA_TITLE, filename)
+            runOnUiThread {
+                pendingFileData = filename to base64Data
+                val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+                    addCategory(Intent.CATEGORY_OPENABLE)
+                    type = "application/json"
+                    putExtra(Intent.EXTRA_TITLE, filename)
+                }
+                createFileLauncher.launch(intent)
             }
-            createFileLauncher.launch(intent)
         }
 
         @JavascriptInterface
