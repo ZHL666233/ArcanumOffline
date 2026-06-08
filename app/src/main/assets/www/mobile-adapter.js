@@ -1227,16 +1227,22 @@
             }, LONG_PRESS_MS);
         }, { passive: false });
 
-        // touchend：短按 → 手动触发 click
+        // touchend：短按 → 手动触发完整事件序列 + 始终关闭悬浮窗
         document.addEventListener('touchend', function (e) {
             var wasLong = longPressFired;
             var el = longPressTarget;
             clearLongPressTimer();
             longPressFired = false;
 
+            // 始终关闭之前的悬浮窗（点任何地方都关）
+            if (hoveredEl && (!el || hoveredEl !== el)) dismissTouchHover();
+
             if (!wasLong && el) {
-                if (hoveredEl && hoveredEl !== el) dismissTouchHover();
-                e.preventDefault(); // 阻止浏览器合成 click（避免双击）
+                e.preventDefault();
+                // 派发完整事件序列确保 Vue 按钮正常响应
+                el.dispatchEvent(new MouseEvent('pointerdown', { bubbles: true, cancelable: true }));
+                el.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true }));
+                el.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true }));
                 el.click();
             }
             longPressTarget = null;
@@ -1254,11 +1260,9 @@
             dismissTouchHover();
         }, { passive: true });
 
-        // 点击遮罩时关闭 hover
-        document.addEventListener('click', function (e) {
-            if (e.target.classList && e.target.classList.contains('mobile-overlay')) {
-                dismissTouchHover();
-            }
+        // 任何点击都关闭 hover
+        document.addEventListener('click', function () {
+            dismissTouchHover();
         });
     }
 
