@@ -106,16 +106,17 @@
             '    visibility:visible; pointer-events:auto;',
             '    transition:transform ' + TRANSITION_MS + 'ms ease, visibility 0ms 0ms;',
             '  }',
-            /* 抽屉内部去边距 */
+            /* 抽屉内部去边距 + 底部留白确保可滚动到底 */
             '  .mobile-as-drawer-left .res-container { margin-right:0 !important; }',
             '  .mobile-as-drawer-left,',
             '  .mobile-as-drawer-right {',
-            '    padding:0 !important;',
+            '    padding:0 !important; padding-bottom:60px !important;',
             '  }',
             '  .mobile-as-drawer-left > *,',
             '  .mobile-as-drawer-right > * {',
             '    padding-left:0 !important; padding-right:0 !important;',
             '    margin-left:0 !important; margin-right:0 !important;',
+            '    max-height:none !important; overflow:visible !important;',
             '  }',
 
             /* === 主内容全宽 === */
@@ -289,11 +290,12 @@
             '  .popup[data-v-bb944c55] {',
             '    max-width:88vw !important;',
             '  }',
-            /* 取消所有悬浮窗动画 */
-            '  .fade-in, .item-popup, div.popup, .popup,',
-            '  [class*="popup"], [class*="fade"] {',
+            /* 弹窗直接显示无动画/过渡 */
+            '  .item-popup, div.popup, .popup,',
+            '  .fade-in, [class*="fade"] {',
             '    animation:none !important; animation-duration:0s !important;',
             '    transition:none !important; transition-duration:0s !important;',
+            '    opacity:1 !important;',
             '  }',
 
             /* topbar 移动端排版 */
