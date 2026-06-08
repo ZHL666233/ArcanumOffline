@@ -277,11 +277,10 @@
             '    overflow-x:hidden !important;',
             '    box-sizing:border-box !important;',
             '  }',
-            /* 所有弹窗居中（用 margin auto 避免 transform 破坏点击） */
+            /* 弹窗居中 + 宽度适配 */
             '  div.popup, .popup {',
-            '    left:0 !important; right:0 !important;',
-            '    margin-left:auto !important; margin-right:auto !important;',
-            '    width:fit-content !important;',
+            '    left:50% !important;',
+            '    transform:translateX(-50%) !important;',
             '    max-width:90vw !important;',
             '    min-width:0 !important;',
             '    padding:12px !important;',
