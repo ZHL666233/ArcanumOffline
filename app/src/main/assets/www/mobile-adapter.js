@@ -1227,17 +1227,20 @@
             }, LONG_PRESS_MS);
         }, { passive: false });
 
-        // touchend：短按 → 自然触发 click
-        document.addEventListener('touchend', function () {
+        // touchend：短按 → 手动触发 click
+        document.addEventListener('touchend', function (e) {
             var wasLong = longPressFired;
+            var el = longPressTarget;
             clearLongPressTimer();
             longPressFired = false;
 
-            if (!wasLong && longPressTarget && hoveredEl && hoveredEl !== longPressTarget) {
-                dismissTouchHover();
+            if (!wasLong && el) {
+                if (hoveredEl && hoveredEl !== el) dismissTouchHover();
+                e.preventDefault(); // 阻止浏览器合成 click（避免双击）
+                el.click();
             }
             longPressTarget = null;
-        });
+        }, { passive: false });
 
         // touchmove：移动超过阈值 → 取消长按；总是关闭 hover
         document.addEventListener('touchmove', function (e) {
