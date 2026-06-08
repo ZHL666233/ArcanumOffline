@@ -46,7 +46,7 @@
             /* === 遮罩层 === */
             '  .mobile-overlay {',
             '    display:block;',
-            '    position:fixed;top:0;left:0;width:100vw;height:100vh;',
+            '    position:fixed;inset:0;',
             '    background:rgba(0,0,0,' + OVERLAY_OPACITY + ');',
             '    z-index:29999;opacity:0;pointer-events:none;',
             '    transition:opacity ' + TRANSITION_MS + 'ms ease;',
@@ -1203,6 +1203,9 @@
             if (!touch) return;
             var target = document.elementFromPoint(touch.clientX, touch.clientY);
             if (!target) return;
+
+            // 弹窗/下拉菜单内的按钮 → 不启动长按，直接放行
+            if (target.closest('.popup, .item-popup, .mobile-topbar-dropdown, .mobile-more-dropdown')) return;
 
             touchStartX = touch.clientX;
             touchStartY = touch.clientY;
