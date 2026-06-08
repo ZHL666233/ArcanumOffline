@@ -705,48 +705,32 @@
         // 收集 topbar 内所有可交互元素
         function collectButtons() {
             var items = [];
-            // 按钮（含 disabled，因为大厅存档可能条件性禁用）
-            var buttons = topbarEl.querySelectorAll('button');
-            for (var i = 0; i < buttons.length; i++) {
-                var b = buttons[i];
-                var text = (b.textContent || '').trim();
-                if (text) {
-                    items.push({ el: b, text: text, type: 'button' });
+            var seen = {};
+            // 遍历 load-opts, items, link-bar 三个区域，收集所有 button/a/.text-button/[onclick]
+            var areas = topbarEl.querySelectorAll('.load-opts, .items, .link-bar');
+            for (var si = 0; si < areas.length; si++) {
+                var kids = areas[si].querySelectorAll('button, a, .text-button, [onclick]');
+                for (var ki = 0; ki < kids.length; ki++) {
+                    var el = kids[ki];
+                    var txt = (el.textContent || '').trim();
+                    if (!txt) continue;
+                    var key = txt + '|' + el.tagName;
+                    if (seen[key]) continue;
+                    seen[key] = true;
+                    items.push({ el: el, text: txt, type: el.tagName === 'A' ? 'link' : 'button' });
                 }
-            }
-            // .text-button 可能是 div 或 button，querySelectorAll('button') 已覆盖 button 类型，这里补 div
-            var textBtns = topbarEl.querySelectorAll('.text-button');
-            for (var ti = 0; ti < textBtns.length; ti++) {
-                var tb = textBtns[ti];
-                if (tb.tagName === 'BUTTON') continue; // 已由上面收集
-                var text2 = (tb.textContent || '').trim();
-                if (text2) {
-                    items.push({ el: tb, text: text2, type: 'button' });
-                }
-            }
-            // 链接
-            var links = topbarEl.querySelectorAll('a');
-            for (var j = 0; j < links.length; j++) {
-                var a = links[j];
-                var text3 = (a.textContent || '').trim();
-                if (text3) {
-                    items.push({ el: a, text: text3, type: 'link' });
-                }
-            }
-            // 设置按钮（⚙）
-            var allSpans = topbarEl.querySelectorAll('span');
-            for (var k = 0; k < allSpans.length; k++) {
-                var sp = allSpans[k];
-                var text4 = (sp.textContent || '').trim();
-                if (text4 === '⚙' || text4 === '') {
-                    if (sp.onclick || sp.getAttribute('onclick') || sp.parentElement.tagName === 'BUTTON') continue;
-                    var title = sp.title || sp.getAttribute('aria-label') || '';
-                    if (title || text4 === '⚙') {
-                        items.push({ el: sp, text: title || '设置', type: 'action' });
+                // ⚙ 设置按钮
+                var sps = areas[si].querySelectorAll('span');
+                for (var sp = 0; sp < sps.length; sp++) {
+                    if ((sps[sp].textContent || '').indexOf('⚙') >= 0 && sps[sp].parentElement.tagName !== 'BUTTON') {
+                        if (!seen['设置|SPAN']) {
+                            seen['设置|SPAN'] = true;
+                            items.push({ el: sps[sp], text: '设置', type: 'button' });
+                        }
                     }
                 }
             }
-            // 按预设顺序排序（中文）
+            // 排序
             var ORDER = ['保存','加载','获取存档','大厅存档','加载存档','快进',
                          'discord','wiki','reddit','test site','设置','⚙',
                          'save','load','get save','hall save','load save'];
@@ -1270,35 +1254,17 @@
             var rect = el.getBoundingClientRect();
             if (rect.width === 0 && rect.height === 0) continue;
 
-            // 完全在视口内 → 不修正
-            if (rect.left >= margin && rect.right <= vw - margin &&
-                rect.top >= margin && rect.bottom <= vh - margin) continue;
+            // 完全在视口内 → 跳过
+            if (rect.left >= 0 && rect.right <= vw && rect.top >= 0 && rect.bottom <= vh) continue;
 
-            var needsFix = false;
-
-            // 右/左边界溢出
-            if (rect.right > vw - margin) {
-                el.style.setProperty('left', Math.max(margin, vw - rect.width - margin) + 'px', 'important');
-                el.style.setProperty('right', 'auto', 'important');
-                needsFix = true;
-            }
-            if (rect.left < margin && !needsFix) {
-                el.style.setProperty('left', margin + 'px', 'important');
-                needsFix = true;
-            }
-            // 底部/顶部溢出
-            if (rect.bottom > vh - margin) {
-                el.style.setProperty('top', Math.max(margin, vh - rect.height - margin) + 'px', 'important');
-                needsFix = true;
-            }
-            if (rect.top < margin && !needsFix) {
-                el.style.setProperty('top', margin + 'px', 'important');
-                needsFix = true;
-            }
-            // 超宽元素强制适配
-            if (rect.width > vw - margin * 2) {
+            // 仅约束超宽/超高，不动 left/top/right（避免破坏弹窗定位）
+            if (rect.right > vw || rect.left < 0) {
                 el.style.setProperty('max-width', (vw - margin * 2) + 'px', 'important');
                 el.style.setProperty('overflow-x', 'auto', 'important');
+            }
+            if (rect.bottom > vh || rect.top < 0) {
+                el.style.setProperty('max-height', (vh - margin * 2) + 'px', 'important');
+                el.style.setProperty('overflow-y', 'auto', 'important');
             }
         }
     }
