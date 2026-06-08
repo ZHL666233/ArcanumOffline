@@ -1244,10 +1244,14 @@
             if (hoveredEl && el && hoveredEl !== el) dismissTouchHover();
 
             if (el) {
-                el.dispatchEvent(new MouseEvent('pointerdown', { bubbles: true, cancelable: true }));
-                el.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true }));
-                el.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true }));
-                el.click();
+                // 找到实际的可点击元素（button/a）
+                var btn = el.closest('button, a, .task-btn, .text-button, [onclick]') || el;
+                var x = touchStartX, y = touchStartY;
+                var opts = { bubbles: true, cancelable: true, clientX: x, clientY: y };
+                btn.dispatchEvent(new MouseEvent('pointerdown', opts));
+                btn.dispatchEvent(new MouseEvent('mousedown', opts));
+                btn.dispatchEvent(new MouseEvent('mouseup', opts));
+                btn.dispatchEvent(new MouseEvent('click', opts));
             }
             longPressTarget = null;
         }, { passive: false });
