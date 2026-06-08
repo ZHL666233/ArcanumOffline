@@ -864,6 +864,17 @@
             var ffBtn = itemsEl.querySelector('button');
             if (ffBtn) ffBtn.classList.add('mobile-topbar-hidden');
         }
+        // 隐藏大厅存档（仅显示在更多菜单）
+        var loadOpts = liveTop.querySelector('.load-opts');
+        if (loadOpts) {
+            var allLoadBtns = loadOpts.querySelectorAll('button, .text-button');
+            for (var lb = 0; lb < allLoadBtns.length; lb++) {
+                var txt = (allLoadBtns[lb].textContent || '').trim();
+                if (txt === '大厅存档' || txt.toLowerCase().indexOf('hall save') >= 0) {
+                    allLoadBtns[lb].classList.add('mobile-topbar-hidden');
+                }
+            }
+        }
 
         // 存引用以便关闭
         moreBtn._dropdown = dropdown;
