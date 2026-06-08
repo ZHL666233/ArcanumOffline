@@ -740,9 +740,10 @@
                     }
                 }
             }
-            // 按预设顺序排序
-            var ORDER = ['save','load','get save','hall save','load save','快进',
-                         'discord','wiki','reddit','test site','设置','⚙'];
+            // 按预设顺序排序（中文）
+            var ORDER = ['保存','加载','获取存档','大厅存档','加载存档','快进',
+                         'discord','wiki','reddit','test site','设置','⚙',
+                         'save','load','get save','hall save','load save'];
             items.sort(function (a, b) {
                 var ai = ORDER.length, bi = ORDER.length;
                 var at = a.text.toLowerCase(), bt = b.text.toLowerCase();
@@ -755,15 +756,25 @@
             return items;
         }
 
+        // 中文→英文映射（下拉菜单显示英文）
+        var CN_TO_EN = {
+            '保存': 'Save', '加载': 'Load', '获取存档': 'Get Save',
+            '大厅存档': 'Hall Save', '加载存档': 'Load Save',
+            '快进': 'Fast Forward', '设置': 'Settings', '⚙': 'Settings'
+        };
+
         function refreshDropdown() {
             var items = collectButtons();
             if (items.length === 0) {
-                dropdown.innerHTML = '<div class="tb-item" style="color:var(--quiet-text-color)">(无操作)</div>';
+                dropdown.innerHTML = '<div class="tb-item" style="color:var(--quiet-text-color)">(None)</div>';
                 return;
             }
             var html = '';
             for (var i = 0; i < items.length; i++) {
-                html += '<div class="tb-item" data-idx="' + i + '">' + escapeHtml(items[i].text) + '</div>';
+                var label = items[i].text;
+                // 如果有中文映射就用英文
+                if (CN_TO_EN[label]) label = CN_TO_EN[label];
+                html += '<div class="tb-item" data-idx="' + i + '">' + escapeHtml(label) + '</div>';
             }
             dropdown.innerHTML = html;
 
