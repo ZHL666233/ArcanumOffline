@@ -1222,17 +1222,14 @@
             }, LONG_PRESS_MS);
         }, { passive: false });
 
-        // touchend：短按 → 手动触发 click
+        // touchend：短按不做任何事，让浏览器合成 click 自然触发
         document.addEventListener('touchend', function () {
             var wasLong = longPressFired;
             clearLongPressTimer();
             longPressFired = false;
 
-            if (!wasLong && longPressTarget) {
-                // 短按 → 手动触发 click
-                var el = longPressTarget;
-                if (hoveredEl && hoveredEl !== el) dismissTouchHover();
-                setTimeout(function () { el.click(); }, 10);
+            if (!wasLong && longPressTarget && hoveredEl && hoveredEl !== longPressTarget) {
+                dismissTouchHover();
             }
             longPressTarget = null;
         });
