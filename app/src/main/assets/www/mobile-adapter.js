@@ -1201,23 +1201,6 @@
         longPressFired = false;
     }
 
-    function isInteractive(el) {
-        var node = el;
-        for (var i = 0; i < 4 && node && node !== document.body; i++) {
-            var tag = node.tagName;
-            if (tag === 'BUTTON' || tag === 'A' || tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return true;
-            var cls = (node.className || '').toString();
-            if (cls.indexOf('btn') >= 0 || cls.indexOf('button') >= 0 || cls.indexOf('task') >= 0 ||
-                cls.indexOf('runnable') >= 0 || cls.indexOf('clickable') >= 0 || cls.indexOf('menu-item') >= 0 ||
-                cls.indexOf('quickslot') >= 0 || cls.indexOf('text-button') >= 0) return true;
-            var role = node.getAttribute('role');
-            if (role === 'button' || role === 'link' || role === 'menuitem' || role === 'tab') return true;
-            if (typeof node.onclick === 'function') return true;
-            node = node.parentElement;
-        }
-        return false;
-    }
-
     function setupTouchHover() {
         // touchstart：记录起始位置，启动长按计时器
         document.addEventListener('touchstart', function (e) {
@@ -1244,23 +1227,14 @@
             }, LONG_PRESS_MS);
         }, { passive: false });
 
-        // touchend：短按 → 按钮直接点击，非按钮显示悬浮窗
+        // touchend：短按 → 自然触发 click
         document.addEventListener('touchend', function () {
             var wasLong = longPressFired;
             clearLongPressTimer();
             longPressFired = false;
 
-            if (!wasLong && longPressTarget) {
-                var el = longPressTarget;
-                if (!isInteractive(el)) {
-                    // 非交互元素 → 显示悬浮窗（如果有），阻止 click
-                    dismissTouchHover();
-                    dispatchMouseEnter(el);
-                    hoveredEl = el;
-                    blockNextClick(el);
-                } else if (hoveredEl && hoveredEl !== el) {
-                    dismissTouchHover();
-                }
+            if (!wasLong && longPressTarget && hoveredEl && hoveredEl !== longPressTarget) {
+                dismissTouchHover();
             }
             longPressTarget = null;
         });
