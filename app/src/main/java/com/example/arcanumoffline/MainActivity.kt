@@ -261,6 +261,35 @@ class MainActivity : AppCompatActivity() {
 
         // ★ 始终注入脚本管理按钮到游戏设置面板
         injectScriptManagerButton()
+        // ★ 注入存档导出修复（Blob → AndroidFileSaver）
+        injectSaveFix()
+    }
+
+    /** 修复存档导出：拦截 Blob URL 创建，改用 Android 原生文件保存 */
+    private fun injectSaveFix() {
+        val js = """
+(function() {
+    if (window.__saveFixInjected) return;
+    window.__saveFixInjected = true;
+    
+    var _origCreateObjectURL = URL.createObjectURL.bind(URL);
+    URL.createObjectURL = function(blob) {
+        if (blob.type && blob.type.indexOf('json') >= 0) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var b64 = reader.result.split(',')[1];
+                if (window.AndroidFileSaver && window.AndroidFileSaver.saveBlob) {
+                    window.AndroidFileSaver.saveBlob(b64, 'Wizrobe.json');
+                }
+            };
+            reader.readAsDataURL(blob);
+            return 'blob:handled';
+        }
+        return _origCreateObjectURL(blob);
+    };
+})();
+        """.trimIndent()
+        webView.evaluateJavascript(js, null)
     }
 
     /** 注入 JS 代码，在游戏设置面板中添加「脚本管理」按钮 */
