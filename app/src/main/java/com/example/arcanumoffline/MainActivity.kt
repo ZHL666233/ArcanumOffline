@@ -166,10 +166,11 @@ class MainActivity : AppCompatActivity() {
                 val url = request?.url?.toString() ?: return false
                 // 本地资源 → WebView 内部处理
                 if (url.startsWith(LOCAL_DOMAIN)) return false
-                // 外部链接（Discord/Wiki/Reddit 等） → 外部浏览器打开
+                // 外部链接（Discord/Wiki/Reddit 等） → 让用户选择浏览器
                 if (url.startsWith("http://") || url.startsWith("https://")) {
                     try {
-                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+                        val chooser = Intent.createChooser(Intent(Intent.ACTION_VIEW, Uri.parse(url)), "选择浏览器")
+                        startActivity(chooser)
                     } catch (e: Exception) {
                         Toast.makeText(this@MainActivity, "无法打开链接", Toast.LENGTH_SHORT).show()
                     }

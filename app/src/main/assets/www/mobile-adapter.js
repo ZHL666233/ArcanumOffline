@@ -740,6 +740,18 @@
                     }
                 }
             }
+            // 按预设顺序排序
+            var ORDER = ['save','load','get save','hall save','load save','快进',
+                         'discord','wiki','reddit','test site','设置','⚙'];
+            items.sort(function (a, b) {
+                var ai = ORDER.length, bi = ORDER.length;
+                var at = a.text.toLowerCase(), bt = b.text.toLowerCase();
+                for (var oi = 0; oi < ORDER.length; oi++) {
+                    if (at.indexOf(ORDER[oi]) >= 0) ai = Math.min(ai, oi);
+                    if (bt.indexOf(ORDER[oi]) >= 0) bi = Math.min(bi, oi);
+                }
+                return ai - bi;
+            });
             return items;
         }
 
