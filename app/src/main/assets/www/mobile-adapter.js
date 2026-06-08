@@ -709,25 +709,33 @@
                     items.push({ el: b, text: text, type: 'button' });
                 }
             }
+            // text-button div（大厅存档等）
+            var textBtns = topbarEl.querySelectorAll('.text-button');
+            for (var ti = 0; ti < textBtns.length; ti++) {
+                var tb = textBtns[ti];
+                var text2 = (tb.textContent || '').trim();
+                if (text2) {
+                    items.push({ el: tb, text: text2, type: 'button' });
+                }
+            }
             // 链接
             var links = topbarEl.querySelectorAll('a');
             for (var j = 0; j < links.length; j++) {
                 var a = links[j];
-                var text = (a.textContent || '').trim();
-                if (text) {
-                    items.push({ el: a, text: text, type: 'link' });
+                var text3 = (a.textContent || '').trim();
+                if (text3) {
+                    items.push({ el: a, text: text3, type: 'link' });
                 }
             }
             // 设置按钮（⚙）
             var allSpans = topbarEl.querySelectorAll('span');
             for (var k = 0; k < allSpans.length; k++) {
                 var sp = allSpans[k];
-                var text = (sp.textContent || '').trim();
-                if (text === '⚙' || text === '') {
-                    // 设置按钮通常包含 ⚙ 符号
+                var text4 = (sp.textContent || '').trim();
+                if (text4 === '⚙' || text4 === '') {
                     if (sp.onclick || sp.getAttribute('onclick') || sp.parentElement.tagName === 'BUTTON') continue;
                     var title = sp.title || sp.getAttribute('aria-label') || '';
-                    if (title || text === '⚙') {
+                    if (title || text4 === '⚙') {
                         items.push({ el: sp, text: title || '设置', type: 'action' });
                     }
                 }
@@ -1367,6 +1375,27 @@
             var logObs = new MutationObserver(function () {});
             logObs.observe(logEl, { childList: true, subtree: true, characterData: true });
         }
+
+        // 监听 body 新弹窗 → 立即修正位置
+        var bodyPopObs = new MutationObserver(function (mutations) {
+            for (var m2 = 0; m2 < mutations.length; m2++) {
+                var added2 = mutations[m2].addedNodes;
+                for (var a2 = 0; a2 < added2.length; a2++) {
+                    if (added2[a2].nodeType === 1) {
+                        var node = added2[a2];
+                        if (node.classList && (node.classList.contains('popup') || node.classList.contains('item-popup'))) {
+                            constrainPopups();
+                            break;
+                        }
+                        if (node.querySelector && node.querySelector('.popup, .item-popup')) {
+                            constrainPopups();
+                            break;
+                        }
+                    }
+                }
+            }
+        });
+        bodyPopObs.observe(document.body, { childList: true, subtree: true });
 
         // topbar 更多按钮
         var topbarEl = document.querySelector('.top-bar');
