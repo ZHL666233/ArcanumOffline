@@ -34,8 +34,6 @@
 
     // ======================== 注入样式 ========================
     function injectStyles() {
-        // 临时禁用所有CSS注入，排查按钮失效问题
-        return;
         var css = [
             /* 桌面端：隐藏所有移动端元素 */
             '.mobile-overlay,',
@@ -276,6 +274,17 @@
             '    overflow-y:auto !important;',
             '    overflow-x:hidden !important;',
             '    box-sizing:border-box !important;',
+            '  }',
+            /* 弹窗全屏 */
+            '  div.popup, .popup {',
+            '    left:0 !important; top:0 !important; right:auto !important;',
+            '    margin:0 !important; transform:none !important;',
+            '    width:100vw !important; height:100vh !important;',
+            '    max-width:100vw !important; max-height:100vh !important;',
+            '    min-width:0 !important;',
+            '    padding:20px !important;',
+            '    box-sizing:border-box !important;',
+            '    overflow-y:auto !important;',
             '  }',
             '  div.popup button {',
             '    white-space:nowrap; flex-shrink:0;',
@@ -1193,8 +1202,6 @@
     }
 
     function setupTouchHover() {
-        // 临时禁用所有触摸拦截，排除触摸处理导致按钮失灵的问题
-        return;
         // touchstart：记录起始位置，启动长按计时器
         document.addEventListener('touchstart', function (e) {
             var touch = e.touches[0];
