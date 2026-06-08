@@ -274,6 +274,11 @@
             '    max-height:calc(100vh - 12px) !important;',
             '    overflow-y:auto !important;',
             '    overflow-x:hidden !important;',
+            '    box-sizing:border-box !important;',
+            '  }',
+            /* 确认弹窗不截断 */
+            '  div.popup button {',
+            '    white-space:nowrap; flex-shrink:0;',
             '  }',
             '  .item-popup {',
             '    column-count:1 !important;',
@@ -700,19 +705,20 @@
         // 收集 topbar 内所有可交互元素
         function collectButtons() {
             var items = [];
-            // 按钮
+            // 按钮（含 disabled，因为大厅存档可能条件性禁用）
             var buttons = topbarEl.querySelectorAll('button');
             for (var i = 0; i < buttons.length; i++) {
                 var b = buttons[i];
                 var text = (b.textContent || '').trim();
-                if (text && !b.disabled) {
+                if (text) {
                     items.push({ el: b, text: text, type: 'button' });
                 }
             }
-            // text-button div（大厅存档等）
+            // .text-button 可能是 div 或 button，querySelectorAll('button') 已覆盖 button 类型，这里补 div
             var textBtns = topbarEl.querySelectorAll('.text-button');
             for (var ti = 0; ti < textBtns.length; ti++) {
                 var tb = textBtns[ti];
+                if (tb.tagName === 'BUTTON') continue; // 已由上面收集
                 var text2 = (tb.textContent || '').trim();
                 if (text2) {
                     items.push({ el: tb, text: text2, type: 'button' });
@@ -1263,6 +1269,10 @@
 
             var rect = el.getBoundingClientRect();
             if (rect.width === 0 && rect.height === 0) continue;
+
+            // 完全在视口内 → 不修正
+            if (rect.left >= margin && rect.right <= vw - margin &&
+                rect.top >= margin && rect.bottom <= vh - margin) continue;
 
             var needsFix = false;
 
