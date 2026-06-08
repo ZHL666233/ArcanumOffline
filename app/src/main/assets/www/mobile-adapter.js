@@ -756,25 +756,27 @@
             return items;
         }
 
-        // 中文→英文映射（下拉菜单显示英文）
-        var CN_TO_EN = {
-            '保存': 'Save', '加载': 'Load', '获取存档': 'Get Save',
-            '大厅存档': 'Hall Save', '加载存档': 'Load Save',
-            '快进': 'Fast Forward', '设置': 'Settings', '⚙': 'Settings'
-        };
-
         function refreshDropdown() {
             var items = collectButtons();
+            // 去重（避免同一按钮被多次收集）
+            var seen = {};
+            var unique = [];
+            for (var ui = 0; ui < items.length; ui++) {
+                var key = items[ui].text + '|' + items[ui].type;
+                if (!seen[key]) {
+                    seen[key] = true;
+                    unique.push(items[ui]);
+                }
+            }
+            items = unique;
+
             if (items.length === 0) {
-                dropdown.innerHTML = '<div class="tb-item" style="color:var(--quiet-text-color)">(None)</div>';
+                dropdown.innerHTML = '<div class="tb-item" style="color:var(--quiet-text-color)">(无操作)</div>';
                 return;
             }
             var html = '';
             for (var i = 0; i < items.length; i++) {
-                var label = items[i].text;
-                // 如果有中文映射就用英文
-                if (CN_TO_EN[label]) label = CN_TO_EN[label];
-                html += '<div class="tb-item" data-idx="' + i + '">' + escapeHtml(label) + '</div>';
+                html += '<div class="tb-item" data-idx="' + i + '">' + escapeHtml(items[i].text) + '</div>';
             }
             dropdown.innerHTML = html;
 
