@@ -1228,33 +1228,36 @@
         }, { passive: false });
 
         // touchend
+        var _lastClickTime = 0, _lastClickEl = null;
         document.addEventListener('touchend', function (e) {
             var wasLong = longPressFired;
             var el = longPressTarget;
             clearLongPressTimer();
             longPressFired = false;
 
-            // 阻止浏览器合成 click（无论长短按都阻止）
-            e.preventDefault();
+            // 长按 → 悬浮窗已显示，阻止后续 click
+            if (wasLong) {
+                e.preventDefault();
+                longPressTarget = null;
+                return;
+            }
 
-            // 长按 → 悬浮窗已显示，不做其他事
-            if (wasLong) { longPressTarget = null; return; }
-
-            // 短按 → 关闭旧悬浮 + 手动触发完整事件序列
+            // 短按 → 关闭旧悬浮 + 让浏览器 click 自然触发
             if (hoveredEl && el && hoveredEl !== el) dismissTouchHover();
 
+            // 防双击（300ms 内同一元素只触发一次）
             if (el) {
-                // 找到实际的可点击元素（button/a）
-                var btn = el.closest('button, a, .task-btn, .text-button, [onclick]') || el;
-                var x = touchStartX, y = touchStartY;
-                var opts = { bubbles: true, cancelable: true, clientX: x, clientY: y };
-                btn.dispatchEvent(new MouseEvent('pointerdown', opts));
-                btn.dispatchEvent(new MouseEvent('mousedown', opts));
-                btn.dispatchEvent(new MouseEvent('mouseup', opts));
-                btn.dispatchEvent(new MouseEvent('click', opts));
+                var now = Date.now();
+                var btn = el.closest('button, a, .task-btn, .text-button') || el;
+                if (now - _lastClickTime < 300 && btn === _lastClickEl) {
+                    e.preventDefault();
+                } else {
+                    _lastClickTime = now;
+                    _lastClickEl = btn;
+                }
             }
             longPressTarget = null;
-        }, { passive: false });
+        });
 
         // touchmove：移动超过阈值 → 取消长按；总是关闭 hover
         document.addEventListener('touchmove', function (e) {
