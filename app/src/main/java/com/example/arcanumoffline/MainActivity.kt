@@ -101,32 +101,83 @@ class MainActivity : AppCompatActivity() {
         }
 
         webView.setDownloadListener { url, userAgent, contentDisposition, mimetype, contentLength ->
-            if (url.startsWith("http://") || url.startsWith("https://")) {
-                try {
-                    val request = DownloadManager.Request(Uri.parse(url))
-                    request.setMimeType(mimetype)
-                    request.addRequestHeader("User-Agent", userAgent)
-                    request.setDescription("正在下载文件...")
-                    request.setTitle(URLUtil.guessFileName(url, contentDisposition, mimetype))
-                    request.allowScanningByMediaScanner()
-                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, URLUtil.guessFileName(url, contentDisposition, mimetype))
-
-                    val downloadManager = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-                    downloadManager.enqueue(request)
-                    Toast.makeText(this@MainActivity, "下载已开始，请查看通知栏", Toast.LENGTH_SHORT).show()
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                    Toast.makeText(this@MainActivity, "下载失败: ${e.message}", Toast.LENGTH_SHORT).show()
+            val downloadUrl = when {
+                url.startsWith("blob:") -> {
+                    // Blob URL → 通过 JS 接口获取 base64 数据后保存
+                    Log.d("MainActivity", "Blob 下载触发: $url")
+                    webView.evaluateJavascript(
+                        "javascript:(function(){var x=new XMLHttpRequest();x.open('GET','$url',false);x.responseType='blob';" +
+                        "x.send();var r=new FileReader();r.readAsDataURL(x.response);r.onload=function(){" +
+                        "AndroidFileSaver.saveBlob(r.result.split(',')[1],'${URLUtil.guessFileName(url, contentDisposition, "save.json")}');};})()",
+                        null
+                    )
+                    return@setDownloadListener
                 }
-            } else {
-                Log.w("MainActivity", "不支持的下载链接: $url")
+                url.startsWith("data:") -> {
+                    // data: URL → 提取 base64 保存
+                    val comma = url.indexOf(',')
+                    if (comma > 0) {
+                        val b64 = url.substring(comma + 1)
+                        val filename = URLUtil.guessFileName("save.json", contentDisposition, "application/json")
+                        pendingFileData = filename to b64
+                        val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+                            addCategory(Intent.CATEGORY_OPENABLE)
+                            type = "application/json"
+                            putExtra(Intent.EXTRA_TITLE, filename)
+                        }
+                        createFileLauncher.launch(intent)
+                    }
+                    return@setDownloadListener
+                }
+                url.startsWith("http://") || url.startsWith("https://") -> url
+                else -> {
+                    Log.w("MainActivity", "不支持的下载链接: $url")
+                    return@setDownloadListener
+                }
+            }
+            try {
+                val request = DownloadManager.Request(Uri.parse(downloadUrl))
+                request.setMimeType(mimetype)
+                request.addRequestHeader("User-Agent", userAgent)
+                request.setDescription("正在下载文件...")
+                request.setTitle(URLUtil.guessFileName(downloadUrl, contentDisposition, mimetype))
+                request.allowScanningByMediaScanner()
+                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, URLUtil.guessFileName(downloadUrl, contentDisposition, mimetype))
+
+                val downloadManager = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+                downloadManager.enqueue(request)
+                Toast.makeText(this@MainActivity, "下载已开始，请查看通知栏", Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(this@MainActivity, "下载失败: ${e.message}", Toast.LENGTH_SHORT).show()
             }
         }
 
         // ★ 核心修复：shouldInterceptRequest 拦截虚拟域名请求，直接从 assets 读文件
         //   用 HTTPS 域名替代 file://，origin 合法 → ES Module / import() / fetch() 全部正常工作
         webView.webViewClient = object : WebViewClient() {
+
+            // 阻止内部导航打开外部浏览器
+            override fun shouldOverrideUrlLoading(
+                view: WebView?,
+                request: WebResourceRequest?
+            ): Boolean {
+                val url = request?.url?.toString() ?: return false
+                // 本地资源 → WebView 内部处理
+                if (url.startsWith(LOCAL_DOMAIN)) return false
+                // 外部链接（Discord/Wiki/Reddit 等） → 外部浏览器打开
+                if (url.startsWith("http://") || url.startsWith("https://")) {
+                    try {
+                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+                    } catch (e: Exception) {
+                        Toast.makeText(this@MainActivity, "无法打开链接", Toast.LENGTH_SHORT).show()
+                    }
+                    return true
+                }
+                return false
+            }
+
             override fun shouldInterceptRequest(
                 view: WebView?,
                 request: WebResourceRequest?
@@ -307,6 +358,17 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
                 addCategory(Intent.CATEGORY_OPENABLE)
                 type = "*/*"
+                putExtra(Intent.EXTRA_TITLE, filename)
+            }
+            createFileLauncher.launch(intent)
+        }
+
+        @JavascriptInterface
+        fun saveBlob(base64Data: String, filename: String) {
+            pendingFileData = filename to base64Data
+            val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+                addCategory(Intent.CATEGORY_OPENABLE)
+                type = "application/json"
                 putExtra(Intent.EXTRA_TITLE, filename)
             }
             createFileLauncher.launch(intent)
