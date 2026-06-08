@@ -1223,7 +1223,7 @@
                 dismissTouchHover();
                 dispatchMouseEnter(el);
                 hoveredEl = el;
-                blockNextClick(el);
+                blockNextClick();
             }, LONG_PRESS_MS);
         }, { passive: false });
 
@@ -1277,22 +1277,18 @@
         });
     }
 
-    function blockNextClick(el) {
-        var cleaned = false;
-        var cleanup = function () {
-            if (cleaned) return;
-            cleaned = true;
-            el.removeEventListener('click', blocker, true);
-        };
-        var blocker = function (ev) {
-            ev.stopPropagation();
-            ev.preventDefault();
-            cleanup();
-        };
-        el.addEventListener('click', blocker, true);
-        setTimeout(cleanup, 500);
-        return cleanup;
+    var _suppressClickUntil = 0;
+    function blockNextClick() {
+        _suppressClickUntil = Date.now() + 500;
     }
+
+    // 全局点击拦截（长按后的冷却窗口）
+    document.addEventListener('click', function (e) {
+        if (Date.now() < _suppressClickUntil) {
+            e.stopPropagation();
+            e.preventDefault();
+        }
+    }, true);
 
     // ======================== 悬浮窗视口修正 ========================
     function constrainPopups() {
