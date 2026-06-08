@@ -1202,6 +1202,8 @@
     }
 
     function setupTouchHover() {
+        // 临时禁用所有触摸拦截，排除触摸处理导致按钮失灵的问题
+        return;
         // touchstart：记录起始位置，启动长按计时器
         document.addEventListener('touchstart', function (e) {
             var touch = e.touches[0];
