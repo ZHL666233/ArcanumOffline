@@ -1125,6 +1125,7 @@
     var hoveredEl = null;
     var longPressTimer = null;
     var longPressTarget = null;
+    var longPressFired = false;
     var touchStartX = 0;
     var touchStartY = 0;
     var LONG_PRESS_MS = 500;
@@ -1164,6 +1165,7 @@
         }
         clearLongPressTimer();
         longPressTarget = null;
+        longPressFired = false;
     }
 
     function setupTouchHover() {
@@ -1177,26 +1179,32 @@
             touchStartX = touch.clientX;
             touchStartY = touch.clientY;
             longPressTarget = target;
+            longPressFired = false;
             clearLongPressTimer();
 
             longPressTimer = setTimeout(function () {
                 // 长按强制显示悬浮窗
+                longPressFired = true;
                 var el = longPressTarget;
                 if (!el) return;
                 dismissTouchHover();
                 dispatchMouseEnter(el);
                 hoveredEl = el;
                 blockNextClick(el);
-                longPressTarget = null;
             }, LONG_PRESS_MS);
         }, { passive: false });
 
-        // touchend：短按 → 直接触发 click
+        // touchend：短按 → 手动触发 click
         document.addEventListener('touchend', function () {
+            var wasLong = longPressFired;
             clearLongPressTimer();
-            // 短按不阻止 click，让它自然穿透
-            if (longPressTarget && hoveredEl && hoveredEl !== longPressTarget) {
-                dismissTouchHover();
+            longPressFired = false;
+
+            if (!wasLong && longPressTarget) {
+                // 短按 → 手动触发 click
+                var el = longPressTarget;
+                if (hoveredEl && hoveredEl !== el) dismissTouchHover();
+                setTimeout(function () { el.click(); }, 10);
             }
             longPressTarget = null;
         });
@@ -1208,6 +1216,7 @@
                           Math.abs(touch.clientY - touchStartY) > MOVE_THRESHOLD)) {
                 clearLongPressTimer();
                 longPressTarget = null;
+                longPressFired = false;
             }
             dismissTouchHover();
         }, { passive: true });
