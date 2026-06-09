@@ -123,14 +123,281 @@
             '  div.full div.game-main {',
             '    flex-direction:column !important;',
             '    max-height:none !important;',
+            '    gap:0 !important;',
             '  }',
             '  div.full div.game-mid {',
-            '    flex-basis:100% !important;',
+            '    flex-basis:100% !important; flex-grow:1 !important;',
             '    max-height:none !important;',
             '    border-left:none !important;',
             '    border-right:none !important;',
+            '    min-width:0 !important; width:100% !important;',
             '  }',
-            '  div.full { min-width:100vw !important; }',
+            '  div.full { min-width:100vw !important; width:100vw !important; }',
+
+            /* game-mid 内容区：去掉内边距让内容更充分利用屏幕 */
+            '  div.full div.game-mid .menu-content {',
+            '    padding:0 !important;',
+            '    overflow-y:auto;',
+            '  }',
+            '  div.full div.game-mid .menu-items {',
+            '    padding:6px 4px !important;',
+            '    flex-wrap:wrap;',
+            '    gap:3px;',
+            '    justify-content:center;',
+            '  }',
+            '  div.full div.game-mid .menu-items .menu-item {',
+            '    padding:4px 8px !important;',
+            '    font-size:0.88em !important;',
+            '    border-radius:4px;',
+            '  }',
+
+            /* ======================================== */
+            /* === ★ 弹窗/设置面板全面优化 === */
+            /* ======================================== */
+
+            /* 通用弹窗：全屏 + 内部内容滚动 */
+            '  div.popup, .popup {',
+            '    left:0 !important; top:0 !important; right:auto !important; bottom:auto !important;',
+            '    margin:0 !important; transform:none !important;',
+            '    width:100vw !important; height:100vh !important;',
+            '    max-width:100vw !important; max-height:100vh !important;',
+            '    min-width:0 !important; min-height:0 !important;',
+            '    padding:12px !important;',
+            '    box-sizing:border-box !important;',
+            '    overflow-y:auto !important; overflow-x:hidden !important;',
+            '    border-radius:0 !important;',
+            '    border:none !important;',
+            '    display:flex !important;',
+            '    flex-direction:column !important;',
+            '  }',
+            '  /* 弹窗内所有按钮：增大触摸目标 */',
+            '  div.popup button, .popup button,',
+            '  div.popup .text-button, .popup .text-button {',
+            '    white-space:nowrap; flex-shrink:0;',
+            '    padding:10px 16px !important; margin:4px !important;',
+            '    font-size:0.95em !important; min-width:72px;',
+            '    min-height:40px;',
+            '    border-radius:6px !important;',
+            '  }',
+            '  /* 弹窗文本区域 */',
+            '  div.popup > div:first-child, .popup > div:first-child {',
+            '    font-size:0.95em; line-height:1.6;',
+            '    margin-bottom:12px; word-break:break-word;',
+            '    flex:1 1 auto;',
+            '    overflow-y:auto;',
+            '  }',
+            '  /* 关闭按钮 */',
+            '  .popup-close {',
+            '    font-size:1.2em !important; padding:6px 10px !important;',
+            '    z-index:10;',
+            '    min-width:36px; min-height:36px;',
+            '  }',
+
+            /* ===== settings 设置面板 ===== */
+            '  .settings[data-v-bc5291f7] {',
+            '    min-width:100vw !important; max-width:100vw !important;',
+            '    width:100vw !important; height:100vh !important;',
+            '    max-height:100vh !important; min-height:0 !important;',
+            '    top:0 !important; left:0 !important; right:auto !important;',
+            '    margin:0 !important;',
+            '    border-radius:0 !important;',
+            '    padding:16px !important;',
+            '    box-sizing:border-box !important;',
+            '    overflow-y:auto !important;',
+            '    display:flex !important; flex-direction:column !important;',
+            '  }',
+            '  /* settings 内按钮行 */',
+            '  .settings[data-v-bc5291f7] button {',
+            '    padding:10px 14px !important;',
+            '    margin:4px !important;',
+            '    font-size:0.9em !important;',
+            '    min-height:38px;',
+            '    border-radius:5px !important;',
+            '  }',
+            '  /* settings 内容区 */',
+            '  .settings[data-v-bc5291f7] .menu-content {',
+            '    flex:1; overflow-y:auto;',
+            '    padding:8px 0 !important;',
+            '  }',
+            '  .settings[data-v-bc5291f7] .menu-content > * {',
+            '    margin-bottom:8px;',
+            '  }',
+
+            /* ===== item-popup 物品提示窗 ===== */
+            '  .item-popup {',
+            '    position:fixed !important;',
+            '    max-width:94vw !important;',
+            '    max-height:80vh !important;',
+            '    width:auto !important; min-width:0 !important;',
+            '    overflow-y:auto !important;',
+            '    overflow-x:hidden !important;',
+            '    box-sizing:border-box !important;',
+            '    column-count:1 !important;',
+            '    column-width:auto !important;',
+            '    padding:12px !important;',
+            '    border-radius:8px !important;',
+            '    left:3vw !important; right:3vw !important;',
+            '    font-size:0.9em;',
+            '  }',
+            '  /* item-popup 内按钮 */',
+            '  .item-popup button {',
+            '    padding:8px 12px !important;',
+            '    margin:3px !important;',
+            '    font-size:0.9em !important;',
+            '    min-height:34px;',
+            '  }',
+
+            /* ===== choice 选择弹窗 ===== */
+            '  .popup[data-v-bb944c55] {',
+            '    max-width:100vw !important; max-height:100vh !important;',
+            '    width:100vw !important;',
+            '    padding:16px !important;',
+            '  }',
+            '  .popup[data-v-bb944c55] .content .items {',
+            '    flex-direction:column !important;',
+            '    gap:6px;',
+            '  }',
+            '  .popup[data-v-bb944c55] .task-btn {',
+            '    width:100% !important;',
+            '    max-height:none !important; min-height:40px;',
+            '    padding:10px !important;',
+            '    font-size:0.95em !important;',
+            '  }',
+
+            /* ===== confirm 确认弹窗 ===== */
+            '  .popup .my-span[data-v-1dbc5da0] {',
+            '    display:flex !important; flex-direction:column;',
+            '    gap:8px; padding:8px 0;',
+            '  }',
+
+            /* ===== warn 警告弹窗 ===== */
+            '  .warn-text {',
+            '    font-size:1em !important; line-height:1.5;',
+            '    padding:8px 0;',
+            '  }',
+
+            /* ===== wizhall 大厅面板 ===== */
+            '  div.wizhall[data-v-17b435af] {',
+            '    min-width:100vw !important; max-width:100vw !important;',
+            '    width:100vw !important; max-height:100vh !important;',
+            '    height:100vh !important;',
+            '    top:0 !important; left:0 !important;',
+            '    margin:0 !important;',
+            '    border-radius:0 !important;',
+            '    padding:12px !important;',
+            '    box-sizing:border-box !important;',
+            '    z-index:10000 !important;',
+            '  }',
+            '  div.wizhall[data-v-17b435af] .chars {',
+            '    flex-direction:column !important;',
+            '    align-items:stretch;',
+            '    gap:8px;',
+            '  }',
+            '  div.wizhall[data-v-17b435af] .char-info {',
+            '    width:100% !important; min-height:auto;',
+            '    padding:10px;',
+            '  }',
+            '  div.wizhall[data-v-17b435af] .char-info .enter {',
+            '    width:100% !important;',
+            '  }',
+            '  div.wizhall[data-v-17b435af] .power,',
+            '  div.wizhall[data-v-17b435af] .probe {',
+            '    position:relative !important;',
+            '    top:auto !important; left:auto !important;',
+            '    margin:4px 0;',
+            '  }',
+
+            /* ===== player-view 玩家面板 ===== */
+            '  .player-view[data-v-5aaccd53] {',
+            '    display:flex !important;',
+            '    flex-direction:column !important;',
+            '    margin:var(--sm-gap) !important;',
+            '    gap:8px;',
+            '  }',
+            '  .player-view[data-v-5aaccd53] .stat-block {',
+            '    grid-template-columns:1fr 1fr !important;',
+            '    gap:4px;',
+            '  }',
+            '  .player-view[data-v-5aaccd53] .stat-block h3 {',
+            '    grid-column:1/-1 !important;',
+            '  }',
+            '  .player-view[data-v-5aaccd53] .stat {',
+            '    margin:2px 4px !important;',
+            '  }',
+            '  .player-view[data-v-5aaccd53] .section-header {',
+            '    font-size:1em; padding-top:12px;',
+            '  }',
+
+            /* ===== equipment 装备面板 ===== */
+            '  .equipment[data-v-4d7d268b] {',
+            '    flex-direction:column !important;',
+            '    height:auto !important; min-height:0;',
+            '    overflow-y:auto;',
+            '  }',
+            '  .equipment[data-v-4d7d268b] .slots {',
+            '    width:100% !important; max-height:35vh;',
+            '    overflow-y:auto;',
+            '    padding:6px !important;',
+            '  }',
+            '  .equipment[data-v-4d7d268b] .equip-sections {',
+            '    flex:1 1 auto; max-height:50vh;',
+            '    overflow-y:auto;',
+            '    padding:4px !important;',
+            '  }',
+            '  .equipment[data-v-4d7d268b] .inventory {',
+            '    flex-wrap:wrap; gap:6px;',
+            '    padding:6px !important;',
+            '  }',
+            '  .equipment[data-v-4d7d268b] .slot button {',
+            '    padding:6px 10px !important; min-height:34px;',
+            '    font-size:0.85em;',
+            '  }',
+            '  .equipment[data-v-4d7d268b] .equip-sections button {',
+            '    padding:6px 10px !important; min-height:34px;',
+            '    font-size:0.85em; margin:2px;',
+            '  }',
+
+            /* ===== inventory 背包面板 ===== */
+            '  .inventory[data-v-a90a8585] {',
+            '    padding:6px !important;',
+            '  }',
+            '  .inventory[data-v-a90a8585] .item-table {',
+            '    grid-template-columns:repeat(auto-fit,minmax(10rem,1fr)) !important;',
+            '    gap:4px;',
+            '  }',
+            '  .inventory[data-v-a90a8585] .item-table .item {',
+            '    padding:6px !important;',
+            '  }',
+            '  .inventory[data-v-a90a8585] .item .item-buttons button {',
+            '    padding:6px 10px !important; min-height:32px;',
+            '    font-size:0.85em; margin:2px;',
+            '  }',
+            '  .inventory[data-v-a90a8585] .filter-box {',
+            '    font-size:0.85em;',
+            '  }',
+
+            /* ===== skills 技能面板 ===== */
+            '  .schoolspells[data-v-bcd6f81c] {',
+            '    grid-template-columns:100% !important;',
+            '  }',
+
+            /* ===== potions 药水面板 ===== */
+            '  .schoolpotions[data-v-4421ce7a] {',
+            '    grid-template-columns:100% !important;',
+            '  }',
+
+            /* ===== tasks 任务面板 ===== */
+            '  div.game-mid div.main-tasks[data-v-9e4521dd] {',
+            '    overflow-y:auto; height:auto;',
+            '    padding:4px;',
+            '  }',
+
+            /* ===== 各板块通用：增大触摸目标 ===== */
+            '  .task-btn, .btn-sm, .btnMenu {',
+            '    min-height:34px !important;',
+            '    padding:6px 10px !important;',
+            '    font-size:0.85em !important;',
+            '  }',
 
             /* 触发按钮 */
             '  .mobile-drawer-trigger {',
@@ -138,10 +405,10 @@
             '    background:var(--header-background-color,#eee);',
             '    border:1px solid var(--separator-color,#aaa);',
             '    border-radius:var(--sm-radius,4px);',
-            '    padding:1px 7px; margin:0 3px;',
-            '    font-size:0.85em; cursor:pointer;',
+            '    padding:4px 10px; margin:0 3px;',
+            '    font-size:0.88em; cursor:pointer;',
             '    color:var(--button-text-color,#000);',
-            '    line-height:1.5;',
+            '    line-height:1.5; min-height:30px;',
             '  }',
             '  .mobile-drawer-trigger:active {',
             '    background:var(--accent-color-active,#797979);',
@@ -164,13 +431,14 @@
             '  .mobile-more-dropdown.active { display:block; }',
             '  .mobile-more-dropdown .dd-item {',
             '    display:block;',
-            '    padding:10px 16px;',
-            '    font-size:1.1em;',
+            '    padding:12px 18px;',
+            '    font-size:1.05em;',
             '    text-align:center;',
             '    border-bottom:1px solid var(--separator-color,#ccc);',
             '    cursor:pointer;',
             '    text-transform:capitalize;',
             '    color:var(--button-text-color,#000);',
+            '    min-height:40px;',
             '  }',
             '  .mobile-more-dropdown .dd-item:last-child { border-bottom:none; }',
             '  .mobile-more-dropdown .dd-item:active {',
@@ -190,7 +458,7 @@
             '    background:var(--header-background-color,#eee);',
             '    border:1px solid var(--separator-color,#aaa);',
             '    border-radius:var(--sm-radius,4px);',
-            '    padding:1px 8px; margin:0 2px;',
+            '    padding:3px 10px; margin:0 2px;',
             '    font-size:0.85em; cursor:pointer;',
             '    color:var(--button-text-color,#000);',
             '    line-height:1.3; white-space:nowrap;',
@@ -214,12 +482,13 @@
             '  .mobile-topbar-dropdown.active { display:block; }',
             '  .mobile-topbar-dropdown .tb-item {',
             '    display:block;',
-            '    padding:9px 14px;',
+            '    padding:12px 16px;',
             '    font-size:1em;',
             '    text-align:center;',
             '    border-bottom:1px solid var(--separator-color,#ccc);',
             '    cursor:pointer;',
             '    color:var(--button-text-color,#000);',
+            '    min-height:40px;',
             '  }',
             '  .mobile-topbar-dropdown .tb-item:last-child { border-bottom:none; }',
             '  .mobile-topbar-dropdown .tb-item:active {',
@@ -267,48 +536,6 @@
             '    user-select:text !important;',
             '  }',
 
-            /* === 物品提示悬浮窗 === */
-            '  .item-popup {',
-            '    max-width:92vw !important;',
-            '    max-height:85vh !important;',
-            '    overflow-y:auto !important;',
-            '    overflow-x:hidden !important;',
-            '    box-sizing:border-box !important;',
-            '  }',
-            /* 弹窗全屏 */
-            '  div.popup, .popup {',
-            '    left:0 !important; top:0 !important; right:auto !important;',
-            '    margin:0 !important; transform:none !important;',
-            '    width:100vw !important; height:100vh !important;',
-            '    max-width:100vw !important; max-height:100vh !important;',
-            '    min-width:0 !important;',
-            '    padding:20px !important;',
-            '    box-sizing:border-box !important;',
-            '    overflow-y:auto !important;',
-            '  }',
-            '  div.popup button {',
-            '    white-space:nowrap; flex-shrink:0;',
-            '    padding:12px 20px; margin:6px;',
-            '    font-size:1.05em; min-width:80px;',
-            '  }',
-            '  div.popup > div:first-child {',
-            '    font-size:1em; line-height:1.6;',
-            '    margin-bottom:16px; word-break:break-word;',
-            '    flex:1;',
-            '  }',
-            '  .popup-close {',
-            '    font-size:1.3em; padding:8px 12px;',
-            '    z-index:10;',
-            '  }',
-            '  .item-popup {',
-            '    column-count:1 !important;',
-            '    column-width:auto !important;',
-            '    width:auto !important;',
-            '    min-width:0 !important;',
-            '  }',
-            '  .popup[data-v-bb944c55] {',
-            '    max-width:100vw !important; max-height:100vh !important;',
-            '  }',
             /* 弹窗直接显示无动画/过渡 */
             '  .item-popup, div.popup, .popup,',
             '  .fade-in, [class*="fade"] {',
@@ -317,25 +544,27 @@
             '    opacity:1 !important;',
             '  }',
 
-            /* topbar 移动端排版 */
+            /* ===== topbar 移动端排版 ===== */
             '  .top-bar {',
             '    overflow-x:auto !important;',
             '    overflow-y:hidden !important;',
             '    -webkit-overflow-scrolling:touch;',
             '    scrollbar-width:none;',
             '    height:auto !important;',
-            '    min-height:36px;',
+            '    min-height:40px;',
             '    flex-wrap:nowrap !important;',
+            '    padding:2px 4px !important;',
             '  }',
             '  .top-bar::-webkit-scrollbar { display:none; }',
             '  .top-bar .load-opts {',
-            '    flex-shrink:0; min-width:auto; width:auto; gap:1px;',
+            '    flex-shrink:0; min-width:auto; width:auto; gap:2px;',
             '  }',
             '  .top-bar .load-opts button,',
             '  .top-bar .items button,',
             '  .top-bar button {',
-            '    width:auto !important; padding:2px 5px !important; font-size:0.72em !important;',
+            '    width:auto !important; padding:4px 8px !important; font-size:0.75em !important;',
             '    white-space:nowrap !important; margin:0 1px !important;',
+            '    min-height:30px;',
             '  }',
             '  .top-bar .items {',
             '    flex:0 0 auto !important;',
@@ -370,9 +599,9 @@
             '  }',
             '  .mobile-vitals-summary {',
             '    display:flex; flex-wrap:wrap; align-items:center;',
-            '    padding:4px 8px; font-size:0.82em;',
+            '    padding:6px 10px; font-size:0.82em;',
             '    cursor:pointer; user-select:none; gap:6px;',
-            '    min-height:28px;',
+            '    min-height:32px;',
             '    background:var(--header-background-color,#eee);',
             '  }',
             '  .mobile-vitals-summary::after {',
@@ -400,7 +629,7 @@
             '  }',
             /* quickbar 折叠 */
             '  .mobile-quickbar-toggle {',
-            '    height:8px; cursor:pointer;',
+            '    height:10px; cursor:pointer;',
             '    background:var(--header-background-color,#eee);',
             '    border-top:1px solid var(--separator-color,#aaa);',
             '    user-select:none; position:relative;',
@@ -434,7 +663,7 @@
             '  .quickslot {',
             '    flex-shrink:0;',
             '    font-size:x-large !important;',
-            '    min-width:2em; min-height:2em;',
+            '    min-width:2.2em; min-height:2.2em;',
             '    margin:2px 3px !important;',
             '  }',
 
@@ -447,9 +676,9 @@
             '  }',
             '  .mobile-running-summary {',
             '    display:flex; flex-wrap:wrap; align-items:center;',
-            '    padding:3px 8px; font-size:0.78em;',
+            '    padding:4px 10px; font-size:0.78em;',
             '    cursor:pointer; user-select:none; gap:4px;',
-            '    min-height:24px;',
+            '    min-height:28px;',
             '    background:var(--header-background-color,#eee);',
             '    color:var(--light-text-color,#5d5d5d);',
             '  }',
@@ -474,23 +703,24 @@
             '    font-size:0.85em;',
             '  }',
             '  .mobile-running-panel .separate-run {',
-            '    display:flex; flex-flow:row nowrap; gap:3px;',
+            '    display:flex; flex-flow:row wrap; gap:4px;',
             '    justify-content:center; align-items:center;',
-            '    padding:3px 2px;',
+            '    padding:4px 2px;',
             '    border-bottom:1px solid var(--separator-color,#aaa);',
-            '    margin-bottom:3px;',
+            '    margin-bottom:4px;',
             '  }',
             '  .mobile-running-panel .separate-run .btn-sm {',
-            '    font-size:0.68em; padding:2px 5px;',
+            '    font-size:0.72em; padding:4px 8px;',
             '    margin:0; white-space:nowrap; flex-shrink:1;',
-            '    min-width:0;',
+            '    min-width:0; min-height:30px;',
             '  }',
             '  .mobile-running-panel .separate-run .btnMenu {',
-            '    font-size:0.75em; padding:2px 6px;',
+            '    font-size:0.78em; padding:4px 8px;',
+            '    min-height:30px;',
             '  }',
             '  .mobile-running-panel .relative {',
             '    display:flex; align-items:center;',
-            '    padding:2px 4px;',
+            '    padding:3px 4px;',
             '  }',
             '  body.darkmode .mobile-running-summary {',
             '    background:var(--header-background-color,#3a3a3a);',
@@ -506,6 +736,12 @@
             '  }',
             '  body.darkmode .mobile-as-drawer-left,',
             '  body.darkmode .mobile-as-drawer-right {',
+            '    background:var(--background-color,#1a1a1a) !important;',
+            '  }',
+            '  body.darkmode .settings[data-v-bc5291f7] {',
+            '    background:var(--background-color,#1a1a1a) !important;',
+            '  }',
+            '  body.darkmode div.wizhall[data-v-17b435af] {',
             '    background:var(--background-color,#1a1a1a) !important;',
             '  }',
         ].join('\n') + '\n}';
@@ -1290,6 +1526,58 @@
         }
     }, true);
 
+    // ======================== 触摸交互 ========================
+    var hoveredEl = null, longPressTimer = null;
+    var LONG_PRESS_MS = 500;
+
+    function dispatchMouseEnter(el) {
+        el.dispatchEvent(new MouseEvent('mouseenter', { bubbles: false, cancelable: true }));
+    }
+    function dispatchMouseLeave(el) {
+        el.dispatchEvent(new MouseEvent('mouseleave', { bubbles: false, cancelable: true }));
+    }
+    function dismissHover() {
+        if (hoveredEl) { dispatchMouseLeave(hoveredEl); hoveredEl = null; }
+        if (longPressTimer) { clearTimeout(longPressTimer); longPressTimer = null; }
+    }
+
+    function setupTouchHover() {
+        var touchTarget = null;
+        var fired = false;
+
+        document.addEventListener('touchstart', function (e) {
+            var t = e.touches[0];
+            if (!t) return;
+            touchTarget = document.elementFromPoint(t.clientX, t.clientY);
+            fired = false;
+            if (longPressTimer) clearTimeout(longPressTimer);
+
+            longPressTimer = setTimeout(function () {
+                fired = true;
+                if (!touchTarget) return;
+                dismissHover();
+                dispatchMouseEnter(touchTarget);
+                hoveredEl = touchTarget;
+                // 阻止后续 click
+                e.preventDefault();
+            }, LONG_PRESS_MS);
+        }, { passive: false });
+
+        document.addEventListener('touchend', function () {
+            if (longPressTimer) clearTimeout(longPressTimer);
+            longPressTimer = null;
+            touchTarget = null;
+        });
+
+        document.addEventListener('touchmove', function () {
+            dismissHover();
+        });
+
+        document.addEventListener('click', function () {
+            dismissHover();
+        });
+    }
+
     // ======================== 悬浮窗视口修正 ========================
     function constrainPopups() {
         var vw = window.innerWidth;
@@ -1312,7 +1600,7 @@
             // 完全在视口内 → 跳过
             if (rect.left >= 0 && rect.right <= vw && rect.top >= 0 && rect.bottom <= vh) continue;
 
-            // 仅约束超宽/超高，不动 left/top/right（避免破坏弹窗定位）
+            // 约束超宽/超高
             if (rect.right > vw || rect.left < 0) {
                 el.style.setProperty('max-width', (vw - margin * 2) + 'px', 'important');
                 el.style.setProperty('overflow-x', 'auto', 'important');
@@ -1320,6 +1608,16 @@
             if (rect.bottom > vh || rect.top < 0) {
                 el.style.setProperty('max-height', (vh - margin * 2) + 'px', 'important');
                 el.style.setProperty('overflow-y', 'auto', 'important');
+            }
+
+            // 如果弹窗左/上越界，修正位置
+            if (rect.left < margin) {
+                el.style.setProperty('left', margin + 'px', 'important');
+                el.style.setProperty('right', 'auto', 'important');
+            }
+            if (rect.top < margin) {
+                el.style.setProperty('top', margin + 'px', 'important');
+                el.style.setProperty('bottom', 'auto', 'important');
             }
         }
     }
@@ -1346,6 +1644,9 @@
         _layoutDone = true;
 
         overlay = createOverlay();
+
+        // 触摸交互
+        setupTouchHover();
 
         // 激活抽屉样式（给原始元素加 class）
         activateDrawers();
