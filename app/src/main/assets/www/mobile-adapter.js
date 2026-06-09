@@ -1527,8 +1527,8 @@
     }, true);
 
     // ======================== 触摸交互 ========================
-    var hoveredEl = null, longPressTimer = null;
-    var LONG_PRESS_MS = 500;
+    var hoveredEl = null, longPressTimer = null, longPressFired = false;
+    var LONG_PRESS_MS = 500, touchTarget = null;
 
     function dispatchMouseEnter(el) {
         el.dispatchEvent(new MouseEvent('mouseenter', { bubbles: false, cancelable: true }));
@@ -1539,35 +1539,35 @@
     function dismissHover() {
         if (hoveredEl) { dispatchMouseLeave(hoveredEl); hoveredEl = null; }
         if (longPressTimer) { clearTimeout(longPressTimer); longPressTimer = null; }
+        longPressFired = false;
     }
 
     function setupTouchHover() {
-        var touchTarget = null;
-        var fired = false;
-
         document.addEventListener('touchstart', function (e) {
             var t = e.touches[0];
             if (!t) return;
             touchTarget = document.elementFromPoint(t.clientX, t.clientY);
-            fired = false;
+            longPressFired = false;
             if (longPressTimer) clearTimeout(longPressTimer);
 
             longPressTimer = setTimeout(function () {
-                fired = true;
+                longPressFired = true;
                 if (!touchTarget) return;
                 dismissHover();
                 dispatchMouseEnter(touchTarget);
                 hoveredEl = touchTarget;
-                // 阻止后续 click
-                e.preventDefault();
             }, LONG_PRESS_MS);
         }, { passive: false });
 
-        document.addEventListener('touchend', function () {
-            if (longPressTimer) clearTimeout(longPressTimer);
+        document.addEventListener('touchend', function (e) {
+            clearTimeout(longPressTimer);
             longPressTimer = null;
-            touchTarget = null;
-        });
+            if (longPressFired) {
+                // 长按 → 阻止浏览器合成 click
+                e.preventDefault();
+            }
+            longPressFired = false;
+        }, { passive: false });
 
         document.addEventListener('touchmove', function () {
             dismissHover();
